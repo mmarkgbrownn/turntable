@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0D21DD0C03001D64BD /* AppDelegate.swift */; };
-		411CDC1021DD0C03001D64BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0F21DD0C03001D64BD /* ViewController.swift */; };
-		411CDC1321DD0C03001D64BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1121DD0C03001D64BD /* Main.storyboard */; };
+		411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0F21DD0C03001D64BD /* PlayerController.swift */; };
 		411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
 		411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */; };
 		411CDC2321DD0C05001D64BD /* turntableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2221DD0C05001D64BD /* turntableTests.swift */; };
 		411CDC2E21DD0C05001D64BD /* turntableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2D21DD0C05001D64BD /* turntableUITests.swift */; };
+		41942C7221E4045D00F7F136 /* turntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* turntableTabBarController.swift */; };
+		41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* LibraryController.swift */; };
+		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +38,7 @@
 /* Begin PBXFileReference section */
 		411CDC0A21DD0C03001D64BD /* turntable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = turntable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC0D21DD0C03001D64BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		411CDC0F21DD0C03001D64BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		411CDC1221DD0C03001D64BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		411CDC0F21DD0C03001D64BD /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		411CDC1421DD0C05001D64BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		411CDC1721DD0C05001D64BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		411CDC1921DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		411CDC2921DD0C05001D64BD /* turntableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC2D21DD0C05001D64BD /* turntableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUITests.swift; sourceTree = "<group>"; };
 		411CDC2F21DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41942C7121E4045D00F7F136 /* turntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableTabBarController.swift; sourceTree = "<group>"; };
+		41942C7321E404AC00F7F136 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
+		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				411CDC0D21DD0C03001D64BD /* AppDelegate.swift */,
-				411CDC0F21DD0C03001D64BD /* ViewController.swift */,
-				411CDC1121DD0C03001D64BD /* Main.storyboard */,
+				41942C7121E4045D00F7F136 /* turntableTabBarController.swift */,
+				411CDC0F21DD0C03001D64BD /* PlayerController.swift */,
+				41942C7321E404AC00F7F136 /* LibraryController.swift */,
+				41942C7521E404D100F7F136 /* SettingsController.swift */,
 				411CDC1421DD0C05001D64BD /* Assets.xcassets */,
 				411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */,
 				411CDC1921DD0C05001D64BD /* Info.plist */,
@@ -231,7 +237,6 @@
 			files = (
 				411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */,
 				411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */,
-				411CDC1321DD0C03001D64BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +261,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				411CDC1021DD0C03001D64BD /* ViewController.swift in Sources */,
+				411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */,
+				41942C7621E404D100F7F136 /* SettingsController.swift in Sources */,
+				41942C7221E4045D00F7F136 /* turntableTabBarController.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
+				41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +301,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		411CDC1121DD0C03001D64BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				411CDC1221DD0C03001D64BD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
