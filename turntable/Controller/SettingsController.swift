@@ -12,8 +12,9 @@ class SettingsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .black
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Settings"
+        view.backgroundColor = .backgroundDarkBlack
     }
     
 }

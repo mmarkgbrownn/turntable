@@ -15,12 +15,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        application.statusBarStyle = .lightContent
+        
+        // Set the window as the visable view.
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = turntableTabBarController()
+        
+        // Make the view controller default the custom tab bar controller.
+        window?.rootViewController = TurntableTabBarController()
+        
+        
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.isTranslucent = false
+        navBarAppearance.barTintColor = .backgroundLightBlack
+        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        // Change tab bar appearance.
+        let tabBarAppearance = UITabBar.appearance()
+        tabBarAppearance.isTranslucent = false
+        tabBarAppearance.barTintColor = UIColor.backgroundLightBlack
+        tabBarAppearance.tintColor = UIColor.seaFoamBlue
         
         return true
     }

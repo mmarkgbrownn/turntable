@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4102C79C21E636F900441767 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79B21E636F900441767 /* Attendee.swift */; };
+		4102C79E21E6398B00441767 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79D21E6398B00441767 /* Session.swift */; };
+		4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79F21E6633500441767 /* PlayerMediaView.swift */; };
+		4102C7A221E6758800441767 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A121E6758800441767 /* Resource.swift */; };
 		411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0D21DD0C03001D64BD /* AppDelegate.swift */; };
 		411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0F21DD0C03001D64BD /* PlayerController.swift */; };
 		411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
 		411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */; };
 		411CDC2321DD0C05001D64BD /* turntableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2221DD0C05001D64BD /* turntableTests.swift */; };
 		411CDC2E21DD0C05001D64BD /* turntableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2D21DD0C05001D64BD /* turntableUITests.swift */; };
-		41942C7221E4045D00F7F136 /* turntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* turntableTabBarController.swift */; };
+		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
 		41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* LibraryController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
+		41FDE61121E540C9009BA399 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FDE61021E540C9009BA399 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4102C79B21E636F900441767 /* Attendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
+		4102C79D21E6398B00441767 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		4102C79F21E6633500441767 /* PlayerMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMediaView.swift; sourceTree = "<group>"; };
+		4102C7A121E6758800441767 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		411CDC0A21DD0C03001D64BD /* turntable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = turntable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC0D21DD0C03001D64BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		411CDC0F21DD0C03001D64BD /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
@@ -48,9 +57,10 @@
 		411CDC2921DD0C05001D64BD /* turntableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC2D21DD0C05001D64BD /* turntableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUITests.swift; sourceTree = "<group>"; };
 		411CDC2F21DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41942C7121E4045D00F7F136 /* turntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableTabBarController.swift; sourceTree = "<group>"; };
+		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
 		41942C7321E404AC00F7F136 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		41FDE61021E540C9009BA399 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4102C79821E636B500441767 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				411CDC0F21DD0C03001D64BD /* PlayerController.swift */,
+				41942C7321E404AC00F7F136 /* LibraryController.swift */,
+				41942C7521E404D100F7F136 /* SettingsController.swift */,
+				41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4102C79921E636C600441767 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4102C79B21E636F900441767 /* Attendee.swift */,
+				4102C79D21E6398B00441767 /* Session.swift */,
+				4102C7A121E6758800441767 /* Resource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4102C79A21E636CD00441767 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4102C79F21E6633500441767 /* PlayerMediaView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		411CDC0121DD0C03001D64BD = {
 			isa = PBXGroup;
 			children = (
@@ -102,10 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				411CDC0D21DD0C03001D64BD /* AppDelegate.swift */,
-				41942C7121E4045D00F7F136 /* turntableTabBarController.swift */,
-				411CDC0F21DD0C03001D64BD /* PlayerController.swift */,
-				41942C7321E404AC00F7F136 /* LibraryController.swift */,
-				41942C7521E404D100F7F136 /* SettingsController.swift */,
+				4102C79A21E636CD00441767 /* View */,
+				4102C79921E636C600441767 /* Model */,
+				4102C79821E636B500441767 /* Controller */,
+				41FDE60F21E540B7009BA399 /* Helpers */,
 				411CDC1421DD0C05001D64BD /* Assets.xcassets */,
 				411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */,
 				411CDC1921DD0C05001D64BD /* Info.plist */,
@@ -129,6 +168,14 @@
 				411CDC2F21DD0C05001D64BD /* Info.plist */,
 			);
 			path = turntableUITests;
+			sourceTree = "<group>";
+		};
+		41FDE60F21E540B7009BA399 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				41FDE61021E540C9009BA399 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +310,13 @@
 			files = (
 				411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */,
 				41942C7621E404D100F7F136 /* SettingsController.swift in Sources */,
-				41942C7221E4045D00F7F136 /* turntableTabBarController.swift in Sources */,
+				41FDE61121E540C9009BA399 /* Extensions.swift in Sources */,
+				4102C7A221E6758800441767 /* Resource.swift in Sources */,
+				4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */,
+				41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */,
+				4102C79E21E6398B00441767 /* Session.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
+				4102C79C21E636F900441767 /* Attendee.swift in Sources */,
 				41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWM5C54AJF;
 				INFOPLIST_FILE = turntable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +495,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -453,6 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWM5C54AJF;
 				INFOPLIST_FILE = turntable/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,7 +514,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
