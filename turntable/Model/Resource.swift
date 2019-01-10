@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Resource {
+class Resource: NSObject {
     
     var id: String?
     var name: String?
@@ -21,10 +21,7 @@ class Resource {
         self.imageSmall = imageSmall
         self.imageLarge = imageLarge
     }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
 }
 
 class Track: Resource {
@@ -37,18 +34,14 @@ class Track: Resource {
         self.artist = artist
         self.runtime = runtime
     }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
 }
 
 class Artist: Resource {
     
-//    override init(id: String, name: String, imageSmall: String, imageLarge: String) {
-//        super.init(id: id, name: name, imageSmall: imageSmall, imageLarge: imageLarge)
-//    }
+    override init(id: String, name: String, imageSmall: String, imageLarge: String) {
+        super.init(id: id, name: name, imageSmall: imageSmall, imageLarge: imageLarge)
+    }
 //
 //    required init(coder aDecoder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")

@@ -11,12 +11,17 @@
 		4102C79E21E6398B00441767 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79D21E6398B00441767 /* Session.swift */; };
 		4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79F21E6633500441767 /* PlayerMediaView.swift */; };
 		4102C7A221E6758800441767 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A121E6758800441767 /* Resource.swift */; };
+		4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A321E7625E00441767 /* ResourceCell.swift */; };
 		411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0D21DD0C03001D64BD /* AppDelegate.swift */; };
 		411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0F21DD0C03001D64BD /* PlayerController.swift */; };
 		411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
 		411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */; };
 		411CDC2321DD0C05001D64BD /* turntableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2221DD0C05001D64BD /* turntableTests.swift */; };
 		411CDC2E21DD0C05001D64BD /* turntableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2D21DD0C05001D64BD /* turntableUITests.swift */; };
+		41240E7821E7C1E70017DA6C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41240E7621E7C1E70017DA6C /* Poppins-Bold.ttf */; };
+		41240E7921E7C1E70017DA6C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41240E7721E7C1E70017DA6C /* Poppins-Regular.ttf */; };
+		41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7A21E7FF080017DA6C /* QueueItem.swift */; };
+		41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7C21E800420017DA6C /* SetupDummyData.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
 		41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* LibraryController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
@@ -45,6 +50,7 @@
 		4102C79D21E6398B00441767 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		4102C79F21E6633500441767 /* PlayerMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMediaView.swift; sourceTree = "<group>"; };
 		4102C7A121E6758800441767 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		4102C7A321E7625E00441767 /* ResourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
 		411CDC0A21DD0C03001D64BD /* turntable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = turntable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC0D21DD0C03001D64BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		411CDC0F21DD0C03001D64BD /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
@@ -57,6 +63,10 @@
 		411CDC2921DD0C05001D64BD /* turntableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC2D21DD0C05001D64BD /* turntableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUITests.swift; sourceTree = "<group>"; };
 		411CDC2F21DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41240E7621E7C1E70017DA6C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		41240E7721E7C1E70017DA6C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		41240E7A21E7FF080017DA6C /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
+		41240E7C21E800420017DA6C /* SetupDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDummyData.swift; sourceTree = "<group>"; };
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
 		41942C7321E404AC00F7F136 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -105,6 +115,7 @@
 				4102C79B21E636F900441767 /* Attendee.swift */,
 				4102C79D21E6398B00441767 /* Session.swift */,
 				4102C7A121E6758800441767 /* Resource.swift */,
+				41240E7A21E7FF080017DA6C /* QueueItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				4102C79F21E6633500441767 /* PlayerMediaView.swift */,
+				4102C7A321E7625E00441767 /* ResourceCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				411CDC0D21DD0C03001D64BD /* AppDelegate.swift */,
+				41240E7521E7C1BD0017DA6C /* Fonts */,
 				4102C79A21E636CD00441767 /* View */,
 				4102C79921E636C600441767 /* Model */,
 				4102C79821E636B500441767 /* Controller */,
@@ -170,10 +183,20 @@
 			path = turntableUITests;
 			sourceTree = "<group>";
 		};
+		41240E7521E7C1BD0017DA6C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				41240E7621E7C1E70017DA6C /* Poppins-Bold.ttf */,
+				41240E7721E7C1E70017DA6C /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		41FDE60F21E540B7009BA399 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				41FDE61021E540C9009BA399 /* Extensions.swift */,
+				41240E7C21E800420017DA6C /* SetupDummyData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -283,7 +306,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */,
+				41240E7821E7C1E70017DA6C /* Poppins-Bold.ttf in Resources */,
 				411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */,
+				41240E7921E7C1E70017DA6C /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,8 +340,11 @@
 				4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */,
 				41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */,
 				4102C79E21E6398B00441767 /* Session.swift in Sources */,
+				4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
 				4102C79C21E636F900441767 /* Attendee.swift in Sources */,
+				41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */,
+				41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */,
 				41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

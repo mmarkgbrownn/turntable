@@ -10,6 +10,7 @@ import UIKit
 
 class PlayerController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    // Private constants
     fileprivate let cellId = "cellId"
     fileprivate let headerId = "headerId"
     fileprivate let padding: CGFloat = 16
@@ -18,7 +19,7 @@ class PlayerController: UICollectionViewController, UICollectionViewDelegateFlow
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-
+        setupDummyData()
         setupCollectionViewLayout()
         setupCollectionView()
     }
@@ -27,24 +28,28 @@ class PlayerController: UICollectionViewController, UICollectionViewDelegateFlow
         //Collection View Setup
         collectionView.backgroundColor = .backgroundDarkBlack
         collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        
+        //Register Cells, Header, Main Cell and Footer
+        collectionView.register(ResourceCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(PlayerMediaView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
     }
     
     fileprivate func setupCollectionViewLayout() {
         //layout customisation
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.sectionInset = .init(top: padding,left: padding,bottom: padding,right: padding)
+            layout.minimumLineSpacing = 0
+            layout.sectionInset = .init(top: 0, left: 0 ,bottom: padding, right: 0)
         }
     }
     
+    //Setup Header
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 350)
+        return .init(width: view.frame.width, height: 460)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -54,12 +59,16 @@ class PlayerController: UICollectionViewController, UICollectionViewDelegateFlow
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .black
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = .backgroundDarkBlack
+        } else {
+            cell.backgroundColor = .backgroundLightBlack
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width - 2 * padding, height: 50)
+        return .init(width: view.frame.width, height: 16 + 48)
     }
 
 }

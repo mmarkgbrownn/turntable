@@ -6,7 +6,7 @@
 //  Copyright © 2019 Mark Brown. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Session: NSObject {
     

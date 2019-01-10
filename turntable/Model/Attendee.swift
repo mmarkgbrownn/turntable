@@ -10,25 +10,15 @@ import UIKit
 
 class Attendee: NSObject {
 
-    let username: String
-    let spotifyKey: String
-    var currentSession: Session
+    var username: String
+    var spotifyKey: String
     var history: Bool
     
     
-    init(username: String, spotifyKey: String, currentSession: Session, history: Bool){
+    init(username: String, spotifyKey: String, history: Bool){
         self.username = username
         self.spotifyKey = spotifyKey
-        self.currentSession = currentSession
         self.history = history
     }
 
-}
-
-class Guest: Attendee {
-    
-}
-
-class Organiser: Attendee {
-    
 }
