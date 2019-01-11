@@ -23,7 +23,7 @@ class PlayerMediaView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var Track: Track? {
+    var queueItem: QueueItem? {
         didSet {
             
         }
@@ -104,7 +104,7 @@ class PlayerMediaView: UICollectionReusableView {
         let label = UILabel()
         label.text = "BUTTERFLY EFFECT"
         label.numberOfLines = 0
-        label.font = UIFont.poppinsTitle
+        label.font = UIFont.poppinsPlayerHeader
         label.textColor = UIColor.init(white: 0.96, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -121,23 +121,30 @@ class PlayerMediaView: UICollectionReusableView {
         
     }()
     
+    let quickSearchBarView : UIView = {
+        let view = SearchBar()
+        return view
+    }()
+    
     func setupViews() {
         
         let artworkSeperator = createSeperator()
         let searchSeperator = createSeperator()
         
-        let views = [mediaBackgroundBlurView, mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, shareActionView, saveToLibraryActionView, searchSeperator]
+        let views = [mediaBackgroundBlurView, mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, shareActionView, saveToLibraryActionView, searchSeperator, quickSearchBarView]
 
+        //let views = [ mediaTitleLabelView, mediaArtistLabelView, shareActionView, saveToLibraryActionView, searchSeperator, quickSearchBarView]
         views.forEach() { addSubview($0) }
         
         mediaBackgroundBlurView.fillSuperview()
         
-        addConstraintsWithFormat(format: "V:|-64-[v0(273)]-38-[v1(0.5)]-16-[v2][v3]-16-[v4(0.5)]", views: mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, searchSeperator)
+        addConstraintsWithFormat(format: "V:|-64-[v0(273)]-38-[v1(0.5)]-16-[v2][v3]-16-[v4(0.5)]-1-[v5(69)]", views: mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, searchSeperator, quickSearchBarView)
         addConstraintsWithFormat(format: "H:|-50-[v0]-50-|", views: mediaArtworkView)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: artworkSeperator)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: searchSeperator)
         addConstraintsWithFormat(format: "H:|-16-[v0]", views: mediaTitleLabelView)
         addConstraintsWithFormat(format: "H:|-16-[v0]", views: mediaArtistLabelView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: quickSearchBarView)
         
         saveToLibraryActionView.anchor(top: artworkSeperator.bottomAnchor, leading: nil, bottom: nil, trailing: artworkSeperator.trailingAnchor, padding: .init(top: 24, left: 0, bottom: 0, right: 16), size: .init(width: 32, height: 32))
         shareActionView.anchor(top: saveToLibraryActionView.topAnchor, leading: nil, bottom: nil, trailing: saveToLibraryActionView.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 32), size: .init(width: 32, height: 32))

@@ -26,10 +26,10 @@ class Resource: NSObject {
 
 class Track: Resource {
     
-    var artist: Artist?
+    var artist: Array<Artist>?
     var runtime: Int?
     
-    init(id: String, name: String, imageSmall: String, imageLarge: String, artist: Artist, runtime: Int) {
+    init(id: String, name: String, imageSmall: String, imageLarge: String, artist: [Artist], runtime: Int) {
         super.init(id: id, name: name, imageSmall: imageSmall, imageLarge: imageLarge)
         self.artist = artist
         self.runtime = runtime

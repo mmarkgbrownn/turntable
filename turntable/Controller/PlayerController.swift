@@ -38,7 +38,7 @@ class PlayerController: UICollectionViewController, UICollectionViewDelegateFlow
         //layout customisation
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumLineSpacing = 0
-            layout.sectionInset = .init(top: 0, left: 0 ,bottom: padding, right: 0)
+            layout.sectionHeadersPinToVisibleBounds = true
         }
     }
     
@@ -49,7 +49,7 @@ class PlayerController: UICollectionViewController, UICollectionViewDelegateFlow
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: view.frame.width, height: 460)
+        return .init(width: view.frame.width, height: 529)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

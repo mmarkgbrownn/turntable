@@ -21,12 +21,12 @@ func setupDummyData() {
     ]
     
     let tracks = [
-        Track(id: "fakeID", name: "BUTTERFLY EFFECT", imageSmall: "", imageLarge: "", artist: artists[0], runtime: 310),
-        Track(id: "fakeID", name: "Hurting (Gerd Janson Remix)", imageSmall: "", imageLarge: "", artist: artists[1], runtime: 305),
-        Track(id: "fakeID", name: "Your Love", imageSmall: "", imageLarge: "", artist: artists[5], runtime: 415),
-        Track(id: "fakeID", name: "AGEN WIDA", imageSmall: "", imageLarge: "", artist: artists[3], runtime: 319),
-        Track(id: "fakeID", name: "Sicko Mode", imageSmall: "", imageLarge: "", artist: artists[0], runtime: 513),
-        Track(id: "fakeID", name: "The Love", imageSmall: "", imageLarge: "", artist: artists[6], runtime: 450),
+        Track(id: "fakeID", name: "BUTTERFLY EFFECT", imageSmall: "", imageLarge: "", artist: [artists[0]], runtime: 310),
+        Track(id: "fakeID", name: "Hurting (Gerd Janson Remix)", imageSmall: "", imageLarge: "", artist: [artists[1], artists[2]], runtime: 305),
+        Track(id: "fakeID", name: "Your Love", imageSmall: "", imageLarge: "", artist: [artists[5]], runtime: 415),
+        Track(id: "fakeID", name: "AGEN WIDA", imageSmall: "", imageLarge: "", artist: [artists[3], artists[4]], runtime: 319),
+        Track(id: "fakeID", name: "Sicko Mode", imageSmall: "", imageLarge: "", artist: [artists[0]], runtime: 513),
+        Track(id: "fakeID", name: "The Love", imageSmall: "", imageLarge: "", artist: [artists[6]], runtime: 450),
     ]
     
     let organiser = Attendee(username: "Markyb", spotifyKey: "token", history: true)
@@ -44,7 +44,41 @@ func setupDummyData() {
     ]
     
     queueItems[0].played = true
+    queueItems[4].played = true
     
-    print(queueItems[0].track?.name!, queueItems[0].played)
+    var upNextItems = [QueueItem]()
+    var historyItems = [QueueItem]()
+    
+    for item in queueItems {
+        if item.played == false{
+            upNextItems.append(item)
+        } else {
+            historyItems.append(item)
+        }
+    }
+    
+    print("Up Next")
+    print("------------")
+    
+    upNextItems.forEach { (item) in
+        print(item.track!.name!)
+        var artistString = ""
+        item.track?.artist?.forEach({ (artist) in
+            artistString = artistString + artist.name!
+        })
+        print(artistString)
+    }
+    print("------------")
+    print("History")
+    print("------------")
+    
+    historyItems.forEach { (item) in
+        print(item.track!.name!)
+        var artistString = ""
+        item.track?.artist?.forEach({ (artist) in
+            artistString = artistString + artist.name!
+        })
+        print(artistString)
+    }
     
 }

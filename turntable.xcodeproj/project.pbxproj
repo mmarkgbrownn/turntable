@@ -22,6 +22,7 @@
 		41240E7921E7C1E70017DA6C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41240E7721E7C1E70017DA6C /* Poppins-Regular.ttf */; };
 		41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7A21E7FF080017DA6C /* QueueItem.swift */; };
 		41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7C21E800420017DA6C /* SetupDummyData.swift */; };
+		41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7E21E8EF150017DA6C /* SearchBarView.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
 		41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* LibraryController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
@@ -67,6 +68,7 @@
 		41240E7721E7C1E70017DA6C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		41240E7A21E7FF080017DA6C /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
 		41240E7C21E800420017DA6C /* SetupDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDummyData.swift; sourceTree = "<group>"; };
+		41240E7E21E8EF150017DA6C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
 		41942C7321E404AC00F7F136 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				4102C79F21E6633500441767 /* PlayerMediaView.swift */,
 				4102C7A321E7625E00441767 /* ResourceCell.swift */,
+				41240E7E21E8EF150017DA6C /* SearchBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
 				4102C79C21E636F900441767 /* Attendee.swift in Sources */,
+				41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */,
 				41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */,
 				41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */,
 				41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */,

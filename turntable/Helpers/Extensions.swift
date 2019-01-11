@@ -23,16 +23,16 @@ extension UIColor {
 }
 
 extension UIFont {
-    class var poppinsLargeTitle : UIFont {
+    class var poppinsPosterText: UIFont {
         return UIFont(name: "Poppins-Bold", size: 45.0)!
     }
     
-    class var poppinsTitle : UIFont {
-        return UIFont(name: "Poppins-Bold", size: 22.0)!
+    class var poppinsSectionHeader: UIFont {
+        return UIFont(name: "Poppins-Bold", size: 31.0)!
     }
     
-    class var standardSubtitle : UIFont {
-        return UIFont.systemFont(ofSize: 18.0, weight: .regular)
+    class var poppinsPlayerHeader: UIFont {
+        return UIFont(name: "Poppins-Bold", size: 21.0)!
     }
 }
 
