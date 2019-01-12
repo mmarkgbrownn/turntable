@@ -23,15 +23,28 @@ class PlayerMediaView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var queueItem: QueueItem? {
+    var nowPlaying: QueueItem? {
         didSet {
             
+            setupArtworkImage()
+            
+            if let title = nowPlaying?.track?.name {
+                mediaTitleLabelView.text = title
+            }
+            
+        }
+    }
+    
+    func setupArtworkImage() {
+        if let artwork = nowPlaying?.track?.imageLarge {
+            //mediaBackgroundBlurView.image = artwork
+            print(artwork)
         }
     }
     
     var overlayGradient : CAGradientLayer?
     
-    let mediaBackgroundBlurView: UIView = {
+    let mediaBackgroundBlurView: UIImageView = {
         
         //Add image to artwork view
         let imageView = UIImageView(image: #imageLiteral(resourceName: "butterflyEffect"))
@@ -61,7 +74,7 @@ class PlayerMediaView: UICollectionReusableView {
     
     }
     
-    let mediaArtworkView: UIView = {
+    let mediaArtworkView: UIImageView = {
 
         //Add image to artwork view
         let imageView = UIImageView(image: #imageLiteral(resourceName: "butterflyEffect"))
@@ -139,12 +152,16 @@ class PlayerMediaView: UICollectionReusableView {
         mediaBackgroundBlurView.fillSuperview()
         
         addConstraintsWithFormat(format: "V:|-64-[v0(273)]-38-[v1(0.5)]-16-[v2][v3]-16-[v4(0.5)]-1-[v5(69)]", views: mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, searchSeperator, quickSearchBarView)
-        addConstraintsWithFormat(format: "H:|-50-[v0]-50-|", views: mediaArtworkView)
+        //addConstraintsWithFormat(format: "H:|-50-[v0]-50-|", views: mediaArtworkView)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: artworkSeperator)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: searchSeperator)
         addConstraintsWithFormat(format: "H:|-16-[v0]", views: mediaTitleLabelView)
         addConstraintsWithFormat(format: "H:|-16-[v0]", views: mediaArtistLabelView)
         addConstraintsWithFormat(format: "H:|[v0]|", views: quickSearchBarView)
+        
+        let artworkPadding = (frame.width / 2) - (273 / 2)
+        
+        mediaArtworkView.anchor(top: nil, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 0, left: artworkPadding, bottom: 0, right: artworkPadding), size: .init(width: 273, height: 273))
         
         saveToLibraryActionView.anchor(top: artworkSeperator.bottomAnchor, leading: nil, bottom: nil, trailing: artworkSeperator.trailingAnchor, padding: .init(top: 24, left: 0, bottom: 0, right: 16), size: .init(width: 32, height: 32))
         shareActionView.anchor(top: saveToLibraryActionView.topAnchor, leading: nil, bottom: nil, trailing: saveToLibraryActionView.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 32), size: .init(width: 32, height: 32))

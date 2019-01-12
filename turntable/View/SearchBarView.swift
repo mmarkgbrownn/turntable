@@ -21,13 +21,13 @@ class SearchBar: UIView {
     
     let background : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 142, green: 142, blue: 147, alpha: 0.12)
+        //view.backgroundColor = .backgroundDarkBlack
         return view
     }()
     
     let searchBar : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.init(red: 142, green: 142, blue: 147, alpha: 0.12)
+        view.backgroundColor = UIColor.init(red: 142/255, green: 142/255, blue: 147/255, alpha: 0.12)
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
         return view
@@ -35,15 +35,18 @@ class SearchBar: UIView {
     
     let searchIcon : UIView = {
         let icon = UIImageView()
-        icon.image = UIImage(named: "")
+        icon.image = UIImage(named: "Search")
+        icon.tintColor = UIColor.init(red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
         return icon
     }()
     
-    let searchQueryText : UITextView = {
-        let textView = UITextView()
+    let searchQueryText : UILabel = {
+        let textView = UILabel()
         textView.text = "Quick Search"
-        textView.textColor = UIColor.init(red: 142, green: 142, blue: 147, alpha: 1)
+        textView.textColor = UIColor.init(red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
+        //textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         textView.font = UIFont.systemFont(ofSize: 17)
+        textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
     
@@ -53,5 +56,9 @@ class SearchBar: UIView {
         views.forEach { addSubview($0) }
         
         background.fillSuperview()
+        addConstraintsWithFormat(format: "H:|-16-[v0]-16-|", views: searchBar)
+        addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: searchBar)
+        searchIcon.anchor(top: searchBar.topAnchor, leading: searchBar.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 12, left: 8, bottom: 0, right: 0), size: .init(width: 14, height: 14))
+        searchQueryText.anchor(top: searchBar.topAnchor, leading: searchIcon.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 3, left: 8, bottom: 0, right: 0), size: .init(width: 0, height: 30))
     }
 }

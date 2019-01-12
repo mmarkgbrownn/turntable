@@ -19,6 +19,29 @@ class ResourceCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var queueItem : QueueItem? {
+        didSet {
+            resourceTitle.text = queueItem?.track?.name
+            
+            let subtitle = queueItem?.track?.artist
+            var subtitleString = ""
+            
+            subtitle?.forEach({ (artist) in
+                if artist == subtitle!.first {
+                    subtitleString = artist.name!
+                } else {
+                    subtitleString = subtitleString + ", " + artist.name!
+                }
+            })
+            
+            resourceSubtitle.text = subtitleString
+            
+            if let runtime = queueItem?.track?.runtime {
+                resourceRuntime.text = String(runtime)
+            }
+        }
+    }
+    
     let resourceArtwork : UIView = {
        
         //Add image to artwork view

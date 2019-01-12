@@ -13,7 +13,6 @@ class QueueItem: NSObject{
     var track: Track?
     var session: Session?
     var order: Int?
-    var played = false
     
     init(track: Track, session: Session, order: Int) {
         self.track = track

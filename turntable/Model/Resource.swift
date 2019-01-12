@@ -48,3 +48,6 @@ class Artist: Resource {
 //    }
     
 }
+
+extension Resource {
+}
