@@ -21,13 +21,17 @@
 		41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7A21E7FF080017DA6C /* QueueItem.swift */; };
 		41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7C21E800420017DA6C /* SetupDummyData.swift */; };
 		41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7E21E8EF150017DA6C /* SearchBarView.swift */; };
-		41240E8121EA22A00017DA6C /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E8021EA22A00017DA6C /* SectionHeaderCell.swift */; };
+		41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */; };
 		41240E8D21EA2FA00017DA6C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41240E8C21EA29C80017DA6C /* Poppins-Bold.ttf */; };
 		41240E8E21EA2FA40017DA6C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41240E8B21EA29C70017DA6C /* Poppins-Regular.ttf */; };
+		4138A78921EA4AA300961448 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138A78821EA4AA300961448 /* DummyData.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
 		41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* LibraryController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
 		41FDE61121E540C9009BA399 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FDE61021E540C9009BA399 /* Extensions.swift */; };
+		76E82582EDE4C85519728DFD /* Pods_turntable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */; };
+		91713C83F1F593533AD741B3 /* Pods_turntableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */; };
+		A8AA7532EA64A51767C1D8A7 /* Pods_turntableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D09C4F62B8A50B69F9D31 /* Pods_turntableTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4102C79B21E636F900441767 /* Attendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
 		4102C79D21E6398B00441767 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		4102C79F21E6633500441767 /* PlayerMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMediaView.swift; sourceTree = "<group>"; };
@@ -68,13 +73,22 @@
 		41240E7A21E7FF080017DA6C /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
 		41240E7C21E800420017DA6C /* SetupDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDummyData.swift; sourceTree = "<group>"; };
 		41240E7E21E8EF150017DA6C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		41240E8021EA22A00017DA6C /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
+		41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderFooterCell.swift; sourceTree = "<group>"; };
 		41240E8B21EA29C70017DA6C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		41240E8C21EA29C80017DA6C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		4138A78821EA4AA300961448 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
 		41942C7321E404AC00F7F136 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		41FDE61021E540C9009BA399 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		538D09C4F62B8A50B69F9D31 /* Pods_turntableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54CA5E0B7FB6B6BB9D878C04 /* Pods-turntable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntable.release.xcconfig"; path = "Pods/Target Support Files/Pods-turntable/Pods-turntable.release.xcconfig"; sourceTree = "<group>"; };
+		56DF2C6219843CDCE62CA998 /* Pods-turntableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-turntableUITests/Pods-turntableUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AC5EB332A6F87A4AB292F1C6 /* Pods-turntableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-turntableTests/Pods-turntableTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AD76B7B50D14C0534F5576B3 /* Pods-turntableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-turntableUITests/Pods-turntableUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C246DCD4D83967255CD9F243 /* Pods-turntableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-turntableTests/Pods-turntableTests.release.xcconfig"; sourceTree = "<group>"; };
+		EC3336A222F34DB961CD7545 /* Pods-turntable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-turntable/Pods-turntable.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E82582EDE4C85519728DFD /* Pods_turntable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8AA7532EA64A51767C1D8A7 /* Pods_turntableTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91713C83F1F593533AD741B3 /* Pods_turntableUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +137,7 @@
 				4102C79D21E6398B00441767 /* Session.swift */,
 				4102C7A121E6758800441767 /* Resource.swift */,
 				41240E7A21E7FF080017DA6C /* QueueItem.swift */,
+				4138A78821EA4AA300961448 /* DummyData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,7 +148,7 @@
 				4102C79F21E6633500441767 /* PlayerMediaView.swift */,
 				4102C7A321E7625E00441767 /* ResourceCell.swift */,
 				41240E7E21E8EF150017DA6C /* SearchBarView.swift */,
-				41240E8021EA22A00017DA6C /* SectionHeaderCell.swift */,
+				41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,6 +160,8 @@
 				411CDC2121DD0C05001D64BD /* turntableTests */,
 				411CDC2C21DD0C05001D64BD /* turntableUITests */,
 				411CDC0B21DD0C03001D64BD /* Products */,
+				4F0346D02C5A755A5912E707 /* Pods */,
+				A023AC2D07B1C4887AE2F4C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +227,29 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4F0346D02C5A755A5912E707 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EC3336A222F34DB961CD7545 /* Pods-turntable.debug.xcconfig */,
+				54CA5E0B7FB6B6BB9D878C04 /* Pods-turntable.release.xcconfig */,
+				AC5EB332A6F87A4AB292F1C6 /* Pods-turntableTests.debug.xcconfig */,
+				C246DCD4D83967255CD9F243 /* Pods-turntableTests.release.xcconfig */,
+				AD76B7B50D14C0534F5576B3 /* Pods-turntableUITests.debug.xcconfig */,
+				56DF2C6219843CDCE62CA998 /* Pods-turntableUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A023AC2D07B1C4887AE2F4C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */,
+				538D09C4F62B8A50B69F9D31 /* Pods_turntableTests.framework */,
+				34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -214,9 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 411CDC3221DD0C05001D64BD /* Build configuration list for PBXNativeTarget "turntable" */;
 			buildPhases = (
+				D0FAA681F113001F6B6F9FB6 /* [CP] Check Pods Manifest.lock */,
 				411CDC0621DD0C03001D64BD /* Sources */,
 				411CDC0721DD0C03001D64BD /* Frameworks */,
 				411CDC0821DD0C03001D64BD /* Resources */,
+				09C9640680B24025CED00F62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,6 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 411CDC3521DD0C05001D64BD /* Build configuration list for PBXNativeTarget "turntableTests" */;
 			buildPhases = (
+				487D0A1F7E1EAB7E7390A55A /* [CP] Check Pods Manifest.lock */,
 				411CDC1A21DD0C05001D64BD /* Sources */,
 				411CDC1B21DD0C05001D64BD /* Frameworks */,
 				411CDC1C21DD0C05001D64BD /* Resources */,
@@ -249,6 +295,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 411CDC3821DD0C05001D64BD /* Build configuration list for PBXNativeTarget "turntableUITests" */;
 			buildPhases = (
+				C0BF94E558A684BDA60222EF /* [CP] Check Pods Manifest.lock */,
 				411CDC2521DD0C05001D64BD /* Sources */,
 				411CDC2621DD0C05001D64BD /* Frameworks */,
 				411CDC2721DD0C05001D64BD /* Resources */,
@@ -334,18 +381,94 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09C9640680B24025CED00F62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-turntable/Pods-turntable-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LBTAComponents/LBTAComponents.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBTAComponents.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-turntable/Pods-turntable-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		487D0A1F7E1EAB7E7390A55A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-turntableTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0BF94E558A684BDA60222EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-turntableUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0FAA681F113001F6B6F9FB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-turntable-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		411CDC0621DD0C03001D64BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4138A78921EA4AA300961448 /* DummyData.swift in Sources */,
 				411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */,
 				41942C7621E404D100F7F136 /* SettingsController.swift in Sources */,
 				41FDE61121E540C9009BA399 /* Extensions.swift in Sources */,
 				4102C7A221E6758800441767 /* Resource.swift in Sources */,
 				4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */,
 				41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */,
-				41240E8121EA22A00017DA6C /* SectionHeaderCell.swift in Sources */,
+				41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */,
 				4102C79E21E6398B00441767 /* Session.swift in Sources */,
 				4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
@@ -518,6 +641,7 @@
 		};
 		411CDC3321DD0C05001D64BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC3336A222F34DB961CD7545 /* Pods-turntable.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -540,6 +664,7 @@
 		};
 		411CDC3421DD0C05001D64BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54CA5E0B7FB6B6BB9D878C04 /* Pods-turntable.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -562,6 +687,7 @@
 		};
 		411CDC3621DD0C05001D64BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC5EB332A6F87A4AB292F1C6 /* Pods-turntableTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -583,6 +709,7 @@
 		};
 		411CDC3721DD0C05001D64BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C246DCD4D83967255CD9F243 /* Pods-turntableTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -604,6 +731,7 @@
 		};
 		411CDC3921DD0C05001D64BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD76B7B50D14C0534F5576B3 /* Pods-turntableUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -624,6 +752,7 @@
 		};
 		411CDC3A21DD0C05001D64BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56DF2C6219843CDCE62CA998 /* Pods-turntableUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

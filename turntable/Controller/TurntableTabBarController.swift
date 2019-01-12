@@ -17,7 +17,7 @@ class TurntableTabBarController: UITabBarController {
         settingsController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "SettingsInactive"), selectedImage: UIImage(named: "Settings"))
         
         //Setup Player Controller
-        let playerController = PlayerController(collectionViewLayout: UICollectionViewFlowLayout())
+        let playerController = PlayerController()
         playerController.tabBarItem = UITabBarItem(title: "Player", image: UIImage(named: "PlayerInactive"), selectedImage: UIImage(named: "Player"))
         
         //Setup Library Controller

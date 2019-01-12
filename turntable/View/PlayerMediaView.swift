@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerMediaView: UICollectionReusableView {
+class PlayerMediaView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -159,16 +159,18 @@ class PlayerMediaView: UICollectionReusableView {
         addConstraintsWithFormat(format: "H:|-16-[v0]", views: mediaArtistLabelView)
         addConstraintsWithFormat(format: "H:|[v0]|", views: quickSearchBarView)
         
-        let artworkPadding = (frame.width / 2) - (273 / 2)
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let artworkPadding = (CGFloat(screenWidth) / 2) - (273 / 2)
         
-        mediaArtworkView.anchor(top: nil, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 0, left: artworkPadding, bottom: 0, right: artworkPadding), size: .init(width: 273, height: 273))
+        print(artworkPadding)
+        
+        mediaArtworkView.anchor(top: mediaBackgroundBlurView.topAnchor, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 0, left: artworkPadding, bottom: 0, right: artworkPadding), size: .init(width: 0, height: 273))
         
         saveToLibraryActionView.anchor(top: artworkSeperator.bottomAnchor, leading: nil, bottom: nil, trailing: artworkSeperator.trailingAnchor, padding: .init(top: 24, left: 0, bottom: 0, right: 16), size: .init(width: 32, height: 32))
         shareActionView.anchor(top: saveToLibraryActionView.topAnchor, leading: nil, bottom: nil, trailing: saveToLibraryActionView.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 32), size: .init(width: 32, height: 32))
         
-        overlayGradient?.frame = mediaBackgroundBlurView.bounds
-        mediaBackgroundBlurView.layer.insertSublayer(overlayGradient!, at: 0)
-        //mediaArtworkView.anchor(top: superview?.safeAreaLayoutGuide.topAnchor, leading: superview?.leadingAnchor, bottom: nil, trailing: superview?.trailingAnchor, padding: .init(top: 40, left: 50, bottom: 0, right: 50), size: .init(width: 0, height: 273))
+//        mediaArtworkView.anchor(top: mediaBackgroundBlurView.topAnchor, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 40, left: 50, bottom: 0, right: 50), size: .init(width: 0, height: 273))
         
     }
     

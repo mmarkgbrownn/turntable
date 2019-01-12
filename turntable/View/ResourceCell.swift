@@ -6,21 +6,15 @@
 //  Copyright © 2019 Mark Brown. All rights reserved.
 //
 
-import UIKit
+import LBTAComponents
 
-class ResourceCell: UICollectionViewCell {
+class ResourceCell: DatasourceCell {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupCell()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    var queueItem : QueueItem? {
+    override var datasourceItem: Any? {
         didSet {
+            
+            let queueItem = datasourceItem as? QueueItem
+            
             resourceTitle.text = queueItem?.track?.name
             
             let subtitle = queueItem?.track?.artist
@@ -81,7 +75,11 @@ class ResourceCell: UICollectionViewCell {
         return textView
     }()
     
-    func setupCell() {
+    override func setupViews() {
+        
+        super.setupViews()
+        
+        backgroundColor = UIColor.backgroundDarkBlack
         
         let views = [resourceArtwork, resourceTitle, resourceSubtitle, resourceRuntime]
         
@@ -94,8 +92,5 @@ class ResourceCell: UICollectionViewCell {
         
         resourceTitle.anchor(top: resourceArtwork.topAnchor, leading: resourceArtwork.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 6, left: 8, bottom: 1, right: 0) )
         resourceSubtitle.anchor(top: resourceTitle.bottomAnchor, leading: resourceTitle.leadingAnchor, bottom: nil, trailing: nil)
-    }
-    
-    
-    
+    }    
 }
