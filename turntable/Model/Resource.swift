@@ -27,12 +27,25 @@ class Resource: NSObject {
 class Track: Resource {
     
     var artist: Array<Artist>?
-    var runtime: Int?
+    var runtime: String?
     
     init(id: String, name: String, imageSmall: String, imageLarge: String, artist: [Artist], runtime: Int) {
         super.init(id: id, name: name, imageSmall: imageSmall, imageLarge: imageLarge)
         self.artist = artist
-        self.runtime = runtime
+        self.formatDuration(duration: (runtime / 1000))
+    }
+    
+    func formatDuration(duration: Int) {
+        
+        let duration = TimeInterval(duration)
+        
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = [.pad]
+        
+        
+        self.runtime = formatter.string(from: duration)
     }
     
 }

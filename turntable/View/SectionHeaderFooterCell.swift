@@ -67,7 +67,7 @@ class SectionFooterCell: DatasourceCell {
     
     override func setupViews() {
         
-        //backgroundColor = UIColor.backgroundLightBlack
+        backgroundColor = UIColor.backgroundDarkBlack
         
         let views = [separatorLineView, footerText, historySwitch, footerDescription]
         views.forEach { addSubview($0) }

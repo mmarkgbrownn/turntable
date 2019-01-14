@@ -21,7 +21,7 @@ class SearchBar: UIView {
     
     let background : UIView = {
         let view = UIView()
-        //view.backgroundColor = .backgroundDarkBlack
+        view.backgroundColor = .backgroundDarkBlack
         return view
     }()
     
@@ -40,11 +40,12 @@ class SearchBar: UIView {
         return icon
     }()
     
-    let searchQueryText : UILabel = {
-        let textView = UILabel()
+    let searchQueryText : UITextView = {
+        let textView = UITextView()
         textView.text = "Quick Search"
         textView.textColor = UIColor.init(red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
-        //textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        textView.backgroundColor = nil
+        textView.isEditable = true
         textView.font = UIFont.systemFont(ofSize: 17)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
@@ -56,9 +57,14 @@ class SearchBar: UIView {
         views.forEach { addSubview($0) }
         
         background.fillSuperview()
+        
         addConstraintsWithFormat(format: "H:|-16-[v0]-16-|", views: searchBar)
         addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: searchBar)
+        addConstraintsWithFormat(format: "H:[v1]-4-[v0]-|", views: searchQueryText, searchIcon)
+        addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: searchQueryText)
+        
         searchIcon.anchor(top: searchBar.topAnchor, leading: searchBar.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 12, left: 8, bottom: 0, right: 0), size: .init(width: 14, height: 14))
-        searchQueryText.anchor(top: searchBar.topAnchor, leading: searchIcon.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 3, left: 8, bottom: 0, right: 0), size: .init(width: 0, height: 30))
+        //searchQueryText.anchor(top: topAnchor, leading: trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 3, left: 8, bottom: 0, right: 0), size: .init(width: 500, height: 30))
+        
     }
 }
