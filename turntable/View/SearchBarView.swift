@@ -8,16 +8,7 @@
 
 import UIKit
 
-class SearchBar: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupSearchBar()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+class SearchBar: BaseView {
     
     let background : UIView = {
         let view = UIView()
@@ -51,7 +42,9 @@ class SearchBar: UIView {
         return textView
     }()
     
-    func setupSearchBar() {
+    override func setupView() {
+        
+        super.setupView()
         
         let views = [background, searchBar, searchIcon, searchQueryText]
         views.forEach { addSubview($0) }

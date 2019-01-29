@@ -30,7 +30,7 @@ class setupDummyData {
             Track(id: "fakeID", name: "The Love", imageSmall: "", imageLarge: "", artist: [artists[6]], runtime: 450),
         ]
         
-        let organiser = Attendee(username: "Markyb", spotifyKey: "token", history: true)
+        let organiser = Attendee()
         
         let thisSession = Session(sessionCode: 345345, sessionName: "TestSession", maxGuests: 10, context: "Birthday Party", historyPlaylist: "fakePlayelist", organiser: organiser)
 

@@ -54,16 +54,8 @@ class SectionFooterCell: DatasourceCell {
         return viewSwitch
     }()
     
-    let footerDescription : UILabel = {
-        let label = UILabel()
-        label.text = "Saved playlists will appear in your spotfify library with the title Test Party."
-        label.font = UIFont.systemFont(ofSize: 13)
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 2
-        label.textColor = UIColor(r: 109, g: 109, b: 114)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let footerDescriptionText = "Saved playlists will appear in your spotfify library with the title Test Party."
+    lazy var footerDescription = ReusableComponents().createDescriptionWith(text: footerDescriptionText)
     
     override func setupViews() {
         

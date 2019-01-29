@@ -55,11 +55,6 @@ class Artist: Resource {
     override init(id: String, name: String, imageSmall: String, imageLarge: String) {
         super.init(id: id, name: name, imageSmall: imageSmall, imageLarge: imageLarge)
     }
-//
-//    required init(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
 }
 
 extension Resource {

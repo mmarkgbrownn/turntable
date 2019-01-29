@@ -8,15 +8,20 @@
 
 import UIKit
 
-class Attendee: NSObject {
+struct Attendee {
 
-    var username: String
-    var spotifyKey: String
-    var history: Bool
+    var username: String?
+    var email: String?
+    var spotifyKey: String?
+    var history: Bool?
     
+    init(){
+        
+    }
     
-    init(username: String, spotifyKey: String, history: Bool){
+    init(username: String, email: String, spotifyKey: String, history: Bool){
         self.username = username
+        self.email = email
         self.spotifyKey = spotifyKey
         self.history = history
     }

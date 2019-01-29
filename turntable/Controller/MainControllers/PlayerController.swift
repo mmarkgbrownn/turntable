@@ -7,6 +7,7 @@
 //
 
 import LBTAComponents
+import Firebase
 
 class PlayerController: DatasourceController {
     
@@ -16,7 +17,6 @@ class PlayerController: DatasourceController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         let redview = PlayerMediaView()
-        //redview.backgroundColor = .red
         
         view.addSubview(redview)
         redview.anchor(top: nil, leading: nil, bottom: nil, trailing: nil, size: .init(width: view.frame.width, height: 528))
@@ -29,10 +29,16 @@ class PlayerController: DatasourceController {
         redview.nowPlaying = playerDataSource.nowPlaying
         
         collectionView.backgroundColor = nil
-        collectionView.contentInset = UIEdgeInsets(top: 484, left: 0, bottom: 0, right: 0)
+        //Use this when you have changed the size of redView
+        collectionView.contentInset = UIEdgeInsets(top: 490, left: 0, bottom: 0, right: 0)
         view.bringSubviewToFront(collectionView)
+        
+        
     }
-
+    
+    @objc func notLoggedIn() {
+        present(UINavigationController(rootViewController: HomeController()), animated: true, completion: nil)
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 16 + 48)
     }

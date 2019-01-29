@@ -24,10 +24,20 @@
 		41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */; };
 		41240E8D21EA2FA00017DA6C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41240E8C21EA29C80017DA6C /* Poppins-Bold.ttf */; };
 		41240E8E21EA2FA40017DA6C /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41240E8B21EA29C70017DA6C /* Poppins-Regular.ttf */; };
+		4125AEB021FFA3AF0038B7B4 /* HostSessionSetupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125AEAF21FFA3AF0038B7B4 /* HostSessionSetupController.swift */; };
+		4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125AEB121FFB79C0038B7B4 /* RootViewController.swift */; };
+		4125AEB421FFB9170038B7B4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125AEB321FFB9170038B7B4 /* SplashViewController.swift */; };
+		4125AEB621FFC2290038B7B4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125AEB521FFC2290038B7B4 /* HomeView.swift */; };
+		4132725321EE4A2200B2E88D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725221EE4A2200B2E88D /* HomeController.swift */; };
+		4132725521EE7C3A00B2E88D /* HostJoinSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725421EE7C3A00B2E88D /* HostJoinSessionController.swift */; };
+		4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725621EE89F700B2E88D /* ReusableComponents.swift */; };
+		4132725921EE8E3800B2E88D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725821EE8E3800B2E88D /* BaseView.swift */; };
+		4132725B21EE931A00B2E88D /* SessionSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725A21EE931A00B2E88D /* SessionSetupView.swift */; };
 		4138A78921EA4AA300961448 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138A78821EA4AA300961448 /* DummyData.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
 		41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* LibraryController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
+		41CE495E21EFC20200D6014A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41CE495D21EFC20200D6014A /* GoogleService-Info.plist */; };
 		41FDE61121E540C9009BA399 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FDE61021E540C9009BA399 /* Extensions.swift */; };
 		76E82582EDE4C85519728DFD /* Pods_turntable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */; };
 		91713C83F1F593533AD741B3 /* Pods_turntableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */; };
@@ -76,10 +86,20 @@
 		41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderFooterCell.swift; sourceTree = "<group>"; };
 		41240E8B21EA29C70017DA6C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		41240E8C21EA29C80017DA6C /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		4125AEAF21FFA3AF0038B7B4 /* HostSessionSetupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostSessionSetupController.swift; sourceTree = "<group>"; };
+		4125AEB121FFB79C0038B7B4 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		4125AEB321FFB9170038B7B4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		4125AEB521FFC2290038B7B4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4132725221EE4A2200B2E88D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		4132725421EE7C3A00B2E88D /* HostJoinSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostJoinSessionController.swift; sourceTree = "<group>"; };
+		4132725621EE89F700B2E88D /* ReusableComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableComponents.swift; sourceTree = "<group>"; };
+		4132725821EE8E3800B2E88D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		4132725A21EE931A00B2E88D /* SessionSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetupView.swift; sourceTree = "<group>"; };
 		4138A78821EA4AA300961448 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
 		41942C7321E404AC00F7F136 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		41CE495D21EFC20200D6014A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41FDE61021E540C9009BA399 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538D09C4F62B8A50B69F9D31 /* Pods_turntableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,10 +142,10 @@
 		4102C79821E636B500441767 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				411CDC0F21DD0C03001D64BD /* PlayerController.swift */,
-				41942C7321E404AC00F7F136 /* LibraryController.swift */,
-				41942C7521E404D100F7F136 /* SettingsController.swift */,
-				41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */,
+				4125AEB321FFB9170038B7B4 /* SplashViewController.swift */,
+				4125AEB121FFB79C0038B7B4 /* RootViewController.swift */,
+				4125AEB921FFC3600038B7B4 /* SetupControllers */,
+				4125AEB821FFC3500038B7B4 /* MainControllers */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -145,10 +165,14 @@
 		4102C79A21E636CD00441767 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4132725821EE8E3800B2E88D /* BaseView.swift */,
+				4132725621EE89F700B2E88D /* ReusableComponents.swift */,
+				4132725A21EE931A00B2E88D /* SessionSetupView.swift */,
 				4102C79F21E6633500441767 /* PlayerMediaView.swift */,
 				4102C7A321E7625E00441767 /* ResourceCell.swift */,
 				41240E7E21E8EF150017DA6C /* SearchBarView.swift */,
 				41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */,
+				4125AEB521FFC2290038B7B4 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,14 +203,15 @@
 			isa = PBXGroup;
 			children = (
 				411CDC0D21DD0C03001D64BD /* AppDelegate.swift */,
-				41240E8A21EA29C10017DA6C /* Fonts */,
 				4102C79A21E636CD00441767 /* View */,
 				4102C79921E636C600441767 /* Model */,
 				4102C79821E636B500441767 /* Controller */,
 				41FDE60F21E540B7009BA399 /* Helpers */,
+				41240E8A21EA29C10017DA6C /* Fonts */,
 				411CDC1421DD0C05001D64BD /* Assets.xcassets */,
 				411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */,
 				411CDC1921DD0C05001D64BD /* Info.plist */,
+				41CE495D21EFC20200D6014A /* GoogleService-Info.plist */,
 			);
 			path = turntable;
 			sourceTree = "<group>";
@@ -216,6 +241,27 @@
 				41240E8B21EA29C70017DA6C /* Poppins-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4125AEB821FFC3500038B7B4 /* MainControllers */ = {
+			isa = PBXGroup;
+			children = (
+				41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */,
+				411CDC0F21DD0C03001D64BD /* PlayerController.swift */,
+				41942C7321E404AC00F7F136 /* LibraryController.swift */,
+				41942C7521E404D100F7F136 /* SettingsController.swift */,
+			);
+			path = MainControllers;
+			sourceTree = "<group>";
+		};
+		4125AEB921FFC3600038B7B4 /* SetupControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4132725221EE4A2200B2E88D /* HomeController.swift */,
+				4132725421EE7C3A00B2E88D /* HostJoinSessionController.swift */,
+				4125AEAF21FFA3AF0038B7B4 /* HostSessionSetupController.swift */,
+			);
+			path = SetupControllers;
 			sourceTree = "<group>";
 		};
 		41FDE60F21E540B7009BA399 /* Helpers */ = {
@@ -358,6 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41CE495E21EFC20200D6014A /* GoogleService-Info.plist in Resources */,
 				411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */,
 				41240E8D21EA2FA00017DA6C /* Poppins-Bold.ttf in Resources */,
 				411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */,
@@ -389,11 +436,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-turntable/Pods-turntable-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/LBTAComponents/LBTAComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBTAComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -464,19 +519,28 @@
 				4138A78921EA4AA300961448 /* DummyData.swift in Sources */,
 				411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */,
 				41942C7621E404D100F7F136 /* SettingsController.swift in Sources */,
+				4125AEB621FFC2290038B7B4 /* HomeView.swift in Sources */,
 				41FDE61121E540C9009BA399 /* Extensions.swift in Sources */,
 				4102C7A221E6758800441767 /* Resource.swift in Sources */,
 				4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */,
 				41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */,
 				41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */,
+				4132725321EE4A2200B2E88D /* HomeController.swift in Sources */,
 				4102C79E21E6398B00441767 /* Session.swift in Sources */,
 				4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
+				4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */,
+				4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */,
 				4102C79C21E636F900441767 /* Attendee.swift in Sources */,
+				4125AEB421FFB9170038B7B4 /* SplashViewController.swift in Sources */,
+				4132725B21EE931A00B2E88D /* SessionSetupView.swift in Sources */,
 				41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */,
 				41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */,
 				41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */,
+				4125AEB021FFA3AF0038B7B4 /* HostSessionSetupController.swift in Sources */,
+				4132725921EE8E3800B2E88D /* BaseView.swift in Sources */,
 				41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */,
+				4132725521EE7C3A00B2E88D /* HostJoinSessionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

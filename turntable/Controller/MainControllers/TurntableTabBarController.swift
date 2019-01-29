@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class TurntableTabBarController: UITabBarController {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,5 +35,6 @@ class TurntableTabBarController: UITabBarController {
         
         //Set Player Controller as default
         self.selectedIndex = 1
+        
     }
 }

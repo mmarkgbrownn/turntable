@@ -8,19 +8,7 @@
 
 import UIKit
 
-class PlayerMediaView: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.backgroundColor = .blue
-        
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+class PlayerMediaView: BaseView {
     
     var nowPlaying: QueueItem? {
         didSet {
@@ -81,14 +69,6 @@ class PlayerMediaView: UIView {
 
     }()
     
-    func createSeperator() -> UIView {
-        
-        let view = UIView()
-        view.backgroundColor = UIColor.init(white: 1, alpha: 0.1)
-        return view
-        
-    }
-    
     let shareActionView: UIView = {
         
         let imageView = UIImageView()
@@ -134,7 +114,13 @@ class PlayerMediaView: UIView {
         
     }()
     
-    func setupViews() {
+    let artworkSeperator = ReusableComponents().createSeperatorWith()
+    let searchSeperator = ReusableComponents().createSeperatorWith()
+    let bottomSeperator = ReusableComponents().createSeperatorWith()
+    
+    override func setupView() {
+        
+        super.setupView()
         
         // Get Artwork padding value
         let screenSize: CGRect = UIScreen.main.bounds
@@ -142,9 +128,7 @@ class PlayerMediaView: UIView {
         let artworkPadding = (CGFloat(screenWidth) / 2) - (273 / 2)
         
         // Initialise views
-        let artworkSeperator = createSeperator()
-        let searchSeperator = createSeperator()
-        let views = [mediaBackgroundBlurView, mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, shareActionView, saveToLibraryActionView, searchSeperator, quickSearchBarView]
+        let views = [mediaBackgroundBlurView, mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, shareActionView, saveToLibraryActionView, searchSeperator, quickSearchBarView, bottomSeperator]
         
         // For each view in views add to as subview
         views.forEach() { addSubview($0) }
@@ -160,16 +144,18 @@ class PlayerMediaView: UIView {
         mediaBackgroundBlurView.layer.addSublayer(gradientLayer)
         
         // Add constraints for added views
-        addConstraintsWithFormat(format: "V:|-64-[v0(273)]-38-[v1(0.5)]-16-[v2][v3]-16-[v4(0.5)]-1-[v5(69)]", views: mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, searchSeperator, quickSearchBarView)
+        addConstraintsWithFormat(format: "V:|-64-[v0(273)]-38-[v1(0.25)]-16-[v2][v3]-16-[v4(0.25)]-1-[v5(69)][v6(1)]", views: mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, searchSeperator, quickSearchBarView, bottomSeperator)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: artworkSeperator)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: searchSeperator)
+        addConstraintsWithFormat(format: "H:|-[v0]-|", views: bottomSeperator)
         addConstraintsWithFormat(format: "H:|-16-[v0]", views: mediaTitleLabelView)
         addConstraintsWithFormat(format: "H:|-16-[v0]", views: mediaArtistLabelView)
         addConstraintsWithFormat(format: "H:|[v0]|", views: quickSearchBarView)
         
-        mediaArtworkView.anchor(top: mediaBackgroundBlurView.topAnchor, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 0, left: artworkPadding, bottom: 0, right: artworkPadding), size: .init(width: 0, height: 273))
+        mediaArtworkView.anchor(top: nil, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 0, left: artworkPadding, bottom: 0, right: artworkPadding), size: .init(width: 0, height: 273))
         
         saveToLibraryActionView.anchor(top: artworkSeperator.bottomAnchor, leading: nil, bottom: nil, trailing: artworkSeperator.trailingAnchor, padding: .init(top: 24, left: 0, bottom: 0, right: 16), size: .init(width: 32, height: 32))
+        
         shareActionView.anchor(top: saveToLibraryActionView.topAnchor, leading: nil, bottom: nil, trailing: saveToLibraryActionView.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 32), size: .init(width: 32, height: 32))
         
     }
