@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReusableComponents: UIView {
+class ReusableComponents: UIView, UITextFieldDelegate {
     
     func createButtonWith(label: String) -> UIButton {
         let button = UIButton()
@@ -42,4 +42,38 @@ class ReusableComponents: UIView {
         return label
     }
     
+    func createTableRow(title: String, accessoryType: UITableViewCell.AccessoryType = .none) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = .backgroundDarkBlack
+        cell.textLabel?.textColor = .white
+        cell.textLabel?.text = title
+        cell.selectionStyle = .none
+        cell.accessoryType = accessoryType
+        
+        print(cell.frame.width)
+        
+        return cell
+    }
+    
+    func createEditableTableRow(title: String, placeholder: String) -> UITableViewCell{
+        
+        let cell = createTableRow(title: title)
+        let textField = UITextField(frame: CGRect(x:  40, y: 0, width: cell.frame.width, height: cell.frame.height))
+        
+        textField.textColor = .white
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(white: 1, alpha: 0.5)])
+        textField.keyboardAppearance = .dark
+        textField.returnKeyType = .default
+        textField.textAlignment = .right
+        
+        cell.addSubview(textField)
+        
+        return cell
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
