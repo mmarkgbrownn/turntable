@@ -8,12 +8,12 @@
 
 import UIKit
 
-class LibraryController: UIViewController {
+class SearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "Library"
+        self.navigationItem.title = "Search"
         
         view?.backgroundColor = .backgroundDarkBlack
     }

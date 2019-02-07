@@ -144,7 +144,7 @@ class PlayerMediaView: BaseView {
         mediaBackgroundBlurView.layer.addSublayer(gradientLayer)
         
         // Add constraints for added views
-        addConstraintsWithFormat(format: "V:|-64-[v0(273)]-38-[v1(0.25)]-16-[v2][v3]-16-[v4(0.25)]-1-[v5(69)][v6(1)]", views: mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, searchSeperator, quickSearchBarView, bottomSeperator)
+        addConstraintsWithFormat(format: "V:|-64-[v0(273)]-38-[v1(0.25)]-16-[v2][v3]-16-[v4(0.25)]-1-[v5(70)][v6(0.5)]", views: mediaArtworkView, artworkSeperator, mediaTitleLabelView, mediaArtistLabelView, searchSeperator, quickSearchBarView, bottomSeperator)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: artworkSeperator)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: searchSeperator)
         addConstraintsWithFormat(format: "H:|-[v0]-|", views: bottomSeperator)
@@ -160,3 +160,4 @@ class PlayerMediaView: BaseView {
         
     }
 }
+

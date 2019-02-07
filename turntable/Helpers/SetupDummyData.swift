@@ -31,19 +31,17 @@ class setupDummyData {
         ]
         
         let organiser = Attendee()
-        
-        let thisSession = Session(sessionCode: 345345, sessionName: "TestSession", maxGuests: 10, context: "Birthday Party", historyPlaylist: "fakePlayelist", organiser: organiser)
 
         
         var queueItems = [
-            QueueItem(track: tracks[1], session: thisSession, order: 1),
-            QueueItem(track: tracks[2], session: thisSession, order: 2),
-            QueueItem(track: tracks[3], session: thisSession, order: 3),
-            QueueItem(track: tracks[4], session: thisSession, order: 4),
-            QueueItem(track: tracks[5], session: thisSession, order: 5)
+            QueueItem(track: tracks[1], session: currentSession, order: 1),
+            QueueItem(track: tracks[2], session: currentSession, order: 2),
+            QueueItem(track: tracks[3], session: currentSession, order: 3),
+            QueueItem(track: tracks[4], session: currentSession, order: 4),
+            QueueItem(track: tracks[5], session: currentSession, order: 5)
         ]
         
-        var nowPlaying = QueueItem(track: tracks[0], session: thisSession, order: 0)
+        var nowPlaying = QueueItem(track: tracks[0], session: currentSession, order: 0)
         
     }
 }

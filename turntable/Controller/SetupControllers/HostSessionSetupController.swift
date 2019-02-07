@@ -21,6 +21,7 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
     private var socialContextCell: UITableViewCell = ReusableComponents().createTableRow(title: "Social Context")
     private var enableHistoryCell: UITableViewCell = ReusableComponents().createTableRow(title: "Enable History Playlist")
     
+    private var sessionKey: String = "000000"
     private var sessionName: String = ""
     private var historyEnabled: Bool = true
     
@@ -34,7 +35,7 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         self.tableView.backgroundColor = .backgroundDarkBlack
         self.tableView.separatorColor = UIColor.init(white: 1, alpha: 0.2)
         
-        self.sessionNameTextField = UITextField(frame: CGRect(x: 40, y: 0, width: self.sessionNameCell.frame.width, height: self.sessionNameCell.frame.height))
+        self.sessionNameTextField = UITextField(frame: CGRect(x: -16, y: 0, width: self.view.frame.width, height: self.sessionNameCell.frame.height))
         self.sessionNameTextField.delegate = self
         self.sessionNameTextField.textColor = .white
         self.sessionNameTextField.attributedPlaceholder = NSAttributedString(string: "e.g. Mark's Birthday 🎉", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(white: 1, alpha: 0.5)])
@@ -45,10 +46,10 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         self.sessionNameCell.addSubview(self.sessionNameTextField)
         
         self.histroyCellSwitch.onTintColor = .seaFoamBlue
+        self.histroyCellSwitch.isOn = true
         self.histroyCellSwitch.addTarget(self, action: #selector(selectHistory), for: .valueChanged)
         
         self.enableHistoryCell.accessoryView = histroyCellSwitch
-        
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -68,7 +69,6 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         } else {
             historyEnabled = false
         }
-        print(historyEnabled)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -78,7 +78,6 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
             if input != ""{
                 sessionName = input
             }
-            print(sessionName)
         }
         
         return true
@@ -179,11 +178,15 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
     }
     
     @objc func createSession() {
-        print("time to create")
         
-        //Create session code by getting last session code and + 1 OR get count of sessions and + 1
-        
-        //create a new session by posting session name, code, owner, nowPlaying and history bool to firebase also store this data in CoreData
+        //create a new session by posting session name, code, owner, nowPlaying and history playlist to firebase also store this data in CoreData
+        if sessionName != "" {
+            if currentSession.setupSession(sessionName: sessionName, maxGuests: 10, context: "Party", historyPlaylist: historyEnabled, organiser: Attendee(username: "turntable", email: "comm", spotifyKey: "erf", history: true)) {
+                
+                self.navigationController?.pushViewController(ShareSessionController(), animated: true)
+                
+            }
+        }
         
         //Present session code screen
         

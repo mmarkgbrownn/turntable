@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4102C79C21E636F900441767 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79B21E636F900441767 /* Attendee.swift */; };
-		4102C79E21E6398B00441767 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79D21E6398B00441767 /* Session.swift */; };
 		4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79F21E6633500441767 /* PlayerMediaView.swift */; };
 		4102C7A221E6758800441767 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A121E6758800441767 /* Resource.swift */; };
 		4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A321E7625E00441767 /* ResourceCell.swift */; };
@@ -16,7 +15,6 @@
 		411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0F21DD0C03001D64BD /* PlayerController.swift */; };
 		411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
 		411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */; };
-		411CDC2321DD0C05001D64BD /* turntableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2221DD0C05001D64BD /* turntableTests.swift */; };
 		411CDC2E21DD0C05001D64BD /* turntableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2D21DD0C05001D64BD /* turntableUITests.swift */; };
 		41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7A21E7FF080017DA6C /* QueueItem.swift */; };
 		41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7C21E800420017DA6C /* SetupDummyData.swift */; };
@@ -34,9 +32,10 @@
 		4132725921EE8E3800B2E88D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725821EE8E3800B2E88D /* BaseView.swift */; };
 		4132725B21EE931A00B2E88D /* SessionSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725A21EE931A00B2E88D /* SessionSetupView.swift */; };
 		4138A78921EA4AA300961448 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138A78821EA4AA300961448 /* DummyData.swift */; };
+		417306012204A11000F3E45E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417306002204A11000F3E45E /* Session.swift */; };
 		418F0A9D220375BC00A5AB71 /* ShareSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
-		41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* LibraryController.swift */; };
+		41942C7421E404AC00F7F136 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* SearchController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
 		41CE495E21EFC20200D6014A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41CE495D21EFC20200D6014A /* GoogleService-Info.plist */; };
 		41FDE61121E540C9009BA399 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FDE61021E540C9009BA399 /* Extensions.swift */; };
@@ -65,7 +64,6 @@
 /* Begin PBXFileReference section */
 		34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4102C79B21E636F900441767 /* Attendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
-		4102C79D21E6398B00441767 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		4102C79F21E6633500441767 /* PlayerMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMediaView.swift; sourceTree = "<group>"; };
 		4102C7A121E6758800441767 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		4102C7A321E7625E00441767 /* ResourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
@@ -76,8 +74,6 @@
 		411CDC1721DD0C05001D64BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		411CDC1921DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		411CDC1E21DD0C05001D64BD /* turntableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		411CDC2221DD0C05001D64BD /* turntableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableTests.swift; sourceTree = "<group>"; };
-		411CDC2421DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		411CDC2921DD0C05001D64BD /* turntableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC2D21DD0C05001D64BD /* turntableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUITests.swift; sourceTree = "<group>"; };
 		411CDC2F21DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,15 +87,17 @@
 		4125AEB121FFB79C0038B7B4 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4125AEB321FFB9170038B7B4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4125AEB521FFC2290038B7B4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		412B7681220A31BE0036178A /* Turntable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Turntable.xcdatamodel; sourceTree = "<group>"; };
 		4132725221EE4A2200B2E88D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4132725421EE7C3A00B2E88D /* HostJoinSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostJoinSessionController.swift; sourceTree = "<group>"; };
 		4132725621EE89F700B2E88D /* ReusableComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableComponents.swift; sourceTree = "<group>"; };
 		4132725821EE8E3800B2E88D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		4132725A21EE931A00B2E88D /* SessionSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetupView.swift; sourceTree = "<group>"; };
 		4138A78821EA4AA300961448 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		417306002204A11000F3E45E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSessionController.swift; sourceTree = "<group>"; };
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
-		41942C7321E404AC00F7F136 /* LibraryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryController.swift; sourceTree = "<group>"; };
+		41942C7321E404AC00F7F136 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		41CE495D21EFC20200D6014A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41FDE61021E540C9009BA399 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -156,10 +154,10 @@
 			isa = PBXGroup;
 			children = (
 				4102C79B21E636F900441767 /* Attendee.swift */,
-				4102C79D21E6398B00441767 /* Session.swift */,
 				4102C7A121E6758800441767 /* Resource.swift */,
 				41240E7A21E7FF080017DA6C /* QueueItem.swift */,
 				4138A78821EA4AA300961448 /* DummyData.swift */,
+				417306002204A11000F3E45E /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				411CDC0C21DD0C03001D64BD /* turntable */,
-				411CDC2121DD0C05001D64BD /* turntableTests */,
 				411CDC2C21DD0C05001D64BD /* turntableUITests */,
 				411CDC0B21DD0C03001D64BD /* Products */,
 				4F0346D02C5A755A5912E707 /* Pods */,
@@ -211,20 +208,12 @@
 				41FDE60F21E540B7009BA399 /* Helpers */,
 				41240E8A21EA29C10017DA6C /* Fonts */,
 				411CDC1421DD0C05001D64BD /* Assets.xcassets */,
+				412B7682220A31BE0036178A /* turntable.xcdatamodeld */,
 				411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */,
 				411CDC1921DD0C05001D64BD /* Info.plist */,
 				41CE495D21EFC20200D6014A /* GoogleService-Info.plist */,
 			);
 			path = turntable;
-			sourceTree = "<group>";
-		};
-		411CDC2121DD0C05001D64BD /* turntableTests */ = {
-			isa = PBXGroup;
-			children = (
-				411CDC2221DD0C05001D64BD /* turntableTests.swift */,
-				411CDC2421DD0C05001D64BD /* Info.plist */,
-			);
-			path = turntableTests;
 			sourceTree = "<group>";
 		};
 		411CDC2C21DD0C05001D64BD /* turntableUITests */ = {
@@ -250,7 +239,7 @@
 			children = (
 				41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */,
 				411CDC0F21DD0C03001D64BD /* PlayerController.swift */,
-				41942C7321E404AC00F7F136 /* LibraryController.swift */,
+				41942C7321E404AC00F7F136 /* SearchController.swift */,
 				41942C7521E404D100F7F136 /* SettingsController.swift */,
 			);
 			path = MainControllers;
@@ -530,7 +519,6 @@
 				41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */,
 				41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */,
 				4132725321EE4A2200B2E88D /* HomeController.swift in Sources */,
-				4102C79E21E6398B00441767 /* Session.swift in Sources */,
 				4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
 				4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */,
@@ -540,10 +528,11 @@
 				4132725B21EE931A00B2E88D /* SessionSetupView.swift in Sources */,
 				41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */,
 				41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */,
+				417306012204A11000F3E45E /* Session.swift in Sources */,
 				41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */,
 				4125AEB021FFA3AF0038B7B4 /* HostSessionSetupController.swift in Sources */,
 				4132725921EE8E3800B2E88D /* BaseView.swift in Sources */,
-				41942C7421E404AC00F7F136 /* LibraryController.swift in Sources */,
+				41942C7421E404AC00F7F136 /* SearchController.swift in Sources */,
 				4132725521EE7C3A00B2E88D /* HostJoinSessionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,7 +541,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				411CDC2321DD0C05001D64BD /* turntableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,6 +867,18 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		412B7682220A31BE0036178A /* turntable.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				412B7681220A31BE0036178A /* Turntable.xcdatamodel */,
+			);
+			currentVersion = 412B7681220A31BE0036178A /* Turntable.xcdatamodel */;
+			path = turntable.xcdatamodeld;
+			sourceTree = "<group>";
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 411CDC0221DD0C03001D64BD /* Project object */;
 }

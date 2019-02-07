@@ -23,6 +23,18 @@ class ReusableComponents: UIView, UITextFieldDelegate {
         return button
     }
     
+    func createSecondaryButtonWith(label: String) -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.setTitle(label, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 21)
+        button.titleLabel?.tintColor = .seaFoamBlue
+        button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }
+    
     func createSeperatorWith(backgroundColor: UIColor = UIColor.init(white: 1, alpha: 0.2)) -> UIView {
         let view = UIView()
         view.backgroundColor = backgroundColor
@@ -49,8 +61,6 @@ class ReusableComponents: UIView, UITextFieldDelegate {
         cell.textLabel?.text = title
         cell.selectionStyle = .none
         cell.accessoryType = accessoryType
-        
-        print(cell.frame.width)
         
         return cell
     }

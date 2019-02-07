@@ -54,21 +54,17 @@ class HomeController: UIViewController {
     }
     
     func logUserIn(email: String, password: String) {
-        print("login")
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
             if error != nil {
                 print(error!)
                 return
             }
-            
            return
         }
     }
     
     func registerNewUser(email: String, password: String) {
-        
-        print("register")
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
 
             if error != nil {

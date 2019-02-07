@@ -11,15 +11,24 @@ import Firebase
 
 class PlayerController: DatasourceController {
     
+    let statusBarBackgroundView = UIView()
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         
         let redview = PlayerMediaView()
         
         view.addSubview(redview)
         redview.anchor(top: nil, leading: nil, bottom: nil, trailing: nil, size: .init(width: view.frame.width, height: 528))
+        
+        statusBarBackgroundView.backgroundColor = UIColor(white: 18.0 / 255.0, alpha: 0)
+        
+        view.addSubview(statusBarBackgroundView)
+        statusBarBackgroundView.fillSuperview()
         
         view.backgroundColor = .backgroundDarkBlack
         
@@ -39,6 +48,7 @@ class PlayerController: DatasourceController {
     @objc func notLoggedIn() {
         present(UINavigationController(rootViewController: HomeController()), animated: true, completion: nil)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 16 + 48)
     }
@@ -51,9 +61,16 @@ class PlayerController: DatasourceController {
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 16 + 48)
     }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//        let opacityCalc = scrollView.contentOffset.x/320*0.8
+//        print(opacityCalc)
+//        statusBarBackgroundView.backgroundColor = UIColor(white: 18.0 / 255.0, alpha: opacityCalc)
+//    }
+    
 }
 

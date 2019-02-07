@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Firebase
 
 class SplashViewController: UIViewController {
@@ -27,8 +28,8 @@ class SplashViewController: UIViewController {
 
     func makeServiceCall() {
         activityIndicator.startAnimating()
-        
-        if Auth.auth().currentUser?.uid == nil {
+    
+        if currentSession.sessionKey == nil {
             // Shows Home Controller If Not Logged In
             AppDelegate.shared.rootViewController.showHomeView()
         } else {
