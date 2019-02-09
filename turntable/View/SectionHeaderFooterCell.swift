@@ -39,6 +39,8 @@ class SectionHeaderCell: DatasourceCell {
 
 class SectionFooterCell: DatasourceCell {
     
+    let reusableComponents = ReusableComponents()
+    
     let footerText : UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
@@ -55,7 +57,7 @@ class SectionFooterCell: DatasourceCell {
     }()
     
     let footerDescriptionText = "Saved playlists will appear in your spotfify library with the title Test Party."
-    lazy var footerDescription = ReusableComponents().createDescriptionWith(text: footerDescriptionText)
+    lazy var footerDescription = reusableComponents.createDescriptionWith(text: footerDescriptionText)
     
     override func setupViews() {
         

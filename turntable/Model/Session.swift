@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-var currentSession = Session()
+let currentSession = Session()
 
 class Session {
     
@@ -18,12 +18,8 @@ class Session {
     var maxGuests: Int?
     var context: String?
     var historyPlaylist: String?
-    var organiser: Attendee?
-    
-    let database = Database.database().reference(fromURL: "https://turntable-a0a6f.firebaseio.com/")
-    
-    init() {
-    }
+    var organiser: String?
+    var nowPlaying: String?
     
     func generateKey() {
         
@@ -36,12 +32,12 @@ class Session {
     
     }
     
-    func createHistoryPlaylist(owner: Attendee) -> String {
+    func createHistoryPlaylist(owner: String) -> String {
         let historyPlaylist = "3Ms5s5BCv6oz8Xb0gVXti5"
         return historyPlaylist
     }
     
-    func setupSession(sessionName: String, maxGuests: Int = 10, context: String, historyPlaylist: Bool, organiser: Attendee) -> Bool {
+    func setupSession(sessionName: String, maxGuests: Int = 10, context: String, historyPlaylist: Bool, organiser: String) -> Bool {
         
         self.sessionName = sessionName
         self.maxGuests = maxGuests
@@ -56,8 +52,8 @@ class Session {
             self.historyPlaylist = ""
         }
         
-        let sessionDatabase = database.child("session").child(self.sessionKey ?? "")
-        let values = ["sessionName": sessionName, "owner": organiser.username!, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"]
+        let sessionDatabase = Database.database().reference().child("session").child(self.sessionKey ?? "")
+        let values = ["sessionName": sessionName, "owner": organiser, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"]
         
         var success = true
             
@@ -73,6 +69,21 @@ class Session {
 
         return success
         
+    }
+    
+    func joinSession(snapshot: DataSnapshot, completion: (Bool) -> ()) {
+        
+        self.sessionName = snapshot.childSnapshot(forPath: "sessionName").value as? String
+        self.organiser = snapshot.childSnapshot(forPath: "owner").value as? String
+        self.sessionKey = snapshot.key
+        self.historyPlaylist = snapshot.childSnapshot(forPath: "historyPlaylist").value as? String
+        self.nowPlaying = snapshot.childSnapshot(forPath: "nowPlaying").value as? String
+        
+        currentSessionQueue.setSession(session: currentSession)
+   
+        print(sessionName!)
+        completion(true)
+
     }
     
     

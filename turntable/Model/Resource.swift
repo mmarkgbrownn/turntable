@@ -15,21 +15,23 @@ class Resource: NSObject {
     var imageSmall: String?
     var imageLarge: String?
     
-    init(id: String, name: String, imageSmall: String, imageLarge: String) {
+    init(id: String, name: String, imageSmall: String?, imageLarge: String?) {
         self.id = id
         self.name = name
-        self.imageSmall = imageSmall
-        self.imageLarge = imageLarge
+        if let imageSmall = imageSmall, let imageLarge = imageLarge {
+            self.imageSmall = imageSmall
+            self.imageLarge = imageLarge
+        }
     }
 
-}
+} 
 
 class Track: Resource {
     
     var artist: Array<Artist>?
     var runtime: String?
     
-    init(id: String, name: String, imageSmall: String, imageLarge: String, artist: [Artist], runtime: Int) {
+    init(id: String, name: String, imageSmall: String?, imageLarge: String?, artist: [Artist], runtime: Int) {
         super.init(id: id, name: name, imageSmall: imageSmall, imageLarge: imageLarge)
         self.artist = artist
         self.formatDuration(duration: (runtime / 1000))
@@ -52,10 +54,7 @@ class Track: Resource {
 
 class Artist: Resource {
     
-    override init(id: String, name: String, imageSmall: String, imageLarge: String) {
+    override init(id: String, name: String, imageSmall: String?, imageLarge: String?) {
         super.init(id: id, name: name, imageSmall: imageSmall, imageLarge: imageLarge)
     }
-}
-
-extension Resource {
 }

@@ -10,10 +10,22 @@ import UIKit
 
 class PlayerMediaView: BaseView {
     
+    let reusableComponents = ReusableComponents()
+    
     var nowPlaying: QueueItem? {
         didSet {
             
-            setupArtworkImage()
+            if let urlString = nowPlaying?.track?.imageLarge {
+                let url = URL(string: "https://i.scdn.co/image/" + urlString)
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: url!)
+                    DispatchQueue.main.async {
+                        self.mediaArtworkView.image = UIImage(data: data!)
+                        self.mediaBackgroundBlurView.image = UIImage(data: data!)
+                    }
+                }
+                
+            }
             
             if let title = nowPlaying?.track?.name {
                 mediaTitleLabelView.text = title
@@ -22,13 +34,6 @@ class PlayerMediaView: BaseView {
                 mediaArtistLabelView.text = artist[0].name
             }
             
-        }
-    }
-    
-    func setupArtworkImage() {
-        if let artwork = nowPlaying?.track?.imageLarge {
-            //mediaBackgroundBlurView.image = artwork
-            print(artwork)
         }
     }
     
@@ -114,9 +119,9 @@ class PlayerMediaView: BaseView {
         
     }()
     
-    let artworkSeperator = ReusableComponents().createSeperatorWith()
-    let searchSeperator = ReusableComponents().createSeperatorWith()
-    let bottomSeperator = ReusableComponents().createSeperatorWith()
+    lazy var artworkSeperator = reusableComponents.createSeperatorWith()
+    lazy var searchSeperator = reusableComponents.createSeperatorWith()
+    lazy var bottomSeperator = reusableComponents.createSeperatorWith()
     
     override func setupView() {
         

@@ -10,10 +10,23 @@ import LBTAComponents
 
 class ResourceCell: DatasourceCell {
     
+    var queueItem: QueueItem?
+    
     override var datasourceItem: Any? {
         didSet {
             
-            let queueItem = datasourceItem as? QueueItem
+            queueItem = datasourceItem as? QueueItem
+            
+            if let urlString = queueItem?.track?.imageSmall {
+                let url = URL(string: "https://i.scdn.co/image/" + urlString)
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: url!)
+                    DispatchQueue.main.async {
+                       self.resourceArtwork.image = UIImage(data: data!)
+                    }
+                }
+
+            }
             
             resourceTitle.text = queueItem?.track?.name
             
@@ -36,10 +49,9 @@ class ResourceCell: DatasourceCell {
         }
     }
     
-    let resourceArtwork : UIView = {
-       
+    let resourceArtwork : UIImageView = {
         //Add image to artwork view
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "butterflyEffect"))
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         return imageView
@@ -48,7 +60,6 @@ class ResourceCell: DatasourceCell {
     
     let resourceTitle : UILabel = {
         let label = UILabel()
-        label.text = "BUTTERFLY EFFECT"
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .white
@@ -58,7 +69,6 @@ class ResourceCell: DatasourceCell {
     
     let resourceSubtitle : UILabel = {
         let label = UILabel()
-        label.text = "Travis Scott"
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = UIColor.init(white: 1, alpha: 0.5)
@@ -68,7 +78,6 @@ class ResourceCell: DatasourceCell {
     
     let resourceRuntime : UILabel = {
         let textView = UILabel()
-        textView.text = "0:00"
         textView.textColor = UIColor.init(white: 0.96, alpha: 1)
         textView.font = UIFont.systemFont(ofSize: 13)
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,5 +101,18 @@ class ResourceCell: DatasourceCell {
         
         resourceTitle.anchor(top: resourceArtwork.topAnchor, leading: resourceArtwork.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 6, left: 8, bottom: 1, right: 0) )
         resourceSubtitle.anchor(top: resourceTitle.bottomAnchor, leading: resourceTitle.leadingAnchor, bottom: nil, trailing: nil)
-    }    
+    }
+    
+    func didInteract(state: String) {
+        switch state {
+        case "highlight":
+            backgroundColor = .backgroundLightBlack
+            resourceTitle.textColor = .seaFoamBlue
+        case "unhighlight":
+            backgroundColor = .backgroundDarkBlack
+            resourceTitle.textColor = .white
+        default:
+            print("send state")
+        }
+    }
 }

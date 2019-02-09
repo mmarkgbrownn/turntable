@@ -8,16 +8,16 @@
 
 import UIKit
 
-class QueueItem: NSObject{
+class QueueItem {
     
     var track: Track?
-    var session: Session?
-    var order: Int?
+    var timestamp: Int?
     
-    init(track: Track, session: Session, order: Int) {
+    init(track: Track, timestamp: Int) {
+        
         self.track = track
-        self.session = session
-        self.order = order
+        self.timestamp = timestamp
+        
     }
     
 }

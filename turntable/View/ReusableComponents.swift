@@ -11,11 +11,11 @@ import UIKit
 class ReusableComponents: UIView, UITextFieldDelegate {
     
     func createButtonWith(label: String) -> UIButton {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .seaFoamBlue
         button.setTitle(label, for: .normal)
         button.titleLabel?.font = UIFont.poppinsPlayerHeader
-        button.titleLabel?.textColor = .white
+        button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 13
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -24,11 +24,11 @@ class ReusableComponents: UIView, UITextFieldDelegate {
     }
     
     func createSecondaryButtonWith(label: String) -> UIButton {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = .clear
         button.setTitle(label, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 21)
-        button.titleLabel?.tintColor = .seaFoamBlue
+        button.setTitleColor(.seaFoamBlue, for: .normal)
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -86,4 +86,5 @@ class ReusableComponents: UIView, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
 }

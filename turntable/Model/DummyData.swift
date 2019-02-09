@@ -10,13 +10,23 @@ import LBTAComponents
 
 class DummyData: Datasource {
     
-    let queueItems = [
-        QueueItem(track: Track(id: "fakeID", name: "Hurting (Gerd Janson Remix)", imageSmall: "", imageLarge: "", artist: [Artist(id: "fakeID", name: "SG Lewis", imageSmall: "", imageLarge: ""), Artist(id: "fakeID", name: "AlunaGeorge", imageSmall: "", imageLarge: "")], runtime: 183000), session: Session() , order: 1),
-        QueueItem(track: Track(id: "fakeID", name: "Your Love", imageSmall: "", imageLarge: "", artist: [Artist(id: "fakeID", name: "Tom Misch", imageSmall: "", imageLarge: "")], runtime: 249000), session: Session(), order: 2),
-        QueueItem(track: Track(id: "fakeID", name: "AGEN WIDA", imageSmall: "", imageLarge: "", artist: [Artist(id: "fakeID", name: "Joyryde", imageSmall: "", imageLarge: ""), Artist(id: "fakeID", name: "Skrillex", imageSmall: "", imageLarge: "")], runtime: 191400), session: Session(), order: 3),
-        QueueItem(track: Track(id: "fakeID", name: "Sicko Mode", imageSmall: "", imageLarge: "", artist: [Artist(id: "fakeID", name: "Travis Scott", imageSmall: "", imageLarge: "")], runtime: 307800), session: Session(), order: 4),
-        QueueItem(track: Track(id: "fakeID", name: "The Love", imageSmall: "", imageLarge: "", artist: [Artist(id: "fakeID", name: "JaduHeart", imageSmall: "", imageLarge: "")], runtime: 270000), session: currentSession, order: 5)
+    let track1 = Track(id: "", name: "Hurting (Gerd Janson Remix)", imageSmall: "830644e676708a8f628cdba9c8bae020b273994b", imageLarge: "85de4509b280464293ed51e1bf230b4a8c24962f", artist: [Artist(id: "fakeID", name: "SG Lewis", imageSmall: "", imageLarge: "")], runtime: 246468)
+    
+    let track2 = Track(id: "fakeID", name: "AGEN WIDA", imageSmall: "349edd37b55a1d2afb40ee79a3be1b0f822028b8", imageLarge: "8948d645353a40ad22bc5b9f62b955a26e3c66f1", artist: [Artist(id: "fakeID", name: "Joyryde", imageSmall: "", imageLarge: ""), Artist(id: "fakeID", name: "Skrillex", imageSmall: "", imageLarge: "")], runtime: 191400)
+    
+    let track3 = Track(id: "fakeID", name: "Sicko Mode", imageSmall: "092f661e5290a05410f1696e608cb140461b7ebf", imageLarge: "1ab97df000596d224199bbf7492e2bb5d09ea297", artist: [Artist(id: "fakeID", name: "Travis Scott", imageSmall: "", imageLarge: "")], runtime: 307800)
+    
+    let track4 = Track(id: "fakeID", name: "The Love", imageSmall: "9abaf059f3e703559057162a9b83729db1d3e24c", imageLarge: "7389b7b15bc74400ef7ac4ae73caa90011f98002", artist: [Artist(id: "fakeID", name: "JaduHeart", imageSmall: "", imageLarge: "")], runtime: 270000)
+    
+    lazy var queueItems = [
+        
+        QueueItem(track: track2, timestamp: Int(NSTimeIntervalSince1970)),
+        QueueItem(track: track3, timestamp: Int(NSTimeIntervalSince1970)),
+        QueueItem(track: track1, timestamp: Int(NSTimeIntervalSince1970)),
+        
     ]
+    
+    lazy var nowPlaying = QueueItem(track: track4, timestamp: Int(NSTimeIntervalSince1970))
     
     override func headerClasses() -> [DatasourceCell.Type]? {
         return [SectionHeaderCell.self]
@@ -49,6 +59,5 @@ class DummyData: Datasource {
     override func numberOfItems(_ section: Int) -> Int {
         return queueItems.count
     }
-    
-    let nowPlaying = QueueItem(track: Track(id: "fakeID", name: "I'm A Kid", imageSmall: "", imageLarge: "", artist: [Artist(id: "fakeID", name: "Jadu Heart", imageSmall: "", imageLarge: "")], runtime: 183000), session: Session(), order: 0)
+
 }

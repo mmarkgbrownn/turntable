@@ -11,7 +11,6 @@ import Firebase
 
 class HomeController: UIViewController {
     
-    let database = Database.database().reference(fromURL: "https://turntable-a0a6f.firebaseio.com/")
     var currentUser = Attendee()
     
     override func viewDidLoad() {
@@ -78,7 +77,7 @@ class HomeController: UIViewController {
             }
             
             if let username = self.currentUser.username {
-                let userDatabase = self.database.child("user").child(username)
+                let userDatabase = Database.database().reference().child("user").child(username)
                 let values = ["email": savedEmail, "session": ""]
                 
                 userDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in

@@ -10,6 +10,8 @@ import UIKit
 
 class HomeView: BaseView {
     
+    let reusableComponents = ReusableComponents()
+    
     let logo: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "Logo")
@@ -41,9 +43,9 @@ class HomeView: BaseView {
     
     let descriptionText = "Turntable uses Spotify to provide a vast library of music for your event. Please connect your spotify preimum acount to complete setup."
     
-    lazy var homeDescriptionText = ReusableComponents().createDescriptionWith(text: descriptionText)
+    lazy var homeDescriptionText = reusableComponents.createDescriptionWith(text: descriptionText)
     
-    lazy var homeButton = ReusableComponents().createButtonWith(label: "Connect Spotify")
+    lazy var homeButton = reusableComponents.createButtonWith(label: "Connect Spotify")
     
     override func setupView() {
         

@@ -16,8 +16,9 @@
 		411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
 		411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */; };
 		411CDC2E21DD0C05001D64BD /* turntableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2D21DD0C05001D64BD /* turntableUITests.swift */; };
+		4123693E220DF59C0015A733 /* DummyDataSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4123693D220DF59C0015A733 /* DummyDataSearch.swift */; };
+		41236940220E36B40015A733 /* SessionQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4123693F220E36B40015A733 /* SessionQueue.swift */; };
 		41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7A21E7FF080017DA6C /* QueueItem.swift */; };
-		41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7C21E800420017DA6C /* SetupDummyData.swift */; };
 		41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7E21E8EF150017DA6C /* SearchBarView.swift */; };
 		41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */; };
 		41240E8D21EA2FA00017DA6C /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41240E8C21EA29C80017DA6C /* Poppins-Bold.ttf */; };
@@ -77,8 +78,9 @@
 		411CDC2921DD0C05001D64BD /* turntableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC2D21DD0C05001D64BD /* turntableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUITests.swift; sourceTree = "<group>"; };
 		411CDC2F21DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4123693D220DF59C0015A733 /* DummyDataSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataSearch.swift; sourceTree = "<group>"; };
+		4123693F220E36B40015A733 /* SessionQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionQueue.swift; sourceTree = "<group>"; };
 		41240E7A21E7FF080017DA6C /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
-		41240E7C21E800420017DA6C /* SetupDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDummyData.swift; sourceTree = "<group>"; };
 		41240E7E21E8EF150017DA6C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderFooterCell.swift; sourceTree = "<group>"; };
 		41240E8B21EA29C70017DA6C /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -157,7 +159,9 @@
 				4102C7A121E6758800441767 /* Resource.swift */,
 				41240E7A21E7FF080017DA6C /* QueueItem.swift */,
 				4138A78821EA4AA300961448 /* DummyData.swift */,
+				4123693D220DF59C0015A733 /* DummyDataSearch.swift */,
 				417306002204A11000F3E45E /* Session.swift */,
+				4123693F220E36B40015A733 /* SessionQueue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				41FDE61021E540C9009BA399 /* Extensions.swift */,
-				41240E7C21E800420017DA6C /* SetupDummyData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -520,6 +523,8 @@
 				41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */,
 				4132725321EE4A2200B2E88D /* HomeController.swift in Sources */,
 				4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */,
+				4123693E220DF59C0015A733 /* DummyDataSearch.swift in Sources */,
+				41236940220E36B40015A733 /* SessionQueue.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
 				4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */,
 				4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */,
@@ -529,7 +534,6 @@
 				41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */,
 				41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */,
 				417306012204A11000F3E45E /* Session.swift in Sources */,
-				41240E7D21E800420017DA6C /* SetupDummyData.swift in Sources */,
 				4125AEB021FFA3AF0038B7B4 /* HostSessionSetupController.swift in Sources */,
 				4132725921EE8E3800B2E88D /* BaseView.swift in Sources */,
 				41942C7421E404AC00F7F136 /* SearchController.swift in Sources */,

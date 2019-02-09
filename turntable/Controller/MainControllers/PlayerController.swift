@@ -13,6 +13,10 @@ class PlayerController: DatasourceController {
     
     let statusBarBackgroundView = UIView()
     
+    override func viewWillAppear(_ animated: Bool) {
+        currentSessionQueue.getQueueFromFirebase()
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -41,7 +45,6 @@ class PlayerController: DatasourceController {
         //Use this when you have changed the size of redView
         collectionView.contentInset = UIEdgeInsets(top: 490, left: 0, bottom: 0, right: 0)
         view.bringSubviewToFront(collectionView)
-        
         
     }
     
