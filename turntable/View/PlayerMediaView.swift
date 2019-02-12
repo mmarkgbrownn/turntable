@@ -15,7 +15,7 @@ class PlayerMediaView: BaseView {
     var nowPlaying: QueueItem? {
         didSet {
             
-            if let urlString = nowPlaying?.track?.imageLarge {
+            if let urlString = nowPlaying?.imageLarge {
                 let url = URL(string: "https://i.scdn.co/image/" + urlString)
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: url!)
@@ -27,11 +27,11 @@ class PlayerMediaView: BaseView {
                 
             }
             
-            if let title = nowPlaying?.track?.name {
+            if let title = nowPlaying?.name {
                 mediaTitleLabelView.text = title
             }
-            if let artist = nowPlaying?.track?.artist {
-                mediaArtistLabelView.text = artist[0].name
+            if let artist = nowPlaying?.artist {
+                mediaArtistLabelView.text = artist
             }
             
         }

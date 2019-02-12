@@ -11,7 +11,7 @@ import Firebase
 
 class HomeController: UIViewController {
     
-    var currentUser = Attendee()
+    var currentUser = Attendee(id: "4eroaxv5q4rlv8w2nbjzrheoz", username: "turntable", email: "communications@turntableapp.co.uk", spotifyKey: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,57 +28,34 @@ class HomeController: UIViewController {
     
     @objc func handleLogin() {
         
-        // these details come from spotify
-        currentUser.username = "turntable"
-        currentUser.email = "communications@turntableapp.co.uk"
-        let password = "4eroaxv5q4rlv8w2nbjzrheoz"
-        
-        Database.database().reference().child("user").child(currentUser.username!).observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            if snapshot.hasChild("email") {
-                if let email = self.currentUser.email {
-                    self.logUserIn(email: email, password: password)
-                }
-            } else {
-                self.registerNewUser(email: self.currentUser.email!, password: password)
-            }
-
-        }, withCancel: nil)
-        
-        self.navigationController?.pushViewController(HostJoinSessionController(), animated: true)
+        Auth.auth().fetchProviders(forEmail: currentUser.email) { (result, error) in
+            (result == ["password"]) ? self.logUserIn() : self.registerNewUser()
+            self.navigationController?.pushViewController(HostJoinSessionController(), animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    func logUserIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+    func logUserIn() {
+        Auth.auth().signIn(withEmail: self.currentUser.email, password: self.currentUser.id) { (user, error) in
             
-            if error != nil {
-                print(error!)
-                return
-            }
-           return
+            if error != nil { print(error!); return }
+            
+            return
         }
     }
     
-    func registerNewUser(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+    func registerNewUser() {
+        Auth.auth().createUser(withEmail: currentUser.email, password: self.currentUser.id) { (result, error) in
 
-            if error != nil {
-                print(error!)
-                return
-            }
+            if error != nil { print(error!); return }
 
-            guard let savedEmail = result?.user.email else {
-                print("Error, Did not create result email")
-                return
-            }
-            
-            if let username = self.currentUser.username {
-                let userDatabase = Database.database().reference().child("user").child(username)
-                let values = ["email": savedEmail, "session": ""]
+            if let savedEmail = result?.user.email, let userId = result?.user.uid {
+                
+                let userDatabase = Database.database().reference().child("user").child(userId)
+                let values = ["spotifyId": self.currentUser.id, "username": self.currentUser.username, "email": savedEmail, "session": ""]
                 
                 userDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
                     
@@ -90,6 +67,7 @@ class HomeController: UIViewController {
                     return
                     
                 })
+                
             }
         }
     }

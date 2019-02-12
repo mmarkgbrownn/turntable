@@ -28,13 +28,21 @@ class SplashViewController: UIViewController {
 
     func makeServiceCall() {
         activityIndicator.startAnimating()
+        
     
-        if currentSession.sessionKey == nil {
+        if Auth.auth().currentUser?.uid == nil {
             // Shows Home Controller If Not Logged In
             AppDelegate.shared.rootViewController.showHomeView()
         } else {
             //Shows Player If Logged In
-            AppDelegate.shared.rootViewController.switchToPlayerView()
+            Session.shared().checkIfInSession(completion: { (result) in
+                if result == "InSession" {
+                    AppDelegate.shared.rootViewController.switchToPlayerView()
+                } else {
+                    AppDelegate.shared.rootViewController.showHomeView()
+                    print("jump login here")
+                }
+            })
         }
     }
 }

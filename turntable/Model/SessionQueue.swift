@@ -9,51 +9,71 @@
 import UIKit
 import Firebase
 
-let currentSessionQueue = SessionQueue()
-
 class SessionQueue {
     
     var session: Session?
     var sessionQueue: [QueueItem]?
     
+    private static var currentSessionQueue: SessionQueue = {
+        
+        let sessionQueue = SessionQueue()
+        return sessionQueue
+        
+    }()
+    
+    private init() {
+    }
+    
+    class func shared() -> SessionQueue {
+        return currentSessionQueue
+    }
+    
     func setSession(session: Session) {
         self.session = session
         self.sessionQueue = []
+        self.observeQueue()
     }
     
     func addToQueue(track: Track, completion: (Bool) -> ()) {
         
         //Add to firebase queue too
-        if let sessionKey = currentSession.sessionKey, let trackId = track.id {
+        if let sessionKey = Session.shared().sessionKey, let trackId = track.id, let trackArtist = track.artist{
             
 //            var artistValues = [String: String]()
-//            track.artist?.forEach({ if let artistId = $0.id { artistValues[artistId] = "" } })
-            
-            let trackArtist = track.artist?.first?.name
+//            track.artist?.forEach({ if let artistId = $0.id { artistValues[artistId] = "" } }
             
             let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey).child(trackId)
-            let values = ["name": track.name, "artist": trackArtist, "imageSmall": track.imageSmall, "imageLarge": track.imageLarge, "runtime": track.runtime, "timestamp": String(NSTimeIntervalSince1970)]
+            let values = ["id": trackId, "name": track.name, "artist": trackArtist, "imageSmall": track.imageSmall, "imageLarge": track.imageLarge, "runtime": track.runtime, "timestamp": String(NSTimeIntervalSince1970)] as [String: AnyObject]
             
             sessionQueueDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 
-                if err != nil {
-                    print(err!)
-                    return
-                }
+                if err != nil { print(err!); return }
                 
                 return
             })
-    
             
         }
-        
-        let newItem = QueueItem(track: track, timestamp: Int(NSTimeIntervalSince1970))
-        self.sessionQueue?.append(newItem)
         
         completion(true)
     }
     
-    func getQueueFromFirebase() {
+    func observeQueue()  {
+        
+        guard let sessionKey = Session.shared().sessionKey else { return }
+        
+        let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey)
+        sessionQueueDatabase.observe(.childAdded, with: { (snapshot) in
+            
+            guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+            
+            let queueItem = QueueItem(dictonary: dictionary)
+            self.sessionQueue?.append(queueItem)
+            
+            DispatchQueue.main.async {
+                player?.collectionView.reloadData()
+            }
+            
+        })
         
     }
     

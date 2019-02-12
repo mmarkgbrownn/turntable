@@ -8,7 +8,7 @@
 
 import LBTAComponents
 
-class ResourceCell: DatasourceCell {
+class QueueItemCell: DatasourceCell {
     
     var queueItem: QueueItem?
     
@@ -17,7 +17,7 @@ class ResourceCell: DatasourceCell {
             
             queueItem = datasourceItem as? QueueItem
             
-            if let urlString = queueItem?.track?.imageSmall {
+            if let urlString = queueItem?.imageSmall {
                 let url = URL(string: "https://i.scdn.co/image/" + urlString)
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: url!)
@@ -28,22 +28,13 @@ class ResourceCell: DatasourceCell {
 
             }
             
-            resourceTitle.text = queueItem?.track?.name
+            resourceTitle.text = queueItem?.name
             
-            let subtitle = queueItem?.track?.artist
-            var subtitleString = ""
+            let subtitle = queueItem?.artist
             
-            subtitle?.forEach({ (artist) in
-                if artist == subtitle!.first {
-                    subtitleString = artist.name!
-                } else {
-                    subtitleString = subtitleString + ", " + artist.name!
-                }
-            })
+            resourceSubtitle.text = subtitle
             
-            resourceSubtitle.text = subtitleString
-            
-            if let runtime = queueItem?.track?.runtime {
+            if let runtime = queueItem?.runtime {
                 resourceRuntime.text = String(runtime)
             }
         }
@@ -101,18 +92,5 @@ class ResourceCell: DatasourceCell {
         
         resourceTitle.anchor(top: resourceArtwork.topAnchor, leading: resourceArtwork.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 6, left: 8, bottom: 1, right: 0) )
         resourceSubtitle.anchor(top: resourceTitle.bottomAnchor, leading: resourceTitle.leadingAnchor, bottom: nil, trailing: nil)
-    }
-    
-    func didInteract(state: String) {
-        switch state {
-        case "highlight":
-            backgroundColor = .backgroundLightBlack
-            resourceTitle.textColor = .seaFoamBlue
-        case "unhighlight":
-            backgroundColor = .backgroundDarkBlack
-            resourceTitle.textColor = .white
-        default:
-            print("send state")
-        }
     }
 }

@@ -22,6 +22,19 @@ class SearchController: DatasourceController {
         self.datasource = searchDataSource
         collectionView.backgroundColor = nil
     }
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.cellForItem(at: indexPath) as! SearchResultCell
+//        
+//        SessionQueue.shared().sessionQueue?.forEach({ (queueItem) in
+//            if queueItem.id == cell.searchItem?.id {
+//                print(cell.searchItem?.name, " is in queue")
+//            } else {
+//                
+//            }
+//        })
+//        
+//        return cell
+//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 16 + 48)
@@ -40,20 +53,21 @@ class SearchController: DatasourceController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? ResourceCell
+        let cell = collectionView.cellForItem(at: indexPath) as? SearchResultCell
         cell?.didInteract(state: "highlight")
     }
     
     override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? ResourceCell
+        let cell = collectionView.cellForItem(at: indexPath) as? SearchResultCell
         cell?.didInteract(state: "unhighlight")
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? ResourceCell
-        if let track = cell?.queueItem?.track {
+        let cell = collectionView.cellForItem(at: indexPath) as? SearchResultCell
+        if let track = cell?.searchItem {
             cell?.didInteract(state: "highlight")
-            currentSessionQueue.addToQueue(track: track) { (Bool) in
+            SessionQueue.shared().addToQueue(track: track) { (Bool) in
+                cell?.itemStatusIndicator.image = UIImage(named: "inQueue")
                 cell?.didInteract(state: "unhighlight")
             }
         }

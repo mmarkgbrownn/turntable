@@ -9,13 +9,11 @@
 import LBTAComponents
 import Firebase
 
+var player: PlayerController?
+
 class PlayerController: DatasourceController {
     
     let statusBarBackgroundView = UIView()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        currentSessionQueue.getQueueFromFirebase()
-    }
     
     override func viewDidLoad() {
         
@@ -23,8 +21,8 @@ class PlayerController: DatasourceController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        
         let redview = PlayerMediaView()
+        player = self
         
         view.addSubview(redview)
         redview.anchor(top: nil, leading: nil, bottom: nil, trailing: nil, size: .init(width: view.frame.width, height: 528))
@@ -36,7 +34,7 @@ class PlayerController: DatasourceController {
         
         view.backgroundColor = .backgroundDarkBlack
         
-        let playerDataSource = DummyData()
+        let playerDataSource = PlayerData()
         self.datasource = playerDataSource
         
         redview.nowPlaying = playerDataSource.nowPlaying

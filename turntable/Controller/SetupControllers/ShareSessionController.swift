@@ -26,7 +26,7 @@ class ShareSessionController: UIViewController {
        
         let label = UILabel()
         
-        label.text = currentSession.sessionKey
+        label.text = Session.shared().sessionKey
         label.font = UIFont.poppinsPosterText
         label.textAlignment = .center
         label.textColor = .white
@@ -67,7 +67,7 @@ class ShareSessionController: UIViewController {
     
     @objc func shareSession() {
         // text to share
-        let text = "Join Turntable and add music to my session: " + currentSession.sessionKey!
+        let text = "Join Turntable and add music to my session: " + Session.shared().sessionKey!
         let myWebsite = NSURL(string:"https://turntableapp.co.uk")
         
         // set up activity view controller

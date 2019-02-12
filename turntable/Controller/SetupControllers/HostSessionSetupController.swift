@@ -181,15 +181,11 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         
         //create a new session by posting session name, code, owner, nowPlaying and history playlist to firebase also store this data in CoreData
         if sessionName != "" {
-            if currentSession.setupSession(sessionName: sessionName, maxGuests: 10, context: "Party", historyPlaylist: historyEnabled, organiser: Auth.auth().currentUser!.uid) {
-                
-                self.navigationController?.pushViewController(ShareSessionController(), animated: true)
-                
-            }
+            Session.shared().setupSession(sessionName: sessionName, maxGuests: 10, context: "Party", historyPlaylist: historyEnabled, organiser: Auth.auth().currentUser!.uid)
+            self.navigationController?.pushViewController(ShareSessionController(), animated: true)
         }
         
         //Present session code screen
-        
         
     }
 }

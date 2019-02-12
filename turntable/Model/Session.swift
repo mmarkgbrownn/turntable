@@ -9,8 +9,6 @@
 import UIKit
 import Firebase
 
-let currentSession = Session()
-
 class Session {
     
     var sessionName: String?
@@ -21,14 +19,28 @@ class Session {
     var organiser: String?
     var nowPlaying: String?
     
-    func generateKey() {
+    private static var currentSession: Session = {
+        
+        let session = Session()
+        return session
+        
+    }()
+    
+    private init() {
+    }
+    
+    class func shared() -> Session {
+        return currentSession
+    }
+    
+    func generateKey() -> String {
         
         let keyNumbers  = 1...9
         let shuffledKey = keyNumbers.shuffled()
         let sessionKeyArray = shuffledKey.prefix(6)
         let sessionKey = sessionKeyArray.reduce(0){ $0 * 10 + $1 }
         
-        self.sessionKey = String(sessionKey)
+        return String(sessionKey)
     
     }
     
@@ -37,14 +49,9 @@ class Session {
         return historyPlaylist
     }
     
-    func setupSession(sessionName: String, maxGuests: Int = 10, context: String, historyPlaylist: Bool, organiser: String) -> Bool {
+    func setupSession(sessionName: String, maxGuests: Int = 10, context: String, historyPlaylist: Bool, organiser: String) {
         
-        self.sessionName = sessionName
-        self.maxGuests = maxGuests
-        self.context = context
-        self.organiser = organiser
-        
-        currentSession.generateKey()
+        let sessionKey = self.generateKey()
         
         if historyPlaylist {
             self.historyPlaylist = createHistoryPlaylist(owner: organiser)
@@ -52,38 +59,94 @@ class Session {
             self.historyPlaylist = ""
         }
         
-        let sessionDatabase = Database.database().reference().child("session").child(self.sessionKey ?? "")
-        let values = ["sessionName": sessionName, "owner": organiser, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"]
-        
-        var success = true
+        let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
+        let values = ["sessionKey": sessionKey, "sessionName": sessionName, "owner": organiser, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"]
             
         sessionDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
             
-            if err != nil {
-                print(err!)
-                success = false
+            if err != nil { print(err!); return }
+            
+            self.joinSession(snapshot: values, completion: { (Bool) in
                 return
-            }
-            return
+            })
         })
-
-        return success
+        
+        self.sessionKey = sessionKey
         
     }
     
-    func joinSession(snapshot: DataSnapshot, completion: (Bool) -> ()) {
+    func checkIfInSession(completion: @escaping (String) -> Void) {
         
-        self.sessionName = snapshot.childSnapshot(forPath: "sessionName").value as? String
-        self.organiser = snapshot.childSnapshot(forPath: "owner").value as? String
-        self.sessionKey = snapshot.key
-        self.historyPlaylist = snapshot.childSnapshot(forPath: "historyPlaylist").value as? String
-        self.nowPlaying = snapshot.childSnapshot(forPath: "nowPlaying").value as? String
+        if let userId = Auth.auth().currentUser?.uid {
+            let userDatabase = Database.database().reference().child("user").child(userId)
+            userDatabase.observeSingleEvent(of: .value) { (snapshot) in
+                
+                let value = snapshot.value as? NSDictionary
+                let sessionKey = value?["session"] as? String ?? ""
+                
+                if sessionKey != "" {
+                    let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
+                    sessionDatabase.observeSingleEvent(of: .value, with: { (snapshot) in
+                        guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+                        self.joinSession(snapshot: dictionary, completion: { (succ) in
+                            completion("InSession")
+                        })
+                    })
+                } else {
+                    completion("NotInSession")
+                }
+                
+                return
+            }
+        }
+    }
+    
+    func joinSession(snapshot: [String: Any], completion: (Bool) -> ()) {
         
-        currentSessionQueue.setSession(session: currentSession)
-   
-        print(sessionName!)
+        if self.sessionKey == nil {
+            self.sessionKey = snapshot["sessionKey"] as? String
+        }
+        
+        self.sessionName = snapshot["sessionName"] as? String
+        self.organiser = snapshot["owner"] as? String
+        self.historyPlaylist = snapshot["historyPlaylist"] as? String
+        self.nowPlaying = snapshot["nowPlaying"] as? String
+        
+        if let currentUserId = Auth.auth().currentUser?.uid, let sessionKey = self.sessionKey {
+            let userDatabase = Database.database().reference().child("user").child(currentUserId)
+            userDatabase.updateChildValues(["session": sessionKey])
+        }
+        
+        SessionQueue.shared().setSession(session: .currentSession)
+        
         completion(true)
 
+    }
+    
+    func leaveSession() {
+        
+        if self.organiser == Auth.auth().currentUser?.uid {
+            guard let sessionKey = self.sessionKey else { return }
+            
+            let sessionDatabaseRef = Database.database().reference().child("session").child(sessionKey)
+            let sessionQueueDatabaseRef = Database.database().reference().child("sessionQueue").child(sessionKey)
+            
+            sessionQueueDatabaseRef.removeAllObservers()
+            sessionQueueDatabaseRef.removeValue()
+            sessionDatabaseRef.removeValue()
+        }
+        
+        if let currentUserId = Auth.auth().currentUser?.uid {
+            let userDatabase = Database.database().reference().child("user").child(currentUserId)
+            userDatabase.updateChildValues(["session": ""])
+        }
+        
+        self.sessionKey = nil
+        self.sessionName = nil
+        self.organiser = nil
+        self.historyPlaylist = nil
+        self.nowPlaying = nil
+        
     }
     
     

@@ -10,7 +10,7 @@
 		4102C79C21E636F900441767 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79B21E636F900441767 /* Attendee.swift */; };
 		4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C79F21E6633500441767 /* PlayerMediaView.swift */; };
 		4102C7A221E6758800441767 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A121E6758800441767 /* Resource.swift */; };
-		4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A321E7625E00441767 /* ResourceCell.swift */; };
+		4102C7A421E7625E00441767 /* QueueItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A321E7625E00441767 /* QueueItemCell.swift */; };
 		411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0D21DD0C03001D64BD /* AppDelegate.swift */; };
 		411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0F21DD0C03001D64BD /* PlayerController.swift */; };
 		411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
@@ -32,7 +32,8 @@
 		4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725621EE89F700B2E88D /* ReusableComponents.swift */; };
 		4132725921EE8E3800B2E88D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725821EE8E3800B2E88D /* BaseView.swift */; };
 		4132725B21EE931A00B2E88D /* SessionSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725A21EE931A00B2E88D /* SessionSetupView.swift */; };
-		4138A78921EA4AA300961448 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138A78821EA4AA300961448 /* DummyData.swift */; };
+		4138A78921EA4AA300961448 /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138A78821EA4AA300961448 /* PlayerData.swift */; };
+		413E14F7221221AF00D2947B /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E14F6221221AF00D2947B /* SearchResultCell.swift */; };
 		417306012204A11000F3E45E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417306002204A11000F3E45E /* Session.swift */; };
 		418F0A9D220375BC00A5AB71 /* ShareSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
@@ -67,7 +68,7 @@
 		4102C79B21E636F900441767 /* Attendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
 		4102C79F21E6633500441767 /* PlayerMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMediaView.swift; sourceTree = "<group>"; };
 		4102C7A121E6758800441767 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
-		4102C7A321E7625E00441767 /* ResourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
+		4102C7A321E7625E00441767 /* QueueItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItemCell.swift; sourceTree = "<group>"; };
 		411CDC0A21DD0C03001D64BD /* turntable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = turntable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC0D21DD0C03001D64BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		411CDC0F21DD0C03001D64BD /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
@@ -95,7 +96,8 @@
 		4132725621EE89F700B2E88D /* ReusableComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableComponents.swift; sourceTree = "<group>"; };
 		4132725821EE8E3800B2E88D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		4132725A21EE931A00B2E88D /* SessionSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetupView.swift; sourceTree = "<group>"; };
-		4138A78821EA4AA300961448 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		4138A78821EA4AA300961448 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
+		413E14F6221221AF00D2947B /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		417306002204A11000F3E45E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSessionController.swift; sourceTree = "<group>"; };
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
@@ -158,7 +160,7 @@
 				4102C79B21E636F900441767 /* Attendee.swift */,
 				4102C7A121E6758800441767 /* Resource.swift */,
 				41240E7A21E7FF080017DA6C /* QueueItem.swift */,
-				4138A78821EA4AA300961448 /* DummyData.swift */,
+				4138A78821EA4AA300961448 /* PlayerData.swift */,
 				4123693D220DF59C0015A733 /* DummyDataSearch.swift */,
 				417306002204A11000F3E45E /* Session.swift */,
 				4123693F220E36B40015A733 /* SessionQueue.swift */,
@@ -173,10 +175,11 @@
 				4132725621EE89F700B2E88D /* ReusableComponents.swift */,
 				4132725A21EE931A00B2E88D /* SessionSetupView.swift */,
 				4102C79F21E6633500441767 /* PlayerMediaView.swift */,
-				4102C7A321E7625E00441767 /* ResourceCell.swift */,
+				4102C7A321E7625E00441767 /* QueueItemCell.swift */,
 				41240E7E21E8EF150017DA6C /* SearchBarView.swift */,
 				41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */,
 				4125AEB521FFC2290038B7B4 /* HomeView.swift */,
+				413E14F6221221AF00D2947B /* SearchResultCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,7 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				418F0A9D220375BC00A5AB71 /* ShareSessionController.swift in Sources */,
-				4138A78921EA4AA300961448 /* DummyData.swift in Sources */,
+				4138A78921EA4AA300961448 /* PlayerData.swift in Sources */,
 				411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */,
 				41942C7621E404D100F7F136 /* SettingsController.swift in Sources */,
 				4125AEB621FFC2290038B7B4 /* HomeView.swift in Sources */,
@@ -522,9 +525,10 @@
 				41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */,
 				41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */,
 				4132725321EE4A2200B2E88D /* HomeController.swift in Sources */,
-				4102C7A421E7625E00441767 /* ResourceCell.swift in Sources */,
+				4102C7A421E7625E00441767 /* QueueItemCell.swift in Sources */,
 				4123693E220DF59C0015A733 /* DummyDataSearch.swift in Sources */,
 				41236940220E36B40015A733 /* SessionQueue.swift in Sources */,
+				413E14F7221221AF00D2947B /* SearchResultCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
 				4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */,
 				4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */,

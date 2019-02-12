@@ -15,6 +15,9 @@ class Resource: NSObject {
     var imageSmall: String?
     var imageLarge: String?
     
+    override init() {
+    }
+    
     init(id: String, name: String, imageSmall: String?, imageLarge: String?) {
         self.id = id
         self.name = name
@@ -28,13 +31,17 @@ class Resource: NSObject {
 
 class Track: Resource {
     
-    var artist: Array<Artist>?
+    var artist: String?
     var runtime: String?
     
-    init(id: String, name: String, imageSmall: String?, imageLarge: String?, artist: [Artist], runtime: Int) {
+    override init(){
+        super.init()
+    }
+    
+    init(id: String, name: String, imageSmall: String?, imageLarge: String?, artist: String, runtime: String?) {
         super.init(id: id, name: name, imageSmall: imageSmall, imageLarge: imageLarge)
         self.artist = artist
-        self.formatDuration(duration: (runtime / 1000))
+        self.runtime = runtime
     }
     
     func formatDuration(duration: Int) {
