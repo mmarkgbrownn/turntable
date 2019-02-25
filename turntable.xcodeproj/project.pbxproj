@@ -39,7 +39,12 @@
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
 		41942C7421E404AC00F7F136 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* SearchController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
+		41C3A1AA2212ED2D00B76496 /* TransportControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C3A1A92212ED2D00B76496 /* TransportControlView.swift */; };
+		41C3A1AC22148AD200B76496 /* SettingCellsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C3A1AB22148AD200B76496 /* SettingCellsView.swift */; };
 		41CE495E21EFC20200D6014A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41CE495D21EFC20200D6014A /* GoogleService-Info.plist */; };
+		41D8825D2218CDBF00D3C987 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8825C2218CDBF00D3C987 /* APIHandler.swift */; };
+		41F81D9F221EBF2B0081175F /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F81D9D221EBF2B0081175F /* SpotifyAudioPlayback.framework */; };
+		41F81DA0221EBF2B0081175F /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F81D9E221EBF2B0081175F /* SpotifyAuthentication.framework */; };
 		41FDE61121E540C9009BA399 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FDE61021E540C9009BA399 /* Extensions.swift */; };
 		76E82582EDE4C85519728DFD /* Pods_turntable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */; };
 		91713C83F1F593533AD741B3 /* Pods_turntableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */; };
@@ -103,7 +108,13 @@
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
 		41942C7321E404AC00F7F136 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		419A46FF2216096400762FDF /* turntable-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "turntable-Bridging-Header.h"; sourceTree = "<group>"; };
+		41C3A1A92212ED2D00B76496 /* TransportControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportControlView.swift; sourceTree = "<group>"; };
+		41C3A1AB22148AD200B76496 /* SettingCellsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellsView.swift; sourceTree = "<group>"; };
 		41CE495D21EFC20200D6014A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41D8825C2218CDBF00D3C987 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		41F81D9D221EBF2B0081175F /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		41F81D9E221EBF2B0081175F /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		41FDE61021E540C9009BA399 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		538D09C4F62B8A50B69F9D31 /* Pods_turntableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +132,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E82582EDE4C85519728DFD /* Pods_turntable.framework in Frameworks */,
+				41F81DA0221EBF2B0081175F /* SpotifyAuthentication.framework in Frameworks */,
+				41F81D9F221EBF2B0081175F /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +193,8 @@
 				41240E8021EA22A00017DA6C /* SectionHeaderFooterCell.swift */,
 				4125AEB521FFC2290038B7B4 /* HomeView.swift */,
 				413E14F6221221AF00D2947B /* SearchResultCell.swift */,
+				41C3A1A92212ED2D00B76496 /* TransportControlView.swift */,
+				41C3A1AB22148AD200B76496 /* SettingCellsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,12 +223,15 @@
 		411CDC0C21DD0C03001D64BD /* turntable */ = {
 			isa = PBXGroup;
 			children = (
+				419A46FF2216096400762FDF /* turntable-Bridging-Header.h */,
 				411CDC0D21DD0C03001D64BD /* AppDelegate.swift */,
+				41D8825B2218CD7400D3C987 /* APIHandler */,
 				4102C79A21E636CD00441767 /* View */,
 				4102C79921E636C600441767 /* Model */,
 				4102C79821E636B500441767 /* Controller */,
 				41FDE60F21E540B7009BA399 /* Helpers */,
 				41240E8A21EA29C10017DA6C /* Fonts */,
+				41F81D98221EBEF60081175F /* Frameworks */,
 				411CDC1421DD0C05001D64BD /* Assets.xcassets */,
 				412B7682220A31BE0036178A /* turntable.xcdatamodeld */,
 				411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */,
@@ -261,6 +279,23 @@
 				418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */,
 			);
 			path = SetupControllers;
+			sourceTree = "<group>";
+		};
+		41D8825B2218CD7400D3C987 /* APIHandler */ = {
+			isa = PBXGroup;
+			children = (
+				41D8825C2218CDBF00D3C987 /* APIHandler.swift */,
+			);
+			path = APIHandler;
+			sourceTree = "<group>";
+		};
+		41F81D98221EBEF60081175F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41F81D9D221EBF2B0081175F /* SpotifyAudioPlayback.framework */,
+				41F81D9E221EBF2B0081175F /* SpotifyAuthentication.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		41FDE60F21E540B7009BA399 /* Helpers */ = {
@@ -519,6 +554,7 @@
 				411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */,
 				41942C7621E404D100F7F136 /* SettingsController.swift in Sources */,
 				4125AEB621FFC2290038B7B4 /* HomeView.swift in Sources */,
+				41C3A1AC22148AD200B76496 /* SettingCellsView.swift in Sources */,
 				41FDE61121E540C9009BA399 /* Extensions.swift in Sources */,
 				4102C7A221E6758800441767 /* Resource.swift in Sources */,
 				4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */,
@@ -531,6 +567,7 @@
 				413E14F7221221AF00D2947B /* SearchResultCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
 				4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */,
+				41C3A1AA2212ED2D00B76496 /* TransportControlView.swift in Sources */,
 				4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */,
 				4102C79C21E636F900441767 /* Attendee.swift in Sources */,
 				4125AEB421FFB9170038B7B4 /* SplashViewController.swift in Sources */,
@@ -542,6 +579,7 @@
 				4132725921EE8E3800B2E88D /* BaseView.swift in Sources */,
 				41942C7421E404AC00F7F136 /* SearchController.swift in Sources */,
 				4132725521EE7C3A00B2E88D /* HostJoinSessionController.swift in Sources */,
+				41D8825D2218CDBF00D3C987 /* APIHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,15 +750,21 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWM5C54AJF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/turntable/Frameworks",
+				);
 				INFOPLIST_FILE = turntable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntable;
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.turntableapp.turntable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "turntable/turntable-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -735,15 +779,21 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWM5C54AJF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/turntable/Frameworks",
+				);
 				INFOPLIST_FILE = turntable/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntable;
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.turntableapp.turntable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "turntable/turntable-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

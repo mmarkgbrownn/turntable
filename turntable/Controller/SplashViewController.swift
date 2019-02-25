@@ -27,7 +27,7 @@ class SplashViewController: UIViewController {
     }
 
     func makeServiceCall() {
-        activityIndicator.startAnimating()
+        //activityIndicator.startAnimating()
         
     
         if Auth.auth().currentUser?.uid == nil {

@@ -34,6 +34,10 @@ extension UIFont {
     class var poppinsPlayerHeader: UIFont {
         return UIFont(name: "Poppins-Bold", size: 21.0)!
     }
+    
+    class var poppinsSmallBold: UIFont {
+        return UIFont(name: "Poppins-Bold", size: 14.0)!
+    }
 }
 
 extension UIView {
@@ -108,4 +112,10 @@ extension CALayer {
         }
     }
     
+}
+
+extension Notification.Name {
+    struct Spotify {
+        static let authURLOpened = Notification.Name("authURLOpended")
+    }
 }

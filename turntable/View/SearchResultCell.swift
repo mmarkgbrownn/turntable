@@ -55,7 +55,7 @@ class SearchResultCell: DatasourceCell {
     
     let resourceTitle : UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +64,7 @@ class SearchResultCell: DatasourceCell {
     
     let resourceSubtitle : UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = UIColor.init(white: 1, alpha: 0.5)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -95,11 +95,11 @@ class SearchResultCell: DatasourceCell {
         
         addConstraintsWithFormat(format: "H:|-16-[v0(48)]", views: resourceArtwork)
         addConstraintsWithFormat(format: "V:|-8-[v0(48)]", views: resourceArtwork)
-        addConstraintsWithFormat(format: "V:|-24-[v0(24)]", views: itemStatusIndicator)
+        addConstraintsWithFormat(format: "V:|-20-[v0(24)]", views: itemStatusIndicator)
         addConstraintsWithFormat(format: "H:[v0(24)]-16-|", views: itemStatusIndicator)
         
-        resourceTitle.anchor(top: resourceArtwork.topAnchor, leading: resourceArtwork.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 6, left: 8, bottom: 1, right: 0) )
-        resourceSubtitle.anchor(top: resourceTitle.bottomAnchor, leading: resourceTitle.leadingAnchor, bottom: nil, trailing: nil)
+        resourceTitle.anchor(top: resourceArtwork.topAnchor, leading: resourceArtwork.trailingAnchor, bottom: nil, trailing: itemStatusIndicator.leadingAnchor, padding: .init(top: 6, left: 8, bottom: 1, right: 16) )
+        resourceSubtitle.anchor(top: resourceTitle.bottomAnchor, leading: resourceTitle.leadingAnchor, bottom: nil, trailing: resourceTitle.trailingAnchor)
     }
     
     func didInteract(state: String) {

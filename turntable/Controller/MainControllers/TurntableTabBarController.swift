@@ -15,6 +15,12 @@ class TurntableTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if Attendee.shared().tokenHasExpired() {
+            
+        } else {
+            print("has expired")
+        }
+        
         //Setup Settings Controller
         let settingsController = SettingsController()
         settingsController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "SettingsInactive"), selectedImage: UIImage(named: "Settings"))
@@ -36,5 +42,24 @@ class TurntableTabBarController: UITabBarController {
         //Set Player Controller as default
         self.selectedIndex = 1
         
+//        //Popup view for when new tracks are added to queue
+//        let popupView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+//        popupView.backgroundColor = .seaFoamBlue
+//        popupView.layer.cornerRadius = 12
+//        popupView.layer.masksToBounds = true
+//
+//        let popupLabel = UILabel()
+//        popupLabel.text = "Turntable added Hurting (Gerd Jenson Remix)"
+//        popupLabel.font = UIFont.poppinsSmallBold
+//        popupLabel.textColor = .white
+//
+//        popupView.addSubview(popupLabel)
+//        popupLabel.anchor(top: popupView.topAnchor, leading: popupView.leadingAnchor, bottom: popupView.bottomAnchor, trailing: popupView.trailingAnchor, padding: .init(top: 2, left: 8, bottom: 2, right: 8))
+//
+//        view.addSubview(popupView)
+//
+//        popupView.anchor(top: nil, leading: view.leadingAnchor, bottom: tabBar.topAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 8, bottom: 8, right: 8), size: .init(width: 0, height: 40))
+//
+//
     }
 }

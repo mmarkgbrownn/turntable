@@ -45,6 +45,22 @@ class RootViewController: UIViewController {
         current = new
     }
     
+    func showSetupView() {
+        
+        let new = UINavigationController(rootViewController: HostJoinSessionController())
+        
+        addChild(new)
+        new.view.frame = view.bounds
+        view.addSubview(new.view)
+        new.didMove(toParent: self)
+        
+        current.willMove(toParent: nil)
+        current.view.removeFromSuperview()
+        current.removeFromParent()
+        
+        current = new
+    }
+    
     func switchToPlayerView() {
         let mainView = TurntableTabBarController()
         

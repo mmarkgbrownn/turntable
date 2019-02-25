@@ -13,6 +13,7 @@ var player: PlayerController?
 
 class PlayerController: DatasourceController {
     
+    private let redview = PlayerMediaView()
     let statusBarBackgroundView = UIView()
     
     override func viewDidLoad() {
@@ -20,8 +21,7 @@ class PlayerController: DatasourceController {
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        let redview = PlayerMediaView()
+    
         player = self
         
         view.addSubview(redview)
@@ -41,9 +41,30 @@ class PlayerController: DatasourceController {
         
         collectionView.backgroundColor = nil
         //Use this when you have changed the size of redView
-        collectionView.contentInset = UIEdgeInsets(top: 490, left: 0, bottom: 0, right: 0)
-        view.bringSubviewToFront(collectionView)
+        collectionView.contentInset = UIEdgeInsets(top: 495, left: 0, bottom: 0, right: 0)
+        view.bringSubviewToFront(redview)
         
+        if Session.shared().organiser == Auth.auth().currentUser?.uid {
+            redview.transportControlView.isHidden = false
+            redview.bottomSeperator.isHidden = false
+        }
+        
+        redview.transportControlView.forwardButton.addTarget(self, action: #selector(skipForwards), for: .touchUpInside)
+        redview.transportControlView.playPauseButton.addTarget(self, action: #selector(playPause), for: .touchUpInside)
+        redview.transportControlView.previousButton.addTarget(self, action: #selector(skipBackwards), for: .touchUpInside)
+    }
+    
+    @objc func skipForwards() {
+        print("Forwards")
+    }
+    
+    @objc func skipBackwards() {
+        print("Previous")
+    }
+    
+    @objc func playPause() {
+        print("PlayPause")
+        redview.switchPlayPause()
     }
     
     @objc func notLoggedIn() {

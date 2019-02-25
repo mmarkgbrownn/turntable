@@ -149,5 +149,9 @@ class Session {
         
     }
     
+    func observeNowPlaying() {
+        
+    }
+    
     
 }

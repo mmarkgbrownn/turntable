@@ -41,7 +41,7 @@ class HomeView: BaseView {
         return label
     }()
     
-    let descriptionText = "Turntable uses Spotify to provide a vast library of music for your event. Please connect your spotify preimum acount to complete setup."
+    let descriptionText = "To connect your account, Turntable will need to open Spotify. Turntable uses Spotify to provide a vast library of music for your event."
     
     lazy var homeDescriptionText = reusableComponents.createDescriptionWith(text: descriptionText)
     
