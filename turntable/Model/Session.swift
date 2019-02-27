@@ -59,6 +59,9 @@ class Session {
             self.historyPlaylist = ""
         }
         
+        //Initialise player here. return now playing
+        
+        
         let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
         let values = ["sessionKey": sessionKey, "sessionName": sessionName, "owner": organiser, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"]
             
@@ -69,36 +72,12 @@ class Session {
             self.joinSession(snapshot: values, completion: { (Bool) in
                 return
             })
+            
+            
         })
         
         self.sessionKey = sessionKey
         
-    }
-    
-    func checkIfInSession(completion: @escaping (String) -> Void) {
-        
-        if let userId = Auth.auth().currentUser?.uid {
-            let userDatabase = Database.database().reference().child("user").child(userId)
-            userDatabase.observeSingleEvent(of: .value) { (snapshot) in
-                
-                let value = snapshot.value as? NSDictionary
-                let sessionKey = value?["session"] as? String ?? ""
-                
-                if sessionKey != "" {
-                    let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
-                    sessionDatabase.observeSingleEvent(of: .value, with: { (snapshot) in
-                        guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-                        self.joinSession(snapshot: dictionary, completion: { (succ) in
-                            completion("InSession")
-                        })
-                    })
-                } else {
-                    completion("NotInSession")
-                }
-                
-                return
-            }
-        }
     }
     
     func joinSession(snapshot: [String: Any], completion: (Bool) -> ()) {

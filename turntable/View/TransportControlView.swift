@@ -23,7 +23,7 @@ class TransportControlView: BaseView {
     let playPauseButton: UIButton = {
         
         let imageView = UIButton()
-        imageView.setImage(UIImage(named: "playButton"), for: .normal)
+        imageView.setImage(UIImage(named: "pauseButton"), for: .normal)
         //imageView.addTarget(self, action: #selector(playPauseTapped), for: .touchUpInside)
         
         return imageView

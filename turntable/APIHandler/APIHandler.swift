@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class APIHandler: NSObject {
 
@@ -27,8 +28,6 @@ class APIHandler: NSObject {
             
             if error != nil { print(error!); return }
             
-            print(data)
-            
             if let jsonData = data {
                 let JSON = try! JSONSerialization.jsonObject(with: jsonData, options: [])
                 completion(JSON)
@@ -37,7 +36,33 @@ class APIHandler: NSObject {
         }.resume()
     }
     
-    func getTrack(uri: String, completion: (Bool) -> ()) {
+    func getTrack(trackId: String, completion: @escaping (Track) -> ()) {
+        
+        let param = "Bearer " + Attendee.shared().accessToken!
+        let url = URL(string: baseURL + "tracks/" + trackId + "/?market=GB")
+        var request = URLRequest(url: url!)
+        
+        request.addValue(param, forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            if error != nil { print(error!); return }
+            
+                do {
+                    let json = try JSON(data: data!)
+                    
+                    if let id = json["id"].string, let trackName = json["name"].string, let artistName = json["artists"][0]["name"].string, let artworkLarge = json["album"]["images"][0]["url"].string, let artworkSmall = json["album"]["images"][2]["url"].string {
+                    
+                        let track = Track(id: id, name: trackName, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: "000000")
+                        
+                        completion(track)
+                    }
+                } catch {
+                    
+            }
+            
+            }.resume()
         
     }
     

@@ -12,11 +12,11 @@ class PlayerMediaView: BaseView {
     
     let reusableComponents = ReusableComponents()
     
-    var nowPlaying: QueueItem? {
+    var nowPlaying: Track? {
         didSet {
             
             if let urlString = nowPlaying?.imageLarge {
-                let url = URL(string: "https://i.scdn.co/image/" + urlString)
+                let url = URL(string: urlString)
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: url!)
                     DispatchQueue.main.async {
@@ -38,7 +38,7 @@ class PlayerMediaView: BaseView {
     }
     
     var overlayGradient : CAGradientLayer?
-    var playPauseState: String = "Play"
+    var playPauseState: String = "Pause"
     
     let mediaBackgroundBlurView: UIImageView = {
         
@@ -96,7 +96,7 @@ class PlayerMediaView: BaseView {
        
         let label = UILabel()
         label.text = "BUTTERFLY EFFECT"
-        label.numberOfLines = 0
+        label.lineBreakMode = .byTruncatingTail
         label.font = UIFont.poppinsPlayerHeader
         label.textColor = UIColor.init(white: 0.96, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -167,14 +167,13 @@ class PlayerMediaView: BaseView {
         
         artworkSeperator.anchor(top: mediaArtworkView.bottomAnchor, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 38, left: 0, bottom: 0, right: 0), size: .init(width: screenWidth, height: 0.5))
         
-        mediaTitleLabelView.anchor(top: artworkSeperator.bottomAnchor, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 0), size: .init(width: 0, height: 0))
-
-        //mediaArtistLabelView.anchor(top: mediaTitleLabelView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 16, height: screenWidth))
-        mediaArtistLabelView.anchor(top: mediaTitleLabelView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 0, left: 16, bottom: 0, right: 0))
-        
         saveToLibraryActionView.anchor(top: artworkSeperator.bottomAnchor, leading: nil, bottom: nil, trailing: artworkSeperator.trailingAnchor, padding: .init(top: 24, left: 0, bottom: 0, right: 16), size: .init(width: 32, height: 32))
 
         shareActionView.anchor(top: saveToLibraryActionView.topAnchor, leading: nil, bottom: nil, trailing: saveToLibraryActionView.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 32), size: .init(width: 32, height: 32))
+        
+        mediaTitleLabelView.anchor(top: artworkSeperator.bottomAnchor, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: shareActionView.leadingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 0))
+        
+        mediaArtistLabelView.anchor(top: mediaTitleLabelView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: shareActionView.leadingAnchor, padding: .init(top: 0, left: 16, bottom: 0, right: 16))
 
         searchSeperator.anchor(top: saveToLibraryActionView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 24, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 0.5))
 
@@ -201,6 +200,30 @@ class PlayerMediaView: BaseView {
     
     @objc func test() {
         print("test")
+    }
+    
+    func updatePlayerView(track: Track, completion: @escaping (Bool) -> ()) {
+        
+        print("does run")
+        
+        if let url = URL(string: track.imageLarge!), let title = track.name, let artist = track.artist {
+            
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url)
+                DispatchQueue.main.async {
+                    self.mediaArtworkView.image = UIImage(data: data!)
+                    self.mediaBackgroundBlurView.image = UIImage(data: data!)
+                    self.mediaTitleLabelView.text = title
+                    self.mediaArtistLabelView.text = artist
+                    //print("In updatePlayerView: " + self.mediaTitleLabelView.text!
+                    print(self.mediaTitleLabelView.text)
+                    print(self.mediaArtistLabelView.text)
+                    
+                    completion(true)
+                }
+            }
+
+        }
     }
 }
 

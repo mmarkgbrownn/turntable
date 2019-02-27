@@ -8,10 +8,11 @@
 
 import LBTAComponents
 import Firebase
+import AVFoundation
 
 var player: PlayerController?
 
-class PlayerController: DatasourceController {
+class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudioStreamingPlaybackDelegate {
     
     private let redview = PlayerMediaView()
     let statusBarBackgroundView = UIView()
@@ -45,6 +46,11 @@ class PlayerController: DatasourceController {
         view.bringSubviewToFront(redview)
         
         if Session.shared().organiser == Auth.auth().currentUser?.uid {
+            
+            if let userAccessToken = Attendee.shared().accessToken {
+                SPTAudioStreamingController.sharedInstance().login(withAccessToken: userAccessToken)
+            }
+            
             redview.transportControlView.isHidden = false
             redview.bottomSeperator.isHidden = false
         }
@@ -52,23 +58,39 @@ class PlayerController: DatasourceController {
         redview.transportControlView.forwardButton.addTarget(self, action: #selector(skipForwards), for: .touchUpInside)
         redview.transportControlView.playPauseButton.addTarget(self, action: #selector(playPause), for: .touchUpInside)
         redview.transportControlView.previousButton.addTarget(self, action: #selector(skipBackwards), for: .touchUpInside)
+        
     }
     
     @objc func skipForwards() {
-        print("Forwards")
+        let trackId = "1nNHyFaopXQu4gPazu3J2r"
+        displayNewTrackInPlayer(trackId: trackId)
     }
     
     @objc func skipBackwards() {
         print("Previous")
+        let trackId = "7vK8DPCSqI9LHqBRDYfIDT"
+        displayNewTrackInPlayer(trackId: trackId)
     }
     
     @objc func playPause() {
-        print("PlayPause")
-        redview.switchPlayPause()
+        let playbackState = SPTAudioStreamingController.sharedInstance().playbackState
+        print(playbackState.isPlaying)
+        SPTAudioStreamingController.sharedInstance().setIsPlaying(!playbackState.isPlaying) { (error) in
+            (error != nil) ? print(error) : self.redview.switchPlayPause()
+            return
+        }
     }
     
     @objc func notLoggedIn() {
         present(UINavigationController(rootViewController: HomeController()), animated: true, completion: nil)
+    }
+    
+    func displayNewTrackInPlayer(trackId: String) {
+        APIHandler.shared.getTrack(trackId: trackId, completion: { (track) in
+            self.redview.updatePlayerView(track: track, completion: { (bool) in
+                print("this shit")
+            })
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -94,5 +116,28 @@ class PlayerController: DatasourceController {
 //        statusBarBackgroundView.backgroundColor = UIColor(white: 18.0 / 255.0, alpha: opacityCalc)
 //    }
     
+    func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController) {
+        
+        SPTAudioStreamingController.sharedInstance().playSpotifyURI("spotify:track:1nNHyFaopXQu4gPazu3J2r", startingWith: 0, startingWithPosition: 0) { (error) in
+            if error != nil { print(error!); return }
+            
+//            APIHandler.shared.getTrack(trackId: "1nNHyFaopXQu4gPazu3J2r", completion: { (track) in
+//                //print(track.imageLarge, track.imageSmall, track.artist, track.name
+//                DispatchQueue.main.async {
+//                    self.redview.mediaArtistLabelView.text = track.artist
+//                    self.redview.mediaTitleLabelView.text = track.name
+//                }
+//
+////                self.redview.updatePlayerView(track: track, completion: { (bool) in
+////
+////                })
+//            })
+        }
+        
+    }
+    
+    func setupPlayerDisplay() {
+        
+    }
 }
 

@@ -28,6 +28,8 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Attendee.shared().displayUserDetails()
+        
         let hostButton = UIBarButtonItem(title: "Host Session", style: .plain, target: self, action: #selector(createSession))
         self.navigationItem.rightBarButtonItem = hostButton
     
@@ -181,7 +183,7 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         
         //create a new session by posting session name, code, owner, nowPlaying and history playlist to firebase also store this data in CoreData
         if sessionName != "" {
-            Session.shared().setupSession(sessionName: sessionName, maxGuests: 10, context: "Party", historyPlaylist: historyEnabled, organiser: Auth.auth().currentUser!.uid)
+            Session.shared().setupSession(sessionName: sessionName, maxGuests: 10, context: "Party", historyPlaylist: historyEnabled, organiser: Attendee.shared().id!)
             self.navigationController?.pushViewController(ShareSessionController(), animated: true)
         }
         

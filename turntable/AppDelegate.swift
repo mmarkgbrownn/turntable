@@ -14,6 +14,8 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
+    let playerStreamingDelegate = PlayerController()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -26,13 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SPTAuth.defaultInstance().redirectURL = Constants.redirectURI
         SPTAuth.defaultInstance().sessionUserDefaultsKey = Constants.sessionKey
         
-        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
+        SPTAudioStreamingController.sharedInstance().playbackDelegate = playerStreamingDelegate
+        SPTAudioStreamingController.sharedInstance().delegate = playerStreamingDelegate
         
         do {
             try SPTAudioStreamingController.sharedInstance().start(withClientId: Constants.clientID)
         } catch {
             fatalError("Couldnt start spotify SDK")
         }
+        
+        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
         
         // Change Nav Bar Apperance
         let navBarAppearance = UINavigationBar.appearance()

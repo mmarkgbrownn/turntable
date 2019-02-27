@@ -58,7 +58,7 @@ class HomeController: UIViewController {
 
         SPTAuth.defaultInstance().handleAuthCallback(withTriggeredAuthURL: url) { (error, session) in
             if let error = error { self.displayErrorMessage(error: error); return }
-            print(session?.encryptedRefreshToken)
+
             if let accessToken = session?.accessToken {
                 Attendee.shared().accessToken = accessToken
                 Attendee.shared().refreshToken = accessToken
