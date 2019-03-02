@@ -10,6 +10,14 @@ import UIKit
 import CoreData
 import Firebase
 
+struct Constants{
+    static let clientID = "34c8c10451344f92b757fa6071c99b66"
+    static let redirectURL = URL(string: "turntable://spotify/callback")
+    static let sessionKey = "spotifySessionKey"
+    static let tokenSwapUrl = URL(string: "https://turntable-ios.herokuapp.com/api/token")
+    static let tokenRefreshUrl = URL(string: "https://turntable-ios.herokuapp.com/api/refresh_token")
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -25,9 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         SPTAuth.defaultInstance().clientID = Constants.clientID
-        SPTAuth.defaultInstance().redirectURL = Constants.redirectURI
+        SPTAuth.defaultInstance().redirectURL = Constants.redirectURL
         SPTAuth.defaultInstance().sessionUserDefaultsKey = Constants.sessionKey
-        
+        SPTAuth.defaultInstance().tokenSwapURL = Constants.tokenSwapUrl
+        SPTAuth.defaultInstance().tokenRefreshURL = Constants.tokenRefreshUrl
+
         SPTAudioStreamingController.sharedInstance().playbackDelegate = playerStreamingDelegate
         SPTAudioStreamingController.sharedInstance().delegate = playerStreamingDelegate
         
@@ -76,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         //self.saveContext()
+        Attendee.shared().storeUserDetails()
     }
     
 //    // MARK: - Core Data stack

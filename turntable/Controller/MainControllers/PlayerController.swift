@@ -47,7 +47,7 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
         
         if Session.shared().organiser == Auth.auth().currentUser?.uid {
             
-            if let userAccessToken = Attendee.shared().accessToken {
+            if let userAccessToken = Attendee.shared().spotifySession?.accessToken {
                 SPTAudioStreamingController.sharedInstance().login(withAccessToken: userAccessToken)
             }
             
@@ -76,7 +76,7 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
         let playbackState = SPTAudioStreamingController.sharedInstance().playbackState
         print(playbackState.isPlaying)
         SPTAudioStreamingController.sharedInstance().setIsPlaying(!playbackState.isPlaying) { (error) in
-            (error != nil) ? print(error) : self.redview.switchPlayPause()
+            (error != nil) ? print(error!) : self.redview.switchPlayPause()
             return
         }
     }

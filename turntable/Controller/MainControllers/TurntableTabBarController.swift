@@ -15,11 +15,19 @@ class TurntableTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Attendee.shared().tokenHasExpired() {
-            
-        } else {
-            print("has expired")
-        }
+//        // Check if the session is valid
+//        if Attendee.shared().spotifySession?.isValid() ?? false {
+//            // If our session is invalid we renew
+//            SPTAuth.defaultInstance().renewSession(Attendee.shared().spotifySession!) { (error, session) in
+//                // If renew returns error we move to home view
+//                if error != nil { print(error!); AppDelegate.shared.rootViewController.showHomeView() }
+//                Attendee.shared().spotifySession = session
+//                return
+//            }
+//        } else if Attendee.shared().session == nil {
+//            // Check if we have a session
+//            AppDelegate.shared.rootViewController.showHomeView()
+//        }
         
         //Setup Settings Controller
         let settingsController = SettingsController()
@@ -59,7 +67,6 @@ class TurntableTabBarController: UITabBarController {
 //        view.addSubview(popupView)
 //
 //        popupView.anchor(top: nil, leading: view.leadingAnchor, bottom: tabBar.topAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 8, bottom: 8, right: 8), size: .init(width: 0, height: 40))
-//
-//
+        
     }
 }

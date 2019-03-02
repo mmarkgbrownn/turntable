@@ -59,8 +59,6 @@ class Session {
             self.historyPlaylist = ""
         }
         
-        //Initialise player here. return now playing
-        
         
         let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
         let values = ["sessionKey": sessionKey, "sessionName": sessionName, "owner": organiser, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"]
@@ -96,6 +94,7 @@ class Session {
             userDatabase.updateChildValues(["session": sessionKey])
         }
         
+        Attendee.shared().session = sessionKey
         SessionQueue.shared().setSession(session: .currentSession)
         
         completion(true)

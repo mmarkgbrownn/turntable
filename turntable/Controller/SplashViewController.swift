@@ -30,20 +30,24 @@ class SplashViewController: UIViewController {
         //activityIndicator.startAnimating()
         
         Attendee.shared().loadUserFromUserDefaults()
-    
-        if Auth.auth().currentUser?.uid == nil {
-            // Shows Home Controller If Not Logged In
+        
+        let spotifyAccessToken = Attendee.shared().spotifySession?.accessToken
+
+        if Auth.auth().currentUser?.uid == nil || spotifyAccessToken == nil {
+            // Not logged into Firebase + no Spotify session
             AppDelegate.shared.rootViewController.showHomeView()
-        } else {
-            //Shows Player If Logged In
-            Attendee.shared().checkIfInSession(completion: { (result) in
-                if result == "InSession", Attendee.shared().accessToken != nil {
+        } else if Attendee.shared().session != nil {
+            // Spotify session exsists, and logged in to firebase and we are in a session
+            let sessionDatabase = Database.database().reference().child("session").child(Attendee.shared().session!)
+            sessionDatabase.observeSingleEvent(of: .value, with: { (snapshot) in
+                guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+                Session.shared().joinSession(snapshot: dictionary, completion: { (succ) in
                     AppDelegate.shared.rootViewController.switchToPlayerView()
-                } else {
-                    AppDelegate.shared.rootViewController.showHomeView()
-                    print("jump login here")
-                }
+                })
             })
+        } else {
+            // Spotify session exsists, and logged in to firebase but no session
+            AppDelegate.shared.rootViewController.showHomeView()
         }
     }
 }

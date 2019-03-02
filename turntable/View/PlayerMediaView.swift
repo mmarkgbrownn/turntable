@@ -216,8 +216,8 @@ class PlayerMediaView: BaseView {
                     self.mediaTitleLabelView.text = title
                     self.mediaArtistLabelView.text = artist
                     //print("In updatePlayerView: " + self.mediaTitleLabelView.text!
-                    print(self.mediaTitleLabelView.text)
-                    print(self.mediaArtistLabelView.text)
+                    print(self.mediaTitleLabelView.text ?? "Song Title")
+                    print(self.mediaArtistLabelView.text ?? "Artist")
                     
                     completion(true)
                 }

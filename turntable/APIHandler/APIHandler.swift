@@ -17,7 +17,7 @@ class APIHandler: NSObject {
     
     func getCurrentUserDetails(completion: @escaping (Any) -> ()) {
         
-        let param = "Bearer " + Attendee.shared().accessToken!
+        let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
         let url = URL(string: baseURL + "me")
         var request = URLRequest(url: url!)
         
@@ -38,7 +38,7 @@ class APIHandler: NSObject {
     
     func getTrack(trackId: String, completion: @escaping (Track) -> ()) {
         
-        let param = "Bearer " + Attendee.shared().accessToken!
+        let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
         let url = URL(string: baseURL + "tracks/" + trackId + "/?market=GB")
         var request = URLRequest(url: url!)
         

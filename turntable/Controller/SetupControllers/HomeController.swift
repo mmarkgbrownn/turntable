@@ -10,12 +10,6 @@ import UIKit
 import Firebase
 import SafariServices
 
-struct Constants{
-    static let clientID = "34c8c10451344f92b757fa6071c99b66"
-    static let redirectURI = URL(string: "turntable://")!
-    static let sessionKey = "spotifySessionKey"
-}
-
 class HomeController: UIViewController {
     
     let appURL = SPTAuth.defaultInstance().spotifyAppAuthenticationURL()
@@ -57,12 +51,11 @@ class HomeController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.Spotify.authURLOpened, object: nil)
 
         SPTAuth.defaultInstance().handleAuthCallback(withTriggeredAuthURL: url) { (error, session) in
-            if let error = error { self.displayErrorMessage(error: error); return }
-
-            if let accessToken = session?.accessToken {
-                Attendee.shared().accessToken = accessToken
-                Attendee.shared().refreshToken = accessToken
-                
+            if let error = error { self.displayErrorMessage(error: error); print("its this one"); return }
+            
+            Attendee.shared().spotifySession = session
+            
+            if let session = session {
                 APIHandler.shared.getCurrentUserDetails(completion: { (result) in
                     Attendee.shared().setUser(userData: result, completion: { (success) in
                         if success == true {

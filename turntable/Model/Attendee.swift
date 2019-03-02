@@ -24,9 +24,7 @@ class Attendee {
     // Spotify users current access token
     var accessToken: String?
     // Spotify users current tokens expiry date
-    var expiryDate: Date?
-    // Spotify users refresh token for when current expires
-    var refreshToken: String?
+    var spotifySession: SPTSession?
     // Users current session
     var session: String?
     // Spotify enrolment status in the history playlist
@@ -49,15 +47,11 @@ class Attendee {
     }
     
     func displayUserDetails() {
-        print("id: ", self.id ?? " ", ", spotify id: ", self.sid ?? " ", ", display name: ", self.displayName ?? " ", ", email: ", self.email ?? " ", ", birthdate: ", self.birthdate ?? " ", ", access token: ", self.accessToken ?? " ", ", expiry date: ", self.expiryDate ?? " ", ", refresh token: ", self.refreshToken ?? " ", ", session: ", self.session ?? " ", ", history enabled: ", self.history)
+        print("id: ", self.id ?? " ", ", spotify id: ", self.sid ?? " ", ", display name: ", self.displayName ?? " ", ", email: ", self.email ?? " ", ", birthdate: ", self.birthdate ?? " ", ", access token: ", self.accessToken ?? " ", ", session: ", self.session ?? " ", ", history enabled: ", self.history)
     }
     
     // Set the user objects attributes and login to firebase.
     func setUser(userData: Any, completion: (Bool) -> ()) {
-        
-//        self.accessToken = AppDelegate.shared.sessionManager.session?.accessToken
-//        self.expiryDate = AppDelegate.shared.sessionManager.session?.expirationDate
-//        self.refreshToken = AppDelegate.shared.sessionManager.session?.refreshToken
         
         // Sort through JSON data
         if let dictionary = userData as? [String: Any] {
@@ -70,7 +64,8 @@ class Attendee {
         }
         
         Auth.auth().fetchProviders(forEmail: self.email ?? "") { (result, error) in
-            (result == ["password"]) ? self.logUserIn() : self.registerNewUser()
+            
+            (result != nil) ? self.logUserIn() : self.registerNewUser()
         }
         
         completion(true)
@@ -81,15 +76,25 @@ class Attendee {
         if let email = self.email, let password = self.sid {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 if error != nil { print(error!); return }
-                self.id = user?.user.uid
-                self.storeUserDetails()
+                
+                if let userId = user?.user.uid {
+                    
+                    let userDatabase = Database.database().reference().child("user").child(userId)
+                    // Update values to include all the user properties
+                    userDatabase.observeSingleEvent(of: .value, with: { (snapshot) in
+                        guard let value = snapshot.value as? [String: AnyObject] else { return }
+                        self.session = value["session"] as? String
+                        self.history = value["historyPlaylist"] as? Bool ?? true
+                        self.id = userId
+                    })
+                }
                 return
             }
         }
     }
 
     func registerNewUser() {
-        if let email = self.email, let password = self.sid, let displayName = self.displayName, let refreshToken = self.refreshToken, let birthdate = self.birthdate {
+        if let email = self.email, let password = self.sid, let displayName = self.displayName {
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 
                 if error != nil { print(error!); return }
@@ -98,12 +103,11 @@ class Attendee {
                     
                     let userDatabase = Database.database().reference().child("user").child(userId)
                     // Update values to include all the user properties
-                    let values = ["spotifyId": password, "displayName": displayName, "email": savedEmail, "bithdate": birthdate, "refreshToken": refreshToken , "session": "", "historyPlaylist": self.history] as [AnyHashable : Any]
+                    let values = ["spotifyId": password, "displayName": displayName, "email": savedEmail, "bithdate": self.birthdate ?? "", "session": "", "historyPlaylist": self.history] as [AnyHashable : Any]
                     
                     userDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
                         if err != nil { print(err!); return }
                         self.id = result?.user.uid
-                        self.storeUserDetails()
                         return
                     })
                 }
@@ -117,9 +121,9 @@ class Attendee {
         userDefaults.set(self.id, forKey: "userId")
         userDefaults.set(self.displayName, forKey: "displayName")
         userDefaults.set(self.email, forKey: "email")
-        userDefaults.set(self.accessToken, forKey: "accessToken")
-        userDefaults.set(self.expiryDate, forKey: "expiryDate")
-        userDefaults.set(self.refreshToken, forKey: "refreshToken")
+        userDefaults.set(self.session, forKey: "session")
+        let encodedSession: Data = NSKeyedArchiver.archivedData(withRootObject: self.spotifySession!)
+        userDefaults.set(encodedSession, forKey: "spotifySession")
         userDefaults.set(self.session, forKey: "session")
         userDefaults.set(self.history, forKey: "history")
         
@@ -131,39 +135,14 @@ class Attendee {
         self.id = userDefaults.object(forKey: "userId") as? String
         self.displayName = userDefaults.object(forKey: "displayName") as? String
         self.email = userDefaults.object(forKey: "email") as? String
-        self.accessToken = userDefaults.object(forKey: "accessToken") as? String
-        self.expiryDate = userDefaults.object(forKey: "expiryDate") as? Date
-        self.refreshToken = userDefaults.object(forKey: "refreshToken") as? String
         self.session = userDefaults.object(forKey: "session") as? String
         self.history = userDefaults.object(forKey: "history") as? Bool ?? false
         
-        Attendee.shared().displayUserDetails()
-    }
-    
-    func checkIfInSession(completion: @escaping (String) -> Void) {
-        
-        if let userId = Auth.auth().currentUser?.uid {
-            let userDatabase = Database.database().reference().child("user").child(userId)
-            userDatabase.observeSingleEvent(of: .value) { (snapshot) in
-                
-                let value = snapshot.value as? NSDictionary
-                let sessionKey = value?["session"] as? String ?? ""
-                
-                if sessionKey != "" {
-                    let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
-                    sessionDatabase.observeSingleEvent(of: .value, with: { (snapshot) in
-                        guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
-                        Session.shared().joinSession(snapshot: dictionary, completion: { (succ) in
-                            completion("InSession")
-                        })
-                    })
-                } else {
-                    completion("NotInSession")
-                }
-                
-                return
-            }
+        if let decodedSession = userDefaults.object(forKey: "spotifySession") as? Data {
+            self.spotifySession = NSKeyedUnarchiver.unarchiveObject(with: decodedSession) as? SPTSession
         }
+        
+        Attendee.shared().displayUserDetails()
     }
     
     func setSession() {
@@ -174,19 +153,18 @@ class Attendee {
         //Log user out, if user owns session call to kill session
     }
     
-    func tokenHasExpired() -> Bool {
-        //Check to see if token has expired by checking expiry date
-        return false
-    }
-    
     func renewToken() {
-        // Call if token has expired, renews the access token
+        SPTAuth.defaultInstance().renewSession(spotifySession!, callback: { (error, session) in
+            if session != nil {
+                Attendee.shared().spotifySession = session
+            }
+        })
     }
     
     func initPlayer() {
         //Initalise player here
         //Called when playerview did load
-        if let userAccessToken = Attendee.shared().accessToken {
+        if let userAccessToken = Attendee.shared().spotifySession?.accessToken {
             SPTAudioStreamingController.sharedInstance().login(withAccessToken: userAccessToken)
         }
     }
