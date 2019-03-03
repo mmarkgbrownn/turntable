@@ -127,6 +127,8 @@ class Attendee {
         userDefaults.set(self.session, forKey: "session")
         userDefaults.set(self.history, forKey: "history")
         
+        userDefaults.synchronize()
+        
     }
     
     func loadUserFromUserDefaults() {
@@ -143,6 +145,19 @@ class Attendee {
         }
         
         Attendee.shared().displayUserDetails()
+    }
+    
+    func clearSessionData() {
+        
+        if let currentUserId = self.id {
+            let userDatabase = Database.database().reference().child("user").child(currentUserId)
+            userDatabase.updateChildValues(["session": ""])
+        }
+        
+        userDefaults.removeObject(forKey: "session")
+        userDefaults.synchronize()
+        
+        Attendee.shared().session = nil
     }
     
     func setSession() {

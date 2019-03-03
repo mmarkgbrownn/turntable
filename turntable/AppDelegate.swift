@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Couldnt start spotify SDK")
         }
         
-        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
+        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope, SPTAuthUserLibraryModifyScope]
         
         // Change Nav Bar Apperance
         let navBarAppearance = UINavigationBar.appearance()

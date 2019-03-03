@@ -86,6 +86,13 @@ class HomeController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    deinit{
+        if let superView = spotifyAuthWebView.view
+        {
+            superView.removeFromSuperview()
+        }
+    }
+    
 //    func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController) {
 //        self.successfulLogin()
 //    }

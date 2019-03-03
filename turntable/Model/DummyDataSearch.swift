@@ -10,7 +10,7 @@ import LBTAComponents
 
 class DummyDataSearch: Datasource {
     
-    let searchResult1 = ["id": "4CTQSJwlPQcwHbEBad0aXV", "name": "Hurting (Gerd Janson Remix)", "artist": "SG Lewis, Aluna George, Gerd Janson", "imageSmall": "830644e676708a8f628cdba9c8bae020b273994b", "imageLarge": "85de4509b280464293ed51e1bf230b4a8c24962f", "runtime": "3:10", "timestamp": String(NSTimeIntervalSince1970)]
+    let searchResult1 = ["id": "1VUWaFpGne1oiw2EjFSRRY", "name": "Hurting (Gerd Janson Remix)", "artist": "SG Lewis, Aluna George, Gerd Janson", "imageSmall": "830644e676708a8f628cdba9c8bae020b273994b", "imageLarge": "85de4509b280464293ed51e1bf230b4a8c24962f", "runtime": "3:10", "timestamp": String(NSTimeIntervalSince1970)]
     let searchResult2 = ["id": "35V6qXUDCvwZdmbKe5PlPG", "name": "AGEN WIDA", "artist": "JOYRYDE", "imageSmall": "349edd37b55a1d2afb40ee79a3be1b0f822028b8", "imageLarge": "8948d645353a40ad22bc5b9f62b955a26e3c66f1", "runtime": "4:23", "timestamp": String(NSTimeIntervalSince1970)]
     let searchResult3 = ["id": "2xLMifQCjDGFmkHkpNLD9h", "name": "Sicko Mode", "artist": "Travis Scott", "imageSmall": "092f661e5290a05410f1696e608cb140461b7ebf", "imageLarge": "1ab97df000596d224199bbf7492e2bb5d09ea297", "runtime": "5:41", "timestamp": String(NSTimeIntervalSince1970)]
     let searchResult4 = ["id": "6vs7bTzYNAo4D5tDVjHmIB", "name": "The Love", "artist": "Jadu Heart", "imageSmall": "9abaf059f3e703559057162a9b83729db1d3e24c", "imageLarge": "7389b7b15bc74400ef7ac4ae73caa90011f98002", "runtime": "3:56", "timestamp": String(NSTimeIntervalSince1970)]

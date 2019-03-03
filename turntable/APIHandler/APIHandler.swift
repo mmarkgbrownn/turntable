@@ -66,6 +66,33 @@ class APIHandler: NSObject {
         
     }
     
+    func addTrackToUserLibrary(trackId: String) {
+        
+        if trackId == "" { print("no track id"); return }
+        
+        let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
+        let json: [String: Any] = ["ids": [trackId]]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+    
+    
+        let url = URL(string: baseURL + "me/tracks")
+        var request = URLRequest(url: url!)
+    
+        request.addValue(param, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        request.httpMethod = "PUT"
+    
+        URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            if error != nil { print(error!); return }
+            
+            print(data, response)
+        
+        }.resume()
+    }
+    
     func searchTracks(query: String, completion: ([Track]) -> ()) {
         
     }

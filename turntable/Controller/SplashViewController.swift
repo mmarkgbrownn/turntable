@@ -32,11 +32,14 @@ class SplashViewController: UIViewController {
         Attendee.shared().loadUserFromUserDefaults()
         
         let spotifyAccessToken = Attendee.shared().spotifySession?.accessToken
-
+        
         if Auth.auth().currentUser?.uid == nil || spotifyAccessToken == nil {
             // Not logged into Firebase + no Spotify session
             AppDelegate.shared.rootViewController.showHomeView()
-        } else if Attendee.shared().session != nil {
+        } else if Attendee.shared().session == "" || Attendee.shared().session == nil {
+            // Spotify session exsists, and logged in to firebase but no session
+            AppDelegate.shared.rootViewController.showHomeView()
+        } else {
             // Spotify session exsists, and logged in to firebase and we are in a session
             let sessionDatabase = Database.database().reference().child("session").child(Attendee.shared().session!)
             sessionDatabase.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -45,9 +48,6 @@ class SplashViewController: UIViewController {
                     AppDelegate.shared.rootViewController.switchToPlayerView()
                 })
             })
-        } else {
-            // Spotify session exsists, and logged in to firebase but no session
-            AppDelegate.shared.rootViewController.showHomeView()
         }
     }
 }

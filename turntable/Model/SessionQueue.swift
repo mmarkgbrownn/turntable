@@ -56,6 +56,28 @@ class SessionQueue {
         
         completion(true)
     }
+    func playNextInQueue() {
+        
+        if let sessionQueue = self.sessionQueue, let sessionKey = self.session?.sessionKey {
+            if sessionQueue.indices.contains(0) {
+                guard let nextInQueue = SessionQueue.shared().sessionQueue?[0].id else { return }
+
+                let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
+                let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey).child(nextInQueue)
+
+                sessionDatabase.updateChildValues(["nowPlaying" : nextInQueue], withCompletionBlock: { (error, ref) in
+                    if error != nil { print(error!); return }
+                    SessionQueue.shared().sessionQueue?.removeFirst()
+                    sessionQueueDatabase.removeValue()
+                    DispatchQueue.main.async {
+                        player?.collectionView.reloadData()
+                    }
+                    
+                })
+
+            }
+        }
+    }
     
     func observeQueue()  {
         
@@ -72,7 +94,6 @@ class SessionQueue {
             DispatchQueue.main.async {
                 player?.collectionView.reloadData()
             }
-            
         })
         
     }

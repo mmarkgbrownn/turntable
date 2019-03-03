@@ -45,7 +45,7 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
         collectionView.contentInset = UIEdgeInsets(top: 495, left: 0, bottom: 0, right: 0)
         view.bringSubviewToFront(redview)
         
-        if Session.shared().organiser == Auth.auth().currentUser?.uid {
+        if Session.shared().organiser == Attendee.shared().id {
             
             if let userAccessToken = Attendee.shared().spotifySession?.accessToken {
                 SPTAudioStreamingController.sharedInstance().login(withAccessToken: userAccessToken)
@@ -55,6 +55,8 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
             redview.bottomSeperator.isHidden = false
         }
         
+        Session.shared().observeNowPlaying()
+        
         redview.transportControlView.forwardButton.addTarget(self, action: #selector(skipForwards), for: .touchUpInside)
         redview.transportControlView.playPauseButton.addTarget(self, action: #selector(playPause), for: .touchUpInside)
         redview.transportControlView.previousButton.addTarget(self, action: #selector(skipBackwards), for: .touchUpInside)
@@ -62,14 +64,11 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
     }
     
     @objc func skipForwards() {
-        let trackId = "1nNHyFaopXQu4gPazu3J2r"
-        displayNewTrackInPlayer(trackId: trackId)
+        SessionQueue.shared().playNextInQueue()
     }
     
     @objc func skipBackwards() {
-        print("Previous")
-        let trackId = "7vK8DPCSqI9LHqBRDYfIDT"
-        displayNewTrackInPlayer(trackId: trackId)
+        
     }
     
     @objc func playPause() {
@@ -86,6 +85,13 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
     }
     
     func displayNewTrackInPlayer(trackId: String) {
+        
+        if Session.shared().organiser == Attendee.shared().id {
+            SPTAudioStreamingController.sharedInstance().playSpotifyURI("spotify:track:\(trackId)", startingWith: 0, startingWithPosition: 0) { (error) in
+                if error != nil { print(error!); return }
+            }
+        }
+        
         APIHandler.shared.getTrack(trackId: trackId, completion: { (track) in
             self.redview.updatePlayerView(track: track, completion: { (bool) in
                 print("this shit")
@@ -117,23 +123,20 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
 //    }
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController) {
-        
-        SPTAudioStreamingController.sharedInstance().playSpotifyURI("spotify:track:1nNHyFaopXQu4gPazu3J2r", startingWith: 0, startingWithPosition: 0) { (error) in
+        SPTAudioStreamingController.sharedInstance().playSpotifyURI("spotify:track:\(Session.shared().nowPlaying ?? "1nNHyFaopXQu4gPazu3J2r")", startingWith: 0, startingWithPosition: 0) { (error) in
             if error != nil { print(error!); return }
-            
-//            APIHandler.shared.getTrack(trackId: "1nNHyFaopXQu4gPazu3J2r", completion: { (track) in
-//                //print(track.imageLarge, track.imageSmall, track.artist, track.name
-//                DispatchQueue.main.async {
-//                    self.redview.mediaArtistLabelView.text = track.artist
-//                    self.redview.mediaTitleLabelView.text = track.name
-//                }
-//
-////                self.redview.updatePlayerView(track: track, completion: { (bool) in
-////
-////                })
-//            })
         }
-        
+//        let songsForQueue = ["1nNHyFaopXQu4gPazu3J2r", "6jH61mSPOXhk9YDtqk2DGV", "0dZMFVzXCLukZ83AVyoqzi"]
+//
+//        songsForQueue.forEach { (track) in
+//            SPTAudioStreamingController.sharedInstance().queueSpotifyURI("spotify:track:\(track)") { (error) in
+//                if error != nil { print(error!); return }
+//            }
+//        }
+    }
+    
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController, didStopPlayingTrack trackUri: String) {
+        SessionQueue.shared().playNextInQueue()
     }
     
     func setupPlayerDisplay() {

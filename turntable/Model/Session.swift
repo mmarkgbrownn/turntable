@@ -80,16 +80,13 @@ class Session {
     
     func joinSession(snapshot: [String: Any], completion: (Bool) -> ()) {
         
-        if self.sessionKey == nil {
-            self.sessionKey = snapshot["sessionKey"] as? String
-        }
-        
+        self.sessionKey = snapshot["sessionKey"] as? String
         self.sessionName = snapshot["sessionName"] as? String
         self.organiser = snapshot["owner"] as? String
         self.historyPlaylist = snapshot["historyPlaylist"] as? String
         self.nowPlaying = snapshot["nowPlaying"] as? String
         
-        if let currentUserId = Auth.auth().currentUser?.uid, let sessionKey = self.sessionKey {
+        if let currentUserId = Attendee.shared().id, let sessionKey = self.sessionKey {
             let userDatabase = Database.database().reference().child("user").child(currentUserId)
             userDatabase.updateChildValues(["session": sessionKey])
         }
@@ -103,7 +100,7 @@ class Session {
     
     func leaveSession() {
         
-        if self.organiser == Auth.auth().currentUser?.uid {
+        if self.organiser == Attendee.shared().id {
             guard let sessionKey = self.sessionKey else { return }
             
             let sessionDatabaseRef = Database.database().reference().child("session").child(sessionKey)
@@ -114,10 +111,7 @@ class Session {
             sessionDatabaseRef.removeValue()
         }
         
-        if let currentUserId = Auth.auth().currentUser?.uid {
-            let userDatabase = Database.database().reference().child("user").child(currentUserId)
-            userDatabase.updateChildValues(["session": ""])
-        }
+        Attendee.shared().clearSessionData()
         
         self.sessionKey = nil
         self.sessionName = nil
@@ -129,6 +123,18 @@ class Session {
     
     func observeNowPlaying() {
         
+        guard let sessionKey = Session.shared().sessionKey else { return }
+        
+        let sessionQueueDatabase = Database.database().reference().child("session").child(sessionKey)
+        sessionQueueDatabase.observe(.value, with: { (snapshot) in
+            
+            guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
+            
+            if let nowPlaying = dictionary["nowPlaying"] {
+                self.nowPlaying = nowPlaying as? String
+                player?.displayNewTrackInPlayer(trackId: nowPlaying as! String)
+            }
+        })
     }
     
     

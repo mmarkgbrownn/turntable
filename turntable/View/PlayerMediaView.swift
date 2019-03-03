@@ -185,7 +185,7 @@ class PlayerMediaView: BaseView {
         transportControlView.isHidden = true
         bottomSeperator.isHidden = true
         
-        saveToLibraryActionView.addTarget(self, action: #selector(test), for: .touchUpInside)
+        saveToLibraryActionView.addTarget(self, action: #selector(addSongToUserLibraryAction), for: .touchUpInside)
     }
     
     func switchPlayPause() {
@@ -198,13 +198,13 @@ class PlayerMediaView: BaseView {
         }
     }
     
-    @objc func test() {
-        print("test")
+    @objc func addSongToUserLibraryAction() {
+        if let nowPlayingId = Session.shared().nowPlaying {
+            APIHandler.shared.addTrackToUserLibrary(trackId: nowPlayingId)
+        }
     }
     
     func updatePlayerView(track: Track, completion: @escaping (Bool) -> ()) {
-        
-        print("does run")
         
         if let url = URL(string: track.imageLarge!), let title = track.name, let artist = track.artist {
             
@@ -215,14 +215,9 @@ class PlayerMediaView: BaseView {
                     self.mediaBackgroundBlurView.image = UIImage(data: data!)
                     self.mediaTitleLabelView.text = title
                     self.mediaArtistLabelView.text = artist
-                    //print("In updatePlayerView: " + self.mediaTitleLabelView.text!
-                    print(self.mediaTitleLabelView.text ?? "Song Title")
-                    print(self.mediaArtistLabelView.text ?? "Artist")
-                    
                     completion(true)
                 }
             }
-
         }
     }
 }
