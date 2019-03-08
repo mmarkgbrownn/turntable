@@ -66,9 +66,9 @@ class APIHandler: NSObject {
         
     }
     
-    func addTrackToUserLibrary(trackId: String) {
+    func addTrackToUserLibrary(trackId: String, completion: @escaping (Bool) -> ())  {
         
-        if trackId == "" { print("no track id"); return }
+        if trackId == "" { print("no track id"); completion(false) }
         
         let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
         let json: [String: Any] = ["ids": [trackId]]
@@ -86,10 +86,34 @@ class APIHandler: NSObject {
         URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             
-            if error != nil { print(error!); return }
-            
-            print(data, response)
+            if error != nil { print(error!); completion(false); }
+
+            completion(true)
         
+        }.resume()
+    }
+    
+    func isTrackInLibrary(trackId: String, completion: @escaping (Bool) -> ()) {
+        
+        if trackId == "" { print("no track id"); completion(false) }
+
+        let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
+        let url = URL(string: baseURL + "me/tracks/contains?ids=" + trackId)
+        var request = URLRequest(url: url!)
+        
+        request.addValue(param, forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if error != nil { print(error!); completion(false) }
+            
+            do {
+                let json = try JSON(data: data!)
+                print(json) // <-- here is ur string                
+            } catch let myJSONError {
+                print(myJSONError)
+            }
+            
         }.resume()
     }
     

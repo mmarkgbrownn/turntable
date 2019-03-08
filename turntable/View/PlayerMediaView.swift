@@ -39,6 +39,7 @@ class PlayerMediaView: BaseView {
     
     var overlayGradient : CAGradientLayer?
     var playPauseState: String = "Pause"
+    var nowPlayingIsInLibrary: Bool = false
     
     let mediaBackgroundBlurView: UIImageView = {
         
@@ -198,9 +199,33 @@ class PlayerMediaView: BaseView {
         }
     }
     
+    func switchAddLibraryIcon() {
+        if nowPlayingIsInLibrary {
+            saveToLibraryActionView.setImage(UIImage(named: "inQueue"), for: .normal)
+        } else {
+            saveToLibraryActionView.setImage(UIImage(named: "Save"), for: .normal)
+        }
+    }
+    
     @objc func addSongToUserLibraryAction() {
         if let nowPlayingId = Session.shared().nowPlaying {
-            APIHandler.shared.addTrackToUserLibrary(trackId: nowPlayingId)
+            APIHandler.shared.isTrackInLibrary(trackId: nowPlayingId) { (result) in
+                if !result {
+                    APIHandler.shared.addTrackToUserLibrary(trackId: nowPlayingId) { (result) in
+                        if result {
+                            self.nowPlayingIsInLibrary = true
+                        } else {
+                            self.nowPlayingIsInLibrary = false
+                        }
+                        
+                        DispatchQueue.main.async {
+                            self.switchAddLibraryIcon()
+                        }
+                    }
+                } else {
+                    print(result)
+                }
+            }
         }
     }
     
