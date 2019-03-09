@@ -20,7 +20,7 @@ class SectionHeaderCell: DatasourceCell {
     
     let headerText: UILabel = {
         let label = UILabel()
-        label.text = "Up"
+        label.text = ""
         label.font = UIFont.poppinsPlayerHeader
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = true
@@ -45,7 +45,7 @@ class SectionFooterCell: DatasourceCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .white
-        label.text = "Save to Spotify playlist"
+        label.text = "Save as Spotify playlist"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -53,10 +53,11 @@ class SectionFooterCell: DatasourceCell {
     let historySwitch : UISwitch = {
         let viewSwitch = UISwitch()
         viewSwitch.onTintColor = .seaFoamBlue
+        viewSwitch.isOn = Attendee.shared().history
         return viewSwitch
     }()
     
-    let footerDescriptionText = "Saved playlists will appear in your spotfify library with the title Test Party."
+    let footerDescriptionText = "Saved playlists will appear in your spotfify library with the title \(Session.shared().sessionName!)."
     lazy var footerDescription = reusableComponents.createDescriptionWith(text: footerDescriptionText)
     
     override func setupViews() {
@@ -74,7 +75,19 @@ class SectionFooterCell: DatasourceCell {
         
         historySwitch.anchor(top: footerText.topAnchor, leading: nil, bottom: nil, trailing: footerText.trailingAnchor, padding: .init(top: -6, left: 0, bottom: 16, right: 0))
         
+        historySwitch.addTarget(self, action: #selector(userToFollowPlaylist), for: .touchUpInside)
         
+    }
+    
+    @objc func userToFollowPlaylist() {
+        var state: Bool = true
         
+        if historySwitch.isOn {
+            state = false
+        }
+        
+        APIHandler.shared.followUnfollowPlaylist(state: state, completion: { (success) in
+            return
+        })
     }
 }

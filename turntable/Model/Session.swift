@@ -19,6 +19,8 @@ class Session {
     var organiser: String?
     var nowPlaying: String?
     
+    var nowPlayingTrack: Track?
+    
     private static var currentSession: Session = {
         
         let session = Session()
@@ -44,25 +46,10 @@ class Session {
     
     }
     
-    func createHistoryPlaylist(owner: String) -> String {
-        let historyPlaylist = "3Ms5s5BCv6oz8Xb0gVXti5"
-        return historyPlaylist
-    }
-    
-    func setupSession(sessionName: String, maxGuests: Int = 10, context: String, historyPlaylist: Bool, organiser: String) {
-        
-        let sessionKey = self.generateKey()
-        
-        if historyPlaylist {
-            self.historyPlaylist = createHistoryPlaylist(owner: organiser)
-        } else {
-            self.historyPlaylist = ""
-        }
-        
-        
+    fileprivate func createSessionInFirebase(_ sessionKey: String, _ sessionName: String, _ organiser: String) {
         let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
         let values = ["sessionKey": sessionKey, "sessionName": sessionName, "owner": organiser, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"]
-            
+        
         sessionDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
             
             if err != nil { print(err!); return }
@@ -73,6 +60,22 @@ class Session {
             
             
         })
+    }
+    
+    func setupSession(sessionName: String, maxGuests: Int = 10, context: String, historyPlaylist: Bool, organiser: String) {
+        
+        let sessionKey = self.generateKey()
+        
+        if historyPlaylist {
+            APIHandler.shared.createPlaylist(name: sessionName) { (playlistId) in
+                self.historyPlaylist = playlistId
+                Attendee.shared().history = true
+                self.createSessionInFirebase(sessionKey, sessionName, organiser)
+            }
+        } else {
+            self.historyPlaylist = ""
+            createSessionInFirebase(sessionKey, sessionName, organiser)
+        }
         
         self.sessionKey = sessionKey
         
@@ -131,10 +134,21 @@ class Session {
             guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
             
             if let nowPlaying = dictionary["nowPlaying"] {
+                
                 self.nowPlaying = nowPlaying as? String
-                player?.displayNewTrackInPlayer(trackId: nowPlaying as! String)
+                
+                APIHandler.shared.getTrack(trackId: self.nowPlaying!, completion: { (track) in
+                    self.nowPlayingTrack = track
+                    DispatchQueue.main.async {
+                        player?.play()
+                        player?.collectionView.reloadData()
+                    }
+                })
+                
             }
+            
         })
+        
     }
     
     

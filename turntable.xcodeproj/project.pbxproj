@@ -27,6 +27,7 @@
 		4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125AEB121FFB79C0038B7B4 /* RootViewController.swift */; };
 		4125AEB421FFB9170038B7B4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125AEB321FFB9170038B7B4 /* SplashViewController.swift */; };
 		4125AEB621FFC2290038B7B4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4125AEB521FFC2290038B7B4 /* HomeView.swift */; };
+		4127361E2233F89200210D39 /* PlayerMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4127361D2233F89200210D39 /* PlayerMetaData.swift */; };
 		4132725321EE4A2200B2E88D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725221EE4A2200B2E88D /* HomeController.swift */; };
 		4132725521EE7C3A00B2E88D /* HostJoinSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725421EE7C3A00B2E88D /* HostJoinSessionController.swift */; };
 		4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725621EE89F700B2E88D /* ReusableComponents.swift */; };
@@ -95,6 +96,7 @@
 		4125AEB121FFB79C0038B7B4 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4125AEB321FFB9170038B7B4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4125AEB521FFC2290038B7B4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4127361D2233F89200210D39 /* PlayerMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMetaData.swift; sourceTree = "<group>"; };
 		412B7681220A31BE0036178A /* Turntable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Turntable.xcdatamodel; sourceTree = "<group>"; };
 		4132725221EE4A2200B2E88D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4132725421EE7C3A00B2E88D /* HostJoinSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostJoinSessionController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				413E14F6221221AF00D2947B /* SearchResultCell.swift */,
 				41C3A1A92212ED2D00B76496 /* TransportControlView.swift */,
 				41C3A1AB22148AD200B76496 /* SettingCellsView.swift */,
+				4127361D2233F89200210D39 /* PlayerMetaData.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				4125AEB021FFA3AF0038B7B4 /* HostSessionSetupController.swift in Sources */,
 				4132725921EE8E3800B2E88D /* BaseView.swift in Sources */,
 				41942C7421E404AC00F7F136 /* SearchController.swift in Sources */,
+				4127361E2233F89200210D39 /* PlayerMetaData.swift in Sources */,
 				4132725521EE7C3A00B2E88D /* HostJoinSessionController.swift in Sources */,
 				41D8825D2218CDBF00D3C987 /* APIHandler.swift in Sources */,
 			);

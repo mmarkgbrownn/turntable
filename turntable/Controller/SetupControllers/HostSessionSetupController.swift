@@ -12,7 +12,20 @@ import Firebase
 class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
     
     private var sessionNameCell: UITableViewCell = ReusableComponents().createTableRow(title: "Session Name")
-    private var connectedAccountCell: UITableViewCell = ReusableComponents().createTableRow(title: "Connected Account")
+    
+    private let connectedAccountCell: UITableViewCell = {
+        
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        cell.textLabel?.text = "Connected Account"
+        cell.textLabel?.textColor = .white
+        cell.selectionStyle = .none
+        cell.detailTextLabel?.text = Attendee.shared().displayName
+        cell.backgroundColor = .backgroundDarkBlack
+        cell.accessoryType = .none
+        return cell
+        
+    }()
+    
     //private var PlaylistSelectorCell: UITableViewCell = UITableViewCell()
     
     private var sessionNameTextField: UITextField = UITextField()
@@ -27,8 +40,6 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Attendee.shared().displayUserDetails()
         
         let hostButton = UIBarButtonItem(title: "Host Session", style: .plain, target: self, action: #selector(createSession))
         self.navigationItem.rightBarButtonItem = hostButton

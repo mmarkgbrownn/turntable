@@ -49,9 +49,13 @@ class TransportControlView: BaseView {
         
         views.forEach() { addSubview($0) }
         
-        playPauseButton.anchorCenterSuperview()
-        previousButton.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 8, left: 43, bottom: 0, right: 0), size: .init(width: 50, height: 50))
-        forwardButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 43), size: .init(width: 50, height: 50))
+        
+        playPauseButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: nil, padding: .init(top: 16, left: 0, bottom: 0, right: 0), size: .init(width: 50, height: 50))
+        playPauseButton.anchorCenterXToSuperview()
+        
+        previousButton.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: 43, bottom: 0, right: 0), size: .init(width: 50, height: 50))
+        
+        forwardButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 43), size: .init(width: 50, height: 50))
         
     }
     

@@ -28,7 +28,7 @@ class Attendee {
     // Users current session
     var session: String?
     // Spotify enrolment status in the history playlist
-    var history: Bool = true
+    var history: Bool = false
     //The userDefaults refrence
     let userDefaults = UserDefaults.standard
     
@@ -166,6 +166,11 @@ class Attendee {
     
     func logOut() {
         //Log user out, if user owns session call to kill session
+    }
+    
+    func isOrganiser() -> Bool {
+        let result = (self.id == Session.shared().organiser) ? true : false
+        return result
     }
     
     func renewToken() {

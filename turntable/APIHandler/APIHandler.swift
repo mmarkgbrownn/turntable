@@ -62,7 +62,7 @@ class APIHandler: NSObject {
                     
             }
             
-            }.resume()
+        }.resume()
         
     }
     
@@ -115,6 +115,72 @@ class APIHandler: NSObject {
             }
             
         }.resume()
+    }
+    
+    func createPlaylist(name: String, completion: @escaping (String) -> ()) {
+        
+        if name == "" { print("no name"); completion("") }
+        
+        let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
+        let json: [String: Any] = ["name" : name, "public" : true]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        
+        let url = URL(string: baseURL + "users/\(Attendee.shared().sid!)/playlists")
+        var request = URLRequest(url: url!)
+        
+        request.addValue(param, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        request.httpMethod = "POST"
+        
+        URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            if error != nil { print(error!); completion(""); }
+            
+            do {
+                let json = try JSON(data: data!)
+                if let playlistId = json["id"].string{
+                    completion(playlistId)
+                }
+            } catch {
+                completion("")
+            }
+        }.resume()
+        
+    }
+    
+    func followUnfollowPlaylist(state: Bool, completion: @escaping (Bool) -> ()) {
+        guard let playlist = Session.shared().historyPlaylist else { return }
+        
+        let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
+        
+        
+        let url = URL(string: baseURL + "playlists/\(playlist)/followers")
+        var request = URLRequest(url: url!)
+        
+        request.addValue(param, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        if state {
+            request.httpMethod = "DELETE"
+        } else {
+            request.httpMethod = "PUT"
+        }
+        
+        print(request.httpMethod)
+        
+        URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            if error != nil { print(error!); completion(false); }
+            
+            print(response)
+            completion(true)
+            
+        }.resume()
+        
     }
     
     func searchTracks(query: String, completion: ([Track]) -> ()) {

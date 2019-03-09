@@ -10,17 +10,26 @@ import LBTAComponents
 
 class PlayerData: Datasource {
     
-    lazy var nowPlaying = QueueItem()
+//    func updatePlayerDataWith(track: String) {
+//        APIHandler.shared.getTrack(trackId: track) { (track) in
+//            self.nowPlaying = track
+//            DispatchQueue.main.async {
+//                player?.collectionView.reloadData()
+//            }
+//        }
+//    }
     
     override func headerClasses() -> [DatasourceCell.Type]? {
-        return [SectionHeaderCell.self]
+        return [PlayerMediaView.self, SectionHeaderCell.self, SectionHeaderCell.self]
     }
     
     override func headerItem(_ section: Int) -> Any? {
         if section == 1 {
+            return "Up Next"
+        } else if section == 2 {
             return "History"
         }
-        return "Up Next"
+        return Session.shared().nowPlayingTrack
     }
     
     override func footerClasses() -> [DatasourceCell.Type]? {
@@ -29,18 +38,31 @@ class PlayerData: Datasource {
     }
     
     override func cellClasses() -> [DatasourceCell.Type] {
-        return [QueueItemCell.self]
+        return [PlayerMetaData.self, QueueItemCell.self, QueueItemCell.self]
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
+        if indexPath.section == 0 {
+            return Session.shared().nowPlayingTrack
+        } else if indexPath.section == 1 {
+            return SessionQueue.shared().sessionQueue?[indexPath.item]
+        }
+        // Change this to history object eventually
         return SessionQueue.shared().sessionQueue?[indexPath.item]
     }
     
     override func numberOfSections() -> Int {
-        return 2
+        return 3
     }
     
     override func numberOfItems(_ section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            guard let queueCount = SessionQueue.shared().sessionQueue?.count else { return 0 }
+            return queueCount
+        }
+        // this is for history list.
         guard let queueCount = SessionQueue.shared().sessionQueue?.count else { return 0 }
         return queueCount
     }
