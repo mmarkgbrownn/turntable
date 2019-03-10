@@ -191,7 +191,33 @@ class APIHandler: NSObject {
         
     }
     
-    func addTrackToHistory(track: Track, completion: (Bool) -> ()) {
+    func addTrackToHistory(trackId: String) {
+        
+       
+        
+        if trackId == "" { print("no track id"); return }
+        
+        let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
+        
+        guard let url = URL(string: baseURL + "playlists/\(Session.shared().historyPlaylist!)/tracks?uris=spotify:track:\(trackId)") else { return }
+        var request = URLRequest(url: url)
+        
+        request.addValue(param, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            if error != nil { print(error!); return }
+            
+            do {
+                let json = try JSON(data: data!)
+                print(json)
+            } catch {
+                return
+            }
+        }.resume()
         
     }
     

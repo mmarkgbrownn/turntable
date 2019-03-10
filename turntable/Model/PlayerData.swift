@@ -46,9 +46,9 @@ class PlayerData: Datasource {
             return Session.shared().nowPlayingTrack
         } else if indexPath.section == 1 {
             return SessionQueue.shared().sessionQueue?[indexPath.item]
+        } else {
+            return SessionQueue.shared().sessionHistory?[indexPath.item]
         }
-        // Change this to history object eventually
-        return SessionQueue.shared().sessionQueue?[indexPath.item]
     }
     
     override func numberOfSections() -> Int {
@@ -61,9 +61,9 @@ class PlayerData: Datasource {
         } else if section == 1 {
             guard let queueCount = SessionQueue.shared().sessionQueue?.count else { return 0 }
             return queueCount
+        } else {
+            guard let queueCount = SessionQueue.shared().sessionHistory?.count else { return 0 }
+            return queueCount
         }
-        // this is for history list.
-        guard let queueCount = SessionQueue.shared().sessionQueue?.count else { return 0 }
-        return queueCount
     }
 }

@@ -13,6 +13,7 @@ class SessionQueue {
     
     var session: Session?
     var sessionQueue: [QueueItem]?
+    var sessionHistory: [QueueItem]?
     
     private static var currentSessionQueue: SessionQueue = {
         
@@ -31,6 +32,7 @@ class SessionQueue {
     func setSession(session: Session) {
         self.session = session
         self.sessionQueue = []
+        self.sessionHistory = []
         self.observeQueue()
     }
     
@@ -43,7 +45,7 @@ class SessionQueue {
 //            track.artist?.forEach({ if let artistId = $0.id { artistValues[artistId] = "" } }
             
             let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey).child(trackId)
-            let values = ["id": trackId, "name": track.name, "artist": trackArtist, "imageSmall": track.imageSmall, "imageLarge": track.imageLarge, "runtime": track.runtime, "timestamp": String(NSTimeIntervalSince1970)] as [String: AnyObject]
+            let values = ["id": trackId, "name": track.name!, "artist": trackArtist, "imageSmall": track.imageSmall!, "imageLarge": track.imageLarge, "runtime": track.runtime, "timestamp": String(NSTimeIntervalSince1970), "wasPlayed": false] as [String: AnyObject]
             
             sessionQueueDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 
@@ -63,12 +65,19 @@ class SessionQueue {
                 guard let nextInQueue = SessionQueue.shared().sessionQueue?[0].id else { return }
 
                 let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
-                let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey).child(nextInQueue)
+                let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey).child(Session.shared().nowPlaying!)
+                
+                sessionQueueDatabase.updateChildValues(["wasPlayed" : true])
+                
+                let newHistroyObject = QueueItem().convertTrackToQueueItem(track: Session.shared().nowPlayingTrack!, wasPlayed: true)
+                
+                self.sessionHistory?.insert(newHistroyObject, at: 0)
+                
+                APIHandler.shared.addTrackToHistory(trackId: Session.shared().nowPlaying!)
 
                 sessionDatabase.updateChildValues(["nowPlaying" : nextInQueue], withCompletionBlock: { (error, ref) in
                     if error != nil { print(error!); return }
                     SessionQueue.shared().sessionQueue?.removeFirst()
-                    sessionQueueDatabase.removeValue()
                     DispatchQueue.main.async {
                         player?.collectionView.reloadData()
                     }
@@ -89,7 +98,14 @@ class SessionQueue {
             guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
             
             let queueItem = QueueItem(dictonary: dictionary)
-            self.sessionQueue?.append(queueItem)
+            
+            if queueItem.id == Session.shared().nowPlaying { return }
+            
+            if queueItem.wasPlayed == true {
+                self.sessionHistory?.insert(queueItem, at: 0)
+            } else {
+                self.sessionQueue?.append(queueItem)
+            }
             
             DispatchQueue.main.async {
                 player?.collectionView.reloadData()
@@ -97,5 +113,4 @@ class SessionQueue {
         })
         
     }
-    
 }

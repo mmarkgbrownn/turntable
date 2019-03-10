@@ -54,6 +54,12 @@ class Session {
             
             if err != nil { print(err!); return }
             
+            APIHandler.shared.getTrack(trackId: values["nowPlaying"]!, completion: { (track) in
+                self.nowPlayingTrack = track
+                print(track)
+                SessionQueue.shared().addToQueue(track: self.nowPlayingTrack!, completion: { (succ) in })
+            })
+            
             self.joinSession(snapshot: values, completion: { (Bool) in
                 return
             })

@@ -30,7 +30,6 @@ class SplashViewController: UIViewController {
         //activityIndicator.startAnimating()
         
         Attendee.shared().loadUserFromUserDefaults()
-        
         let spotifyAccessToken = Attendee.shared().spotifySession?.accessToken
         
         if Auth.auth().currentUser?.uid == nil || spotifyAccessToken == nil {

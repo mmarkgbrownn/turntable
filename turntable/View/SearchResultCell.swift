@@ -23,7 +23,7 @@ class SearchResultCell: DatasourceCell {
             itemStatusIndicator.image = UIImage(named: resourceIcon)?.withRenderingMode(.alwaysTemplate)
             
             if let urlString = searchItem?.imageSmall {
-                let url = URL(string: "https://i.scdn.co/image/" + urlString)
+                let url = URL(string: urlString)
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: url!)
                     DispatchQueue.main.async {
