@@ -23,7 +23,7 @@ class QueueItem: Track {
         super.init()
     }
     
-    init(dictonary: [String: Any]) {
+    override init(dictonary: [String: Any]) {
         super.init(id: dictonary["id"] as! String, name: dictonary["name"] as! String, imageSmall: (dictonary["imageSmall"] as! String), imageLarge: (dictonary["imageLarge"] as! String), artist: dictonary["artist"] as! String, runtime: (dictonary["runtime"] as! String))
         self.timestamp = dictonary["timestamp"] as? String
         self.wasPlayed = dictonary["wasPlayed"] as? Bool ?? false

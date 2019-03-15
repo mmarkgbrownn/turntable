@@ -35,7 +35,6 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
         statusBarBackground.backgroundColor = UIColor(white: 18/255, alpha: 0)
         
         view.addSubview(statusBarBackground)
-        //redview.nowPlaying = playerDataSource.nowPlaying
         
         collectionView.backgroundColor = nil
         collectionView.contentInsetAdjustmentBehavior = .never
@@ -61,10 +60,6 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
         SessionQueue.shared().playNextInQueue()
     }
     
-    @objc func skipBackwards() {
-        
-    }
-    
     func playPauseState() -> Bool {
         
         let playbackState = SPTAudioStreamingController.sharedInstance().playbackState
@@ -80,7 +75,7 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
     }
     
     func play() {
-        SPTAudioStreamingController.sharedInstance().playSpotifyURI("spotify:track:\(Session.shared().nowPlaying ?? "1nNHyFaopXQu4gPazu3J2r")", startingWith: 0, startingWithPosition: 0) { (error) in
+        SPTAudioStreamingController.sharedInstance().playSpotifyURI("spotify:track:\(Session.shared().nowPlaying ?? "6TGoYBjxwsLgIzaw9lhfMG")", startingWith: 0, startingWithPosition: 0) { (error) in
             if error != nil { print(error!); return }
         }
     }

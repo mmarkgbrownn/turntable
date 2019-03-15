@@ -183,8 +183,43 @@ class APIHandler: NSObject {
         
     }
     
-    func searchTracks(query: String, completion: ([Track]) -> ()) {
+    func searchTracks(query: String, completion: @escaping ([Track]) -> ()) {
         
+        var searchResults: [Track] = []
+        let param = "Bearer " + Attendee.shared().spotifySession!.accessToken
+        
+        let queryString = query.replacingOccurrences(of: " ", with: "%20")
+        let q = "query=" + queryString
+        let url = URL(string: baseURL + "search?" + q + "&type=track")
+        var request = URLRequest(url: url!)
+        
+        request.addValue(param, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            if error != nil { print(error!) }
+            
+            do {
+                let json = try JSON(data: data!)
+                if let tracksJson = json["tracks"]["items"].array {
+                    tracksJson.forEach() {
+                        if let id = $0["id"].string, let trackName = $0["name"].string, let artistName = $0["artists"][0]["name"].string, let artworkLarge = $0["album"]["images"][0]["url"].string, let artworkSmall = $0["album"]["images"][2]["url"].string {
+                            
+                            let track = Track(id: id, name: trackName, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: "000000")
+                            
+                            searchResults.append(track)
+                            
+                        }
+                    }
+                    completion(searchResults)
+                }
+            } catch {
+                
+            }
+            
+            }.resume()
     }
     
     func fetchPlaylists(completion: (Bool) -> ()) {

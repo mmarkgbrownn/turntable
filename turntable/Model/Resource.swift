@@ -44,6 +44,12 @@ class Track: Resource {
         self.runtime = runtime
     }
     
+    init(dictonary: [String: Any]) {
+        super.init(id: dictonary["id"] as! String, name: dictonary["name"] as! String, imageSmall: (dictonary["imageSmall"] as! String), imageLarge: (dictonary["imageLarge"] as! String))
+        self.artist = (dictonary["artist"] as! String)
+        self.runtime = (dictonary["runtime"] as! String)
+    }
+    
     func formatDuration(duration: Int) {
         
         let duration = TimeInterval(duration)
