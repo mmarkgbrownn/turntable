@@ -19,6 +19,8 @@ class SearchController: UISearchContainerViewController {
         
         view?.backgroundColor = .backgroundDarkBlack
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
     }
     
     init() {
@@ -29,6 +31,7 @@ class SearchController: UISearchContainerViewController {
         searchVC.searchBar.delegate = searchResultsVC as? UISearchBarDelegate
         searchVC.searchResultsUpdater = searchResultsVC
         //searchVC.obscuresBackgroundDuringPresentation = false
+        searchVC.isActive = true
 
         let searchBar = searchVC.searchBar
         searchBar.delegate = searchResultsVC as? UISearchBarDelegate

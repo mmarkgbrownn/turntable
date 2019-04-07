@@ -95,7 +95,7 @@ class PlayerMediaView: DatasourceCell {
         views.forEach() { addSubview($0) }
         
         // Fill view with background
-        mediaBackgroundBlurView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(), size: .init(width: 0, height: (artworkWidth + 124)))
+        //mediaBackgroundBlurView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(), size: .init(width: 0, height: (artworkWidth + 124)))
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.backgroundDarkBlack.cgColor]
@@ -109,6 +109,8 @@ class PlayerMediaView: DatasourceCell {
         mediaArtworkView.anchor(top: safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil, padding: .init(top: 30, left: 0, bottom: 0, right: 0), size: .init(width: artworkWidth, height: artworkWidth))
         
         artworkSeperator.anchor(top: mediaArtworkView.bottomAnchor, leading: mediaBackgroundBlurView.leadingAnchor, bottom: nil, trailing: mediaBackgroundBlurView.trailingAnchor, padding: .init(top: 40, left: 0, bottom: 0, right: 0), size: .init(width: screenWidth, height: 0.5))
+        
+        mediaBackgroundBlurView.anchor(top: topAnchor, leading: leadingAnchor, bottom: artworkSeperator.topAnchor, trailing: trailingAnchor, padding: .init(), size: .init(width: 0, height: 0))
     }
 }
 

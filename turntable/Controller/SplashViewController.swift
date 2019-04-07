@@ -32,6 +32,8 @@ class SplashViewController: UIViewController {
         Attendee.shared().loadUserFromUserDefaults()
         let spotifyAccessToken = Attendee.shared().spotifySession?.accessToken
         
+        //Attendee.shared().session = nil
+        
         if Auth.auth().currentUser?.uid == nil || spotifyAccessToken == nil {
             // Not logged into Firebase + no Spotify session
             AppDelegate.shared.rootViewController.showHomeView()

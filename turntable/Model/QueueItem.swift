@@ -16,7 +16,7 @@ class QueueItem: Track {
 //    var imageLarge: String?
 //    var artist: String?
 //    var runtime: String?
-    var timestamp: String?
+    var timestamp: Int?
     var wasPlayed: Bool?
     
     override init(){
@@ -25,11 +25,11 @@ class QueueItem: Track {
     
     override init(dictonary: [String: Any]) {
         super.init(id: dictonary["id"] as! String, name: dictonary["name"] as! String, imageSmall: (dictonary["imageSmall"] as! String), imageLarge: (dictonary["imageLarge"] as! String), artist: dictonary["artist"] as! String, runtime: (dictonary["runtime"] as! String))
-        self.timestamp = dictonary["timestamp"] as? String
+        self.timestamp = dictonary["timestamp"] as? Int
         self.wasPlayed = dictonary["wasPlayed"] as? Bool ?? false
     }
     
-    func convertTrackToQueueItem(track: Track, timestamp: String = String(NSTimeIntervalSince1970), wasPlayed: Bool) -> QueueItem {
+    func convertTrackToQueueItem(track: Track, timestamp: Int, wasPlayed: Bool) -> QueueItem {
         self.id = track.id
         self.name = track.name
         self.imageSmall = track.imageSmall

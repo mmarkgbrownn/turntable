@@ -42,12 +42,20 @@ class HomeView: BaseView {
     }()
     
     let descriptionText = "To connect your account, Turntable will need to open Spotify. Turntable uses Spotify to provide a vast library of music for your event."
+
+    //let label
     
     lazy var homeDescriptionText = reusableComponents.createDescriptionWith(text: descriptionText)
     
     lazy var homeButton = reusableComponents.createButtonWith(label: "Connect Spotify")
     
     override func setupView() {
+        
+        if let spotifySession = Attendee.shared().spotifySession {
+            if spotifySession.isValid() {
+                homeButton.setTitle("Get Started", for: .normal)
+            }
+        }
         
         let views = [logo, homeTitleText, homeBodyText, homeButton, homeDescriptionText]
         views.forEach { addSubview($0) }

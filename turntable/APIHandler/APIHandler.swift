@@ -52,9 +52,10 @@ class APIHandler: NSObject {
                 do {
                     let json = try JSON(data: data!)
                     
-                    if let id = json["id"].string, let trackName = json["name"].string, let artistName = json["artists"][0]["name"].string, let artworkLarge = json["album"]["images"][0]["url"].string, let artworkSmall = json["album"]["images"][2]["url"].string {
+                    if let id = json["id"].string, let trackName = json["name"].string, let artistName = json["artists"][0]["name"].string, let artworkLarge = json["album"]["images"][0]["url"].string, let artworkSmall = json["album"]["images"][2]["url"].string, let runtime = json["duration_ms"].int {
                     
-                        let track = Track(id: id, name: trackName, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: "000000")
+                        let formattedRuntime = self.formatDuration(duration: runtime)
+                        let track = Track(id: id, name: trackName, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: formattedRuntime)
                         
                         completion(track)
                     }
@@ -169,14 +170,11 @@ class APIHandler: NSObject {
             request.httpMethod = "PUT"
         }
         
-        print(request.httpMethod)
-        
         URLSession.shared.dataTask(with: request) {
             (data, response, error) in
             
             if error != nil { print(error!); completion(false); }
-            
-            print(response)
+
             completion(true)
             
         }.resume()
@@ -205,9 +203,10 @@ class APIHandler: NSObject {
                 let json = try JSON(data: data!)
                 if let tracksJson = json["tracks"]["items"].array {
                     tracksJson.forEach() {
-                        if let id = $0["id"].string, let trackName = $0["name"].string, let artistName = $0["artists"][0]["name"].string, let artworkLarge = $0["album"]["images"][0]["url"].string, let artworkSmall = $0["album"]["images"][2]["url"].string {
+                        if let id = $0["id"].string, let trackName = $0["name"].string, let artistName = $0["artists"][0]["name"].string, let artworkLarge = $0["album"]["images"][0]["url"].string, let artworkSmall = $0["album"]["images"][2]["url"].string, let runtime = $0["duration_ms"].int {
                             
-                            let track = Track(id: id, name: trackName, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: "000000")
+                            let formattedRuntime = self.formatDuration(duration: runtime)
+                            let track = Track(id: id, name: trackName, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: formattedRuntime)
                             
                             searchResults.append(track)
                             
@@ -256,4 +255,19 @@ class APIHandler: NSObject {
         
     }
     
+    func formatDuration(duration: Int) -> String {
+        
+        let duration = TimeInterval(duration/1000)
+        
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.minute, .second]
+        formatter.allowsFractionalUnits = false
+        formatter.zeroFormattingBehavior = [.pad]
+        formatter.maximumUnitCount = 2
+        
+        guard let formattedTime = formatter.string(from: duration) else  { return "" }
+
+        return formattedTime
+    }
 }

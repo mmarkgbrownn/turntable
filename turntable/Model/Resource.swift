@@ -50,19 +50,6 @@ class Track: Resource {
         self.runtime = (dictonary["runtime"] as! String)
     }
     
-    func formatDuration(duration: Int) {
-        
-        let duration = TimeInterval(duration)
-        
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.minute, .second]
-        formatter.zeroFormattingBehavior = [.pad]
-        
-        
-        self.runtime = formatter.string(from: duration)
-    }
-    
 }
 
 class Artist: Resource {

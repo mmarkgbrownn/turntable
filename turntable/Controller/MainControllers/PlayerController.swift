@@ -88,13 +88,17 @@ class PlayerController: DatasourceController, SPTAudioStreamingDelegate, SPTAudi
         SessionQueue.shared().playNextInQueue()
     }
     
+    func audioStreamingDidLogout(_ audioStreaming: SPTAudioStreamingController) {
+        //add observer value change to notify settings that it was successful
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
             // Get Artwork padding value
             let screenSize: CGRect = UIScreen.main.bounds
             let screenWidth = screenSize.width
             let artworkWidth = (CGFloat(screenWidth) / 100) * 70
-            let viewHeight = artworkWidth + 120
+            let viewHeight = artworkWidth + UIApplication.shared.statusBarFrame.height + 71
             return CGSize(width: view.frame.width, height: viewHeight)
         } else {
             return CGSize(width: view.frame.width, height: 16 + 48)

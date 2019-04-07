@@ -14,6 +14,7 @@ class Session {
     var sessionName: String?
     var sessionKey: String?
     var maxGuests: Int?
+    var tracksPlayed: Int = 0
     var context: String?
     var historyPlaylist: String?
     var organiser: String?
@@ -48,13 +49,13 @@ class Session {
     
     fileprivate func createSessionInFirebase(_ sessionKey: String, _ sessionName: String, _ organiser: String) {
         let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
-        let values = ["sessionKey": sessionKey, "sessionName": sessionName, "owner": organiser, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"]
+        let values = ["sessionKey": sessionKey, "sessionName": sessionName, "tracksPlayed": tracksPlayed, "owner": organiser, "historyPlaylist": self.historyPlaylist!, "nowPlaying": "4N42f3TrE3gFSaEXPHr9Zp"] as [String : Any]
         
         sessionDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
             
             if err != nil { print(err!); return }
             
-            APIHandler.shared.getTrack(trackId: values["nowPlaying"]!, completion: { (track) in
+            APIHandler.shared.getTrack(trackId: values["nowPlaying"] as! String, completion: { (track) in
                 self.nowPlayingTrack = track
                 print(track)
                 SessionQueue.shared().addToQueue(track: self.nowPlayingTrack!, completion: { (succ) in })
@@ -91,6 +92,7 @@ class Session {
         
         self.sessionKey = snapshot["sessionKey"] as? String
         self.sessionName = snapshot["sessionName"] as? String
+        self.tracksPlayed = snapshot["tracksPlayed"] as! Int
         self.organiser = snapshot["owner"] as? String
         self.historyPlaylist = snapshot["historyPlaylist"] as? String
         self.nowPlaying = snapshot["nowPlaying"] as? String
@@ -112,6 +114,8 @@ class Session {
         if self.organiser == Attendee.shared().id {
             guard let sessionKey = self.sessionKey else { return }
             
+            SPTAudioStreamingController.sharedInstance().logout()
+            
             let sessionDatabaseRef = Database.database().reference().child("session").child(sessionKey)
             let sessionQueueDatabaseRef = Database.database().reference().child("sessionQueue").child(sessionKey)
             
@@ -128,6 +132,10 @@ class Session {
         self.historyPlaylist = nil
         self.nowPlaying = nil
         
+        SessionQueue.shared().sessionQueue = nil
+        SessionQueue.shared().sessionHistory = nil
+        SessionQueue.shared().session = nil
+        
     }
     
     func observeNowPlaying() {
@@ -139,6 +147,12 @@ class Session {
             
             guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
             
+            if !(SessionQueue.shared().sessionQueue!.isEmpty) && self.nowPlayingTrack != nil {
+                let newHistroyObject = QueueItem().convertTrackToQueueItem(track: self.nowPlayingTrack!, timestamp: 0, wasPlayed: true)
+                SessionQueue.shared().sessionQueue?.removeFirst()
+                SessionQueue.shared().sessionHistory?.insert(newHistroyObject, at: 0)
+            }
+            
             if let nowPlaying = dictionary["nowPlaying"] {
                 
                 self.nowPlaying = nowPlaying as? String
@@ -149,6 +163,7 @@ class Session {
                         player?.play()
                         player?.collectionView.reloadData()
                     }
+                    
                 })
                 
             }

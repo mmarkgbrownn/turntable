@@ -18,7 +18,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
         let searchResultsViewController = SearchResultsViewController()
         let searchController = UISearchController(searchResultsController: searchResultsViewController)
-        searchController.searchResultsUpdater = searchResultsViewController as? UISearchResultsUpdating
+        searchController.searchResultsUpdater = searchResultsViewController as UISearchResultsUpdating
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Spotify"
         navigationItem.searchController = searchController

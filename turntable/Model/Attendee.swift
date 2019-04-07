@@ -47,7 +47,7 @@ class Attendee {
     }
     
     func displayUserDetails() {
-        print("id: ", self.id ?? " ", ", spotify id: ", self.sid ?? " ", ", display name: ", self.displayName ?? " ", ", email: ", self.email ?? " ", ", birthdate: ", self.birthdate ?? " ", ", access token: ", self.accessToken ?? " ", ", session: ", self.session ?? " ", ", history enabled: ", self.history)
+        print("id: ", self.id ?? " ", ", spotify id: ", self.sid ?? " ", ", display name: ", self.displayName ?? " ", ", email: ", self.email ?? " ", ", birthdate: ", self.birthdate ?? " ", ", access token: ", self.spotifySession?.accessToken ?? " ", ", session: ", self.session ?? " ", ", history enabled: ", self.history)
     }
     
     // Set the user objects attributes and login to firebase.
@@ -60,7 +60,7 @@ class Attendee {
                 self.email = email
                 self.displayName = displayName
                 self.birthdate = birthdate
-            }
+            } else { completion(false) }
         }
         
         Auth.auth().fetchProviders(forEmail: self.email ?? "") { (result, error) in

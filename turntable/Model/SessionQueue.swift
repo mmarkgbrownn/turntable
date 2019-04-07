@@ -45,7 +45,8 @@ class SessionQueue {
 //            track.artist?.forEach({ if let artistId = $0.id { artistValues[artistId] = "" } }
             
             let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey).child(trackId)
-            let values = ["id": trackId, "name": track.name!, "artist": trackArtist, "imageSmall": track.imageSmall!, "imageLarge": track.imageLarge, "runtime": track.runtime, "timestamp": String(NSTimeIntervalSince1970), "wasPlayed": false] as [String: AnyObject]
+            let timestamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
+            let values = ["id": trackId, "name": track.name!, "artist": trackArtist, "imageSmall": track.imageSmall!, "imageLarge": track.imageLarge!, "runtime": track.runtime!, "timestamp": timestamp, "wasPlayed": false] as [String: AnyObject]
             
             sessionQueueDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 
@@ -69,21 +70,9 @@ class SessionQueue {
                 
                 sessionQueueDatabase.updateChildValues(["wasPlayed" : true])
                 
-                let newHistroyObject = QueueItem().convertTrackToQueueItem(track: Session.shared().nowPlayingTrack!, wasPlayed: true)
-                
-                self.sessionHistory?.insert(newHistroyObject, at: 0)
-                
                 APIHandler.shared.addTrackToHistory(trackId: Session.shared().nowPlaying!)
-
-                sessionDatabase.updateChildValues(["nowPlaying" : nextInQueue], withCompletionBlock: { (error, ref) in
-                    if error != nil { print(error!); return }
-                    SessionQueue.shared().sessionQueue?.removeFirst()
-                    DispatchQueue.main.async {
-                        player?.collectionView.reloadData()
-                    }
-                    
-                })
-
+                Session.shared().tracksPlayed += 1
+                sessionDatabase.updateChildValues(["nowPlaying" : nextInQueue, "tracksPlayed" : Session.shared().tracksPlayed])
             }
         }
     }
@@ -103,14 +92,21 @@ class SessionQueue {
             
             if queueItem.wasPlayed == true {
                 self.sessionHistory?.insert(queueItem, at: 0)
+                self.sessionHistory?.sort(by: { (track1, track2) -> Bool in
+                    guard let timestamp1 = track1.timestamp, let timestamp2 = track2.timestamp else {return false}
+                    return timestamp1 > timestamp2
+                })
             } else {
                 self.sessionQueue?.append(queueItem)
+                self.sessionQueue?.sort(by: { (track1, track2) -> Bool in
+                    guard let timestamp1 = track1.timestamp, let timestamp2 = track2.timestamp else {return false}
+                    return timestamp1 < timestamp2
+                })
             }
             
             DispatchQueue.main.async {
                 player?.collectionView.reloadData()
             }
         })
-        
     }
 }

@@ -31,15 +31,37 @@ class HomeController: UIViewController {
     }
     
     @objc func connectSpotify() {
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(returnFromSpotify(_:)), name: NSNotification.Name.Spotify.authURLOpened, object: nil)
-        
-        if SPTAuth.supportsApplicationAuthentication() {
-            UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+        if let spotifySession = Attendee.shared().spotifySession {
+            SPTAuth.defaultInstance().renewSession(spotifySession) { (error, session) in
+                if error != nil { print(error!); return }
+                return
+            }
+            
+            if Attendee.shared().spotifySession!.isValid() {
+                self.getUserDetailsAndSet()
+            }
         } else {
-            present(spotifyAuthWebView, animated: true, completion: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(returnFromSpotify(_:)), name: NSNotification.Name.Spotify.authURLOpened, object: nil)
+            
+            if SPTAuth.supportsApplicationAuthentication() {
+                UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+            } else {
+                present(spotifyAuthWebView, animated: true, completion: nil)
+            }
         }
         
+    }
+    
+    fileprivate func getUserDetailsAndSet() {
+        APIHandler.shared.getCurrentUserDetails(completion: { (result) in
+            Attendee.shared().setUser(userData: result, completion: { (success) in
+                if success == true {
+                    DispatchQueue.main.async {
+                        self.navigationController?.pushViewController(HostJoinSessionController(), animated: true)
+                    }
+                }
+            })
+        })
     }
     
     @objc func returnFromSpotify(_ notification: Notification) {
@@ -53,21 +75,11 @@ class HomeController: UIViewController {
         SPTAuth.defaultInstance().handleAuthCallback(withTriggeredAuthURL: url) { (error, session) in
             if let error = error { self.displayErrorMessage(error: error); print("its this one"); return }
             
-            Attendee.shared().spotifySession = session
-            
-            if let session = session {
-                APIHandler.shared.getCurrentUserDetails(completion: { (result) in
-                    Attendee.shared().setUser(userData: result, completion: { (success) in
-                        if success == true {
-                            DispatchQueue.main.async {
-                                self.navigationController?.pushViewController(HostJoinSessionController(), animated: true)
-                            }
-                        }
-                    })
-                })
+            if session != nil {
+                Attendee.shared().spotifySession = session
+                self.getUserDetailsAndSet()
             }
         }
-        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
