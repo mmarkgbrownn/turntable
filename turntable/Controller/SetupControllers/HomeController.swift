@@ -24,7 +24,8 @@ class HomeController: UIViewController {
         let homeScreen = HomeView()
         view.addSubview(homeScreen)
         
-        homeScreen.fillSuperview()
+        homeScreen.anchorCenterYToSuperview()
+        homeScreen.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 425))
         
         homeScreen.homeButton.addTarget(self, action: #selector(connectSpotify), for: .touchUpInside)
         

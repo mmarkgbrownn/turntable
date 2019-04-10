@@ -85,6 +85,7 @@ class PlayerMetaData: DatasourceCell {
         bottomSeperator.anchor(top: transportControllView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 0.5))
         
         saveToLibraryActionView.addTarget(self, action: #selector(addSongToUserLibraryAction), for: .touchUpInside)
+        shareActionView.addTarget(self, action: #selector(shareNowPlayingTrack), for: .touchUpInside)
         
         let transportVisibility = (Attendee.shared().isOrganiser()) ? false : true
         
@@ -112,6 +113,25 @@ class PlayerMetaData: DatasourceCell {
         self.resetView()
     }
     
+    @objc func shareNowPlayingTrack() {
+        // text to share
+        guard let nowPlayingURL = Session.shared().nowPlayingTrack?.spotifyURL else { return }
+        let text = nowPlayingURL
+        let myWebsite = NSURL(string: nowPlayingURL)
+        
+        // set up activity view controller
+        let textToShare = [ text , myWebsite! ] as [Any]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = player?.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        //activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        
+        // present the view controller
+        player?.present(activityViewController, animated: true, completion: nil)
+        
+    }
+    
     func resetView() {
         transportControllView.playPauseButton.setImage(UIImage(named: "pauseButton"), for: .normal)
         saveToLibraryActionView.setImage(UIImage(named: "Save"), for: .normal)
@@ -119,7 +139,7 @@ class PlayerMetaData: DatasourceCell {
     
     func switchAddLibraryIcon(state: Bool) {
         if state {
-            saveToLibraryActionView.setImage(UIImage(named: "inQueue"), for: .normal)
+            saveToLibraryActionView.setImage(UIImage(named: "Saved"), for: .normal)
         } else {
             saveToLibraryActionView.setImage(UIImage(named: "Save"), for: .normal)
         }

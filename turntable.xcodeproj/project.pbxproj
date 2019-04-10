@@ -110,6 +110,7 @@
 		413E14F6221221AF00D2947B /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		41524DFE2235ACC800EE6DAF /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		417306002204A11000F3E45E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		4184F5B5225D5A9200515D33 /* turntable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = turntable.entitlements; sourceTree = "<group>"; };
 		418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSessionController.swift; sourceTree = "<group>"; };
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
 		41942C7321E404AC00F7F136 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -233,6 +234,7 @@
 		411CDC0C21DD0C03001D64BD /* turntable */ = {
 			isa = PBXGroup;
 			children = (
+				4184F5B5225D5A9200515D33 /* turntable.entitlements */,
 				419A46FF2216096400762FDF /* turntable-Bridging-Header.h */,
 				411CDC0D21DD0C03001D64BD /* AppDelegate.swift */,
 				41D8825B2218CD7400D3C987 /* APIHandler */,
@@ -415,6 +417,9 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -772,6 +777,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = turntable/turntable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWM5C54AJF;
@@ -801,6 +807,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = turntable/turntable.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWM5C54AJF;

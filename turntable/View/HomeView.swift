@@ -61,7 +61,7 @@ class HomeView: BaseView {
         views.forEach { addSubview($0) }
         
         // Logo positioning
-        logo.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 170, left: 16, bottom: 0, right: 0), size: .init(width: 68, height: 68))
+        logo.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 16, bottom: 0, right: 0), size: .init(width: 68, height: 68))
         
         //Home title positioning
         homeTitleText.anchor(top: logo.bottomAnchor, leading: logo.leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 16))

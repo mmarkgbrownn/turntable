@@ -38,7 +38,7 @@ class TurntableTabBarController: UITabBarController {
         playerController.tabBarItem = UITabBarItem(title: "Player", image: UIImage(named: "PlayerInactive"), selectedImage: UIImage(named: "Player"))
         
         //Setup Library Controller
-        let searchController = SearchController()
+        let searchController = SearchViewController()
         searchController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "LibraryInactive"), selectedImage: UIImage(named: "Library"))
         
         //Add Controllers to tab bar list and wrap each in a navigation controller

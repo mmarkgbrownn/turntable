@@ -82,10 +82,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {
+//        if Attendee.shared().session != nil {
+//            SessionQueue.shared().observeQueue()
+//            Session.shared().observeNowPlaying()
+//        }
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        
+        Attendee.shared().storeUserDetails()
+        
+//        guard let sessionKey = Attendee.shared().session else { return }
+//
+//        if Attendee.shared().session != nil {
+//            let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey)
+//            let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
+//
+//            sessionQueueDatabase.removeAllObservers()
+//            sessionDatabase.removeAllObservers()
+//        }
+    }
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Saves changes in the application's managed object context before the application terminates.
         //self.saveContext()
         Attendee.shared().storeUserDetails()
+        
+        guard let sessionKey = Attendee.shared().session else { return }
+        
+        if Attendee.shared().session != nil {
+            let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey)
+            let sessionDatabase = Database.database().reference().child("session").child(sessionKey)
+            
+            sessionQueueDatabase.removeAllObservers()
+            sessionDatabase.removeAllObservers()
+        }
     }
     
 //    // MARK: - Core Data stack

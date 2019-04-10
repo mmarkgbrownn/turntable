@@ -37,16 +37,16 @@ class SessionQueue {
     }
     
     func addToQueue(track: Track, completion: (Bool) -> ()) {
-        
+        print(track.spotifyURL)
         //Add to firebase queue too
-        if let sessionKey = Session.shared().sessionKey, let trackId = track.id, let trackArtist = track.artist{
+        if let sessionKey = Session.shared().sessionKey, let trackId = track.id, let trackArtist = track.artist, let spotifyURL = track.spotifyURL{
             
 //            var artistValues = [String: String]()
 //            track.artist?.forEach({ if let artistId = $0.id { artistValues[artistId] = "" } }
             
             let sessionQueueDatabase = Database.database().reference().child("sessionQueue").child(sessionKey).child(trackId)
             let timestamp = NSNumber(value: Int(NSDate().timeIntervalSince1970))
-            let values = ["id": trackId, "name": track.name!, "artist": trackArtist, "imageSmall": track.imageSmall!, "imageLarge": track.imageLarge!, "runtime": track.runtime!, "timestamp": timestamp, "wasPlayed": false] as [String: AnyObject]
+            let values = ["id": trackId, "name": track.name!, "artist": trackArtist, "spotifyURL": spotifyURL, "imageSmall": track.imageSmall!, "imageLarge": track.imageLarge!, "runtime": track.runtime!, "timestamp": timestamp, "wasPlayed": false] as [String: AnyObject]
             
             sessionQueueDatabase.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 

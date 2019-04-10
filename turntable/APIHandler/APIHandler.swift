@@ -52,10 +52,10 @@ class APIHandler: NSObject {
                 do {
                     let json = try JSON(data: data!)
                     
-                    if let id = json["id"].string, let trackName = json["name"].string, let artistName = json["artists"][0]["name"].string, let artworkLarge = json["album"]["images"][0]["url"].string, let artworkSmall = json["album"]["images"][2]["url"].string, let runtime = json["duration_ms"].int {
+                    if let id = json["id"].string, let trackName = json["name"].string, let artistName = json["artists"][0]["name"].string, let spotifyURL = json["external_urls"]["spotify"].string, let artworkLarge = json["album"]["images"][0]["url"].string, let artworkSmall = json["album"]["images"][2]["url"].string, let runtime = json["duration_ms"].int {
                     
                         let formattedRuntime = self.formatDuration(duration: runtime)
-                        let track = Track(id: id, name: trackName, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: formattedRuntime)
+                        let track = Track(id: id, name: trackName, spotifyURL: spotifyURL, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: formattedRuntime)
                         
                         completion(track)
                     }
@@ -203,10 +203,11 @@ class APIHandler: NSObject {
                 let json = try JSON(data: data!)
                 if let tracksJson = json["tracks"]["items"].array {
                     tracksJson.forEach() {
-                        if let id = $0["id"].string, let trackName = $0["name"].string, let artistName = $0["artists"][0]["name"].string, let artworkLarge = $0["album"]["images"][0]["url"].string, let artworkSmall = $0["album"]["images"][2]["url"].string, let runtime = $0["duration_ms"].int {
+                        if let id = $0["id"].string, let trackName = $0["name"].string, let artistName = $0["artists"][0]["name"].string, let spotify = $0["external_urls"]["spotify"].string, let artworkLarge = $0["album"]["images"][0]["url"].string, let artworkSmall = $0["album"]["images"][2]["url"].string, let runtime = $0["duration_ms"].int {
                             
+                            print(spotify)
                             let formattedRuntime = self.formatDuration(duration: runtime)
-                            let track = Track(id: id, name: trackName, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: formattedRuntime)
+                            let track = Track(id: id, name: trackName, spotifyURL: spotify, imageSmall: artworkSmall, imageLarge: artworkLarge, artist: artistName, runtime: formattedRuntime)
                             
                             searchResults.append(track)
                             
@@ -226,8 +227,6 @@ class APIHandler: NSObject {
     }
     
     func addTrackToHistory(trackId: String) {
-        
-       
         
         if trackId == "" { print("no track id"); return }
         

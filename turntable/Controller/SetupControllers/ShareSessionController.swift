@@ -52,7 +52,9 @@ class ShareSessionController: UIViewController {
         
         sessionLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 32, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 0))
         
-        sessionKeyLabel.anchor(top: sessionLabel.bottomAnchor, leading: sessionLabel.leadingAnchor, bottom: nil, trailing: sessionLabel.trailingAnchor, padding: .init(top: 180, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 0))
+        sessionKeyLabel.anchor(top: nil, leading: sessionLabel.leadingAnchor, bottom: nil, trailing: sessionLabel.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 0))
+        
+        sessionKeyLabel.anchorCenterYToSuperview()
         
         helpDescription.anchor(top: nil, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: 24, right: 16), size: .init(width: 0, height: 0))
         

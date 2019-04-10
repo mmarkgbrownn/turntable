@@ -16,9 +16,15 @@ class SearchResultCell: DatasourceCell {
     override var datasourceItem: Any? {
         didSet {
             
+            var resourceIcon = "addToQueue"
+            
             searchItem = datasourceItem as? Track
                         
             SessionQueue.shared().sessionQueue?.forEach({ if $0.id == searchItem?.id { resourceIcon = "inQueue" } })
+            SessionQueue.shared().sessionHistory?.forEach({ if $0.id == searchItem?.id { resourceIcon = "inQueue" } })
+            if Session.shared().nowPlayingTrack?.id == searchItem?.id {
+                resourceIcon = "inQueue"
+            }
             
             itemStatusIndicator.image = UIImage(named: resourceIcon)?.withRenderingMode(.alwaysTemplate)
             
@@ -41,8 +47,6 @@ class SearchResultCell: DatasourceCell {
             
         }
     }
-    
-    var resourceIcon = "addToQueue"
     
     let resourceArtwork : UIImageView = {
         //Add image to artwork view

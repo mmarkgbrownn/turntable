@@ -24,7 +24,7 @@ class QueueItem: Track {
     }
     
     override init(dictonary: [String: Any]) {
-        super.init(id: dictonary["id"] as! String, name: dictonary["name"] as! String, imageSmall: (dictonary["imageSmall"] as! String), imageLarge: (dictonary["imageLarge"] as! String), artist: dictonary["artist"] as! String, runtime: (dictonary["runtime"] as! String))
+        super.init(id: dictonary["id"] as! String, name: dictonary["name"] as! String, spotifyURL: (dictonary["spotifyURL"] as! String), imageSmall: (dictonary["imageSmall"] as! String), imageLarge: (dictonary["imageLarge"] as! String), artist: dictonary["artist"] as! String, runtime: (dictonary["runtime"] as! String))
         self.timestamp = dictonary["timestamp"] as? Int
         self.wasPlayed = dictonary["wasPlayed"] as? Bool ?? false
     }
@@ -32,6 +32,7 @@ class QueueItem: Track {
     func convertTrackToQueueItem(track: Track, timestamp: Int, wasPlayed: Bool) -> QueueItem {
         self.id = track.id
         self.name = track.name
+        self.spotifyURL = track.spotifyURL
         self.imageSmall = track.imageSmall
         self.imageLarge = track.imageLarge
         self.artist = track.artist

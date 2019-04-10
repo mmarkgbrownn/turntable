@@ -24,18 +24,11 @@ class SearchResultsViewController: DatasourceController, UISearchResultsUpdating
         guard let searchString = searchController.searchBar.text else { return }
         APIHandler.shared.searchTracks(query: searchString) { (results) in
             SearchResultsManager.shared().searchResults = results
-            print(SearchResultsManager.shared().searchResults)
-        }
-        self.collectionView.reloadData()
-        DispatchQueue.main.async {
-            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
     }
-    
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.cellForItem(at: indexPath) as! SearchResultCell
-//        return cell
-//    }
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 16 + 48)
