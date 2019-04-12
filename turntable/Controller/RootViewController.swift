@@ -29,6 +29,10 @@ class RootViewController: UIViewController {
         current.didMove(toParent: self)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func showHomeView() {
         
         let new = UINavigationController(rootViewController: HomeController())

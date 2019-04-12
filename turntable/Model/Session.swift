@@ -119,9 +119,8 @@ class Session {
             let sessionDatabaseRef = Database.database().reference().child("session").child(sessionKey)
             let sessionQueueDatabaseRef = Database.database().reference().child("sessionQueue").child(sessionKey)
             
+            sessionDatabaseRef.removeAllObservers()
             sessionQueueDatabaseRef.removeAllObservers()
-            sessionQueueDatabaseRef.removeValue()
-            sessionDatabaseRef.removeValue()
         }
         
         Attendee.shared().clearSessionData()

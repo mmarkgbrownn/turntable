@@ -36,6 +36,7 @@
 		4138A78921EA4AA300961448 /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138A78821EA4AA300961448 /* PlayerData.swift */; };
 		413E14F7221221AF00D2947B /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E14F6221221AF00D2947B /* SearchResultCell.swift */; };
 		41524DFF2235ACC800EE6DAF /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41524DFE2235ACC800EE6DAF /* SearchResultsViewController.swift */; };
+		415FF49D2260B0F200941EA6 /* turntableUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415FF49C2260B0F200941EA6 /* turntableUnitTests.swift */; };
 		417306012204A11000F3E45E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417306002204A11000F3E45E /* Session.swift */; };
 		418F0A9D220375BC00A5AB71 /* ShareSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
@@ -52,18 +53,17 @@
 		41FDE61121E540C9009BA399 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FDE61021E540C9009BA399 /* Extensions.swift */; };
 		76E82582EDE4C85519728DFD /* Pods_turntable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */; };
 		91713C83F1F593533AD741B3 /* Pods_turntableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */; };
-		A8AA7532EA64A51767C1D8A7 /* Pods_turntableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538D09C4F62B8A50B69F9D31 /* Pods_turntableTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		411CDC1F21DD0C05001D64BD /* PBXContainerItemProxy */ = {
+		411CDC2A21DD0C05001D64BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 411CDC0221DD0C03001D64BD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 411CDC0921DD0C03001D64BD;
 			remoteInfo = turntable;
 		};
-		411CDC2A21DD0C05001D64BD /* PBXContainerItemProxy */ = {
+		415FF49F2260B0F200941EA6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 411CDC0221DD0C03001D64BD /* Project object */;
 			proxyType = 1;
@@ -84,7 +84,6 @@
 		411CDC1421DD0C05001D64BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		411CDC1721DD0C05001D64BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		411CDC1921DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		411CDC1E21DD0C05001D64BD /* turntableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC2921DD0C05001D64BD /* turntableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC2D21DD0C05001D64BD /* turntableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUITests.swift; sourceTree = "<group>"; };
 		411CDC2F21DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,6 +108,9 @@
 		4138A78821EA4AA300961448 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		413E14F6221221AF00D2947B /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		41524DFE2235ACC800EE6DAF /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		415FF49A2260B0F200941EA6 /* turntableUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		415FF49C2260B0F200941EA6 /* turntableUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUnitTests.swift; sourceTree = "<group>"; };
+		415FF49E2260B0F200941EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		417306002204A11000F3E45E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		4184F5B5225D5A9200515D33 /* turntable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = turntable.entitlements; sourceTree = "<group>"; };
 		418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSessionController.swift; sourceTree = "<group>"; };
@@ -146,19 +148,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		411CDC1B21DD0C05001D64BD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A8AA7532EA64A51767C1D8A7 /* Pods_turntableTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		411CDC2621DD0C05001D64BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				91713C83F1F593533AD741B3 /* Pods_turntableUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		415FF4972260B0F200941EA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +216,7 @@
 			children = (
 				411CDC0C21DD0C03001D64BD /* turntable */,
 				411CDC2C21DD0C05001D64BD /* turntableUITests */,
+				415FF49B2260B0F200941EA6 /* turntableUnitTests */,
 				411CDC0B21DD0C03001D64BD /* Products */,
 				4F0346D02C5A755A5912E707 /* Pods */,
 				A023AC2D07B1C4887AE2F4C5 /* Frameworks */,
@@ -225,8 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				411CDC0A21DD0C03001D64BD /* turntable.app */,
-				411CDC1E21DD0C05001D64BD /* turntableTests.xctest */,
 				411CDC2921DD0C05001D64BD /* turntableUITests.xctest */,
+				415FF49A2260B0F200941EA6 /* turntableUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,6 +295,15 @@
 				418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */,
 			);
 			path = SetupControllers;
+			sourceTree = "<group>";
+		};
+		415FF49B2260B0F200941EA6 /* turntableUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				415FF49C2260B0F200941EA6 /* turntableUnitTests.swift */,
+				415FF49E2260B0F200941EA6 /* Info.plist */,
+			);
+			path = turntableUnitTests;
 			sourceTree = "<group>";
 		};
 		41D8825B2218CD7400D3C987 /* APIHandler */ = {
@@ -365,25 +376,6 @@
 			productReference = 411CDC0A21DD0C03001D64BD /* turntable.app */;
 			productType = "com.apple.product-type.application";
 		};
-		411CDC1D21DD0C05001D64BD /* turntableTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 411CDC3521DD0C05001D64BD /* Build configuration list for PBXNativeTarget "turntableTests" */;
-			buildPhases = (
-				487D0A1F7E1EAB7E7390A55A /* [CP] Check Pods Manifest.lock */,
-				411CDC1A21DD0C05001D64BD /* Sources */,
-				411CDC1B21DD0C05001D64BD /* Frameworks */,
-				411CDC1C21DD0C05001D64BD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				411CDC2021DD0C05001D64BD /* PBXTargetDependency */,
-			);
-			name = turntableTests;
-			productName = turntableTests;
-			productReference = 411CDC1E21DD0C05001D64BD /* turntableTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		411CDC2821DD0C05001D64BD /* turntableUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 411CDC3821DD0C05001D64BD /* Build configuration list for PBXNativeTarget "turntableUITests" */;
@@ -403,13 +395,31 @@
 			productReference = 411CDC2921DD0C05001D64BD /* turntableUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		415FF4992260B0F200941EA6 /* turntableUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 415FF4A32260B0F200941EA6 /* Build configuration list for PBXNativeTarget "turntableUnitTests" */;
+			buildPhases = (
+				415FF4962260B0F200941EA6 /* Sources */,
+				415FF4972260B0F200941EA6 /* Frameworks */,
+				415FF4982260B0F200941EA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				415FF4A02260B0F200941EA6 /* PBXTargetDependency */,
+			);
+			name = turntableUnitTests;
+			productName = turntableUnitTests;
+			productReference = 415FF49A2260B0F200941EA6 /* turntableUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		411CDC0221DD0C03001D64BD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Mark Brown";
 				TargetAttributes = {
@@ -424,12 +434,12 @@
 							};
 						};
 					};
-					411CDC1D21DD0C05001D64BD = {
+					411CDC2821DD0C05001D64BD = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 411CDC0921DD0C03001D64BD;
 					};
-					411CDC2821DD0C05001D64BD = {
-						CreatedOnToolsVersion = 10.1;
+					415FF4992260B0F200941EA6 = {
+						CreatedOnToolsVersion = 10.2;
 						TestTargetID = 411CDC0921DD0C03001D64BD;
 					};
 				};
@@ -448,8 +458,8 @@
 			projectRoot = "";
 			targets = (
 				411CDC0921DD0C03001D64BD /* turntable */,
-				411CDC1D21DD0C05001D64BD /* turntableTests */,
 				411CDC2821DD0C05001D64BD /* turntableUITests */,
+				415FF4992260B0F200941EA6 /* turntableUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -467,14 +477,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		411CDC1C21DD0C05001D64BD /* Resources */ = {
+		411CDC2721DD0C05001D64BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		411CDC2721DD0C05001D64BD /* Resources */ = {
+		415FF4982260B0F200941EA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -510,24 +520,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-turntable/Pods-turntable-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		487D0A1F7E1EAB7E7390A55A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-turntableTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0BF94E558A684BDA60222EF /* [CP] Check Pods Manifest.lock */ = {
@@ -611,13 +603,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		411CDC1A21DD0C05001D64BD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		411CDC2521DD0C05001D64BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,18 +611,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		415FF4962260B0F200941EA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				415FF49D2260B0F200941EA6 /* turntableUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		411CDC2021DD0C05001D64BD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 411CDC0921DD0C03001D64BD /* turntable */;
-			targetProxy = 411CDC1F21DD0C05001D64BD /* PBXContainerItemProxy */;
-		};
 		411CDC2B21DD0C05001D64BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 411CDC0921DD0C03001D64BD /* turntable */;
 			targetProxy = 411CDC2A21DD0C05001D64BD /* PBXContainerItemProxy */;
+		};
+		415FF4A02260B0F200941EA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 411CDC0921DD0C03001D64BD /* turntable */;
+			targetProxy = 415FF49F2260B0F200941EA6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -831,50 +824,6 @@
 			};
 			name = Release;
 		};
-		411CDC3621DD0C05001D64BD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC5EB332A6F87A4AB292F1C6 /* Pods-turntableTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GWM5C54AJF;
-				INFOPLIST_FILE = turntableTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntableTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/turntable.app/turntable";
-			};
-			name = Debug;
-		};
-		411CDC3721DD0C05001D64BD /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C246DCD4D83967255CD9F243 /* Pods-turntableTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GWM5C54AJF;
-				INFOPLIST_FILE = turntableTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntableTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/turntable.app/turntable";
-			};
-			name = Release;
-		};
 		411CDC3921DD0C05001D64BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AD76B7B50D14C0534F5576B3 /* Pods-turntableUITests.debug.xcconfig */;
@@ -917,6 +866,48 @@
 			};
 			name = Release;
 		};
+		415FF4A12260B0F200941EA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GWM5C54AJF;
+				INFOPLIST_FILE = turntableUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntableUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/turntable.app/turntable";
+			};
+			name = Debug;
+		};
+		415FF4A22260B0F200941EA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GWM5C54AJF;
+				INFOPLIST_FILE = turntableUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntableUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/turntable.app/turntable";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -938,20 +929,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		411CDC3521DD0C05001D64BD /* Build configuration list for PBXNativeTarget "turntableTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				411CDC3621DD0C05001D64BD /* Debug */,
-				411CDC3721DD0C05001D64BD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		411CDC3821DD0C05001D64BD /* Build configuration list for PBXNativeTarget "turntableUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				411CDC3921DD0C05001D64BD /* Debug */,
 				411CDC3A21DD0C05001D64BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		415FF4A32260B0F200941EA6 /* Build configuration list for PBXNativeTarget "turntableUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				415FF4A12260B0F200941EA6 /* Debug */,
+				415FF4A22260B0F200941EA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SessionSetupView: BaseView , UITextFieldDelegate{
+class SessionSetupView: BaseView {
     
     let reusableComponents = ReusableComponents()
         
@@ -19,7 +19,6 @@ class SessionSetupView: BaseView , UITextFieldDelegate{
         input.textAlignment = .center
         input.font = UIFont.poppinsPosterText
         input.textColor = .white
-        input.delegate = self
         input.attributedPlaceholder = NSAttributedString(string: "000000", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(white: 1, alpha: 0.5)])
         input.translatesAutoresizingMaskIntoConstraints = false
         return input
@@ -52,19 +51,6 @@ class SessionSetupView: BaseView , UITextFieldDelegate{
         hostSessionButton.anchor(top: orLable.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 55))
         joinSessionInstruction.anchor(top: hostSessionButton.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 62))
         
-        numberInput.addTarget(self, action: #selector(joinSession), for: .editingChanged)
-        
-    }
-    
-    @objc func joinSession() {
-        if numberInput.text!.count == 6 {
-            textFieldDidEndEditing(numberInput)
-            HostJoinSessionController().startJoiningSession(inputCode: numberInput.text!)
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.resignFirstResponder()
     }
     
 }

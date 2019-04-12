@@ -37,7 +37,6 @@ class SessionQueue {
     }
     
     func addToQueue(track: Track, completion: (Bool) -> ()) {
-        print(track.spotifyURL)
         //Add to firebase queue too
         if let sessionKey = Session.shared().sessionKey, let trackId = track.id, let trackArtist = track.artist, let spotifyURL = track.spotifyURL{
             

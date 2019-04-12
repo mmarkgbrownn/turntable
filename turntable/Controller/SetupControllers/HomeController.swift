@@ -83,10 +83,6 @@ class HomeController: UIViewController {
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     func displayErrorMessage(error: Error){
         
         DispatchQueue.main.async {
