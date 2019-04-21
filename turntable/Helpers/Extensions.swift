@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Setup design language colours
 extension UIColor {
     @nonobjc class var backgroundDarkBlack: UIColor {
         return UIColor(white: 18.0 / 255.0, alpha: 1.0)
@@ -22,6 +23,7 @@ extension UIColor {
     }
 }
 
+// Setup design language fonts
 extension UIFont {
     class var poppinsPosterText: UIFont {
         return UIFont(name: "Poppins-Bold", size: 45.0)!
@@ -42,10 +44,7 @@ extension UIFont {
 
 extension UIView {
     
-    //      Example usage
-    //      let someView = UIView()
-    //      someView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom:             view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: 0, right: 16), size: .init(width: 100, height: 100))
-    
+    // Anchor extention simplifies the constraint layout setup and reduces alot of reused code.
     func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero){
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -74,10 +73,12 @@ extension UIView {
         
     }
     
+    // Automatically sets all the elements anchors to fill the super view.
     func fillSuperview(padding: UIEdgeInsets = .zero) {
         anchor(top: superview?.topAnchor, leading: superview?.leadingAnchor, bottom: superview?.bottomAnchor, trailing: superview?.trailingAnchor)
     }
     
+    // Used for visual contrainst format
     func addConstraintsWithFormat(format: String, views: UIView...) {
         
         var viewsDictronary = [String : UIView]()
@@ -94,6 +95,7 @@ extension UIView {
 
 extension CALayer {
     
+    // Sets the shadow on all elements which use shadow. Maintains a visual consistency and easy editiablility.
     func applyShadow(color: UIColor, alpha: Float, x: CGFloat, y: CGFloat, blur: CGFloat, spread: CGFloat) {
         
         //Setup Shadow Properies
@@ -114,6 +116,7 @@ extension CALayer {
     
 }
 
+// Setup notification for spotify auth, return from app.
 extension Notification.Name {
     struct Spotify {
         static let authURLOpened = Notification.Name("authURLOpended")

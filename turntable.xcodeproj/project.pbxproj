@@ -14,9 +14,7 @@
 		411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0D21DD0C03001D64BD /* AppDelegate.swift */; };
 		411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0F21DD0C03001D64BD /* PlayerController.swift */; };
 		411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
-		411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */; };
 		411CDC2E21DD0C05001D64BD /* turntableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2D21DD0C05001D64BD /* turntableUITests.swift */; };
-		4123693E220DF59C0015A733 /* DummyDataSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4123693D220DF59C0015A733 /* DummyDataSearch.swift */; };
 		41236940220E36B40015A733 /* SessionQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4123693F220E36B40015A733 /* SessionQueue.swift */; };
 		41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7A21E7FF080017DA6C /* QueueItem.swift */; };
 		41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7E21E8EF150017DA6C /* SearchBarView.swift */; };
@@ -35,18 +33,19 @@
 		4132725B21EE931A00B2E88D /* SessionSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4132725A21EE931A00B2E88D /* SessionSetupView.swift */; };
 		4138A78921EA4AA300961448 /* PlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138A78821EA4AA300961448 /* PlayerData.swift */; };
 		413E14F7221221AF00D2947B /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E14F6221221AF00D2947B /* SearchResultCell.swift */; };
-		41524DFF2235ACC800EE6DAF /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41524DFE2235ACC800EE6DAF /* SearchResultsViewController.swift */; };
+		41524DFF2235ACC800EE6DAF /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41524DFE2235ACC800EE6DAF /* SearchResultsController.swift */; };
 		415FF49D2260B0F200941EA6 /* turntableUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415FF49C2260B0F200941EA6 /* turntableUnitTests.swift */; };
 		417306012204A11000F3E45E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417306002204A11000F3E45E /* Session.swift */; };
 		418F0A9D220375BC00A5AB71 /* ShareSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
-		41942C7421E404AC00F7F136 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7321E404AC00F7F136 /* SearchController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
-		41A76B97223728F900F26216 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A76B96223728F900F26216 /* SearchViewController.swift */; };
+		41A76B97223728F900F26216 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A76B96223728F900F26216 /* SearchController.swift */; };
 		41C3A1AA2212ED2D00B76496 /* TransportControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C3A1A92212ED2D00B76496 /* TransportControlView.swift */; };
 		41C3A1AC22148AD200B76496 /* SettingCellsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C3A1AB22148AD200B76496 /* SettingCellsView.swift */; };
 		41CE495E21EFC20200D6014A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41CE495D21EFC20200D6014A /* GoogleService-Info.plist */; };
 		41D8825D2218CDBF00D3C987 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8825C2218CDBF00D3C987 /* APIHandler.swift */; };
+		41E686A7226A0FC000E3D5D7 /* ShareSesssionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E686A6226A0FC000E3D5D7 /* ShareSesssionView.swift */; };
+		41E686A9226B86C900E3D5D7 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E686A8226B86C900E3D5D7 /* SearchData.swift */; };
 		41EC9457223BF05800106D59 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EC9456223BF05800106D59 /* SearchResults.swift */; };
 		41F81D9F221EBF2B0081175F /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F81D9D221EBF2B0081175F /* SpotifyAudioPlayback.framework */; };
 		41F81DA0221EBF2B0081175F /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F81D9E221EBF2B0081175F /* SpotifyAuthentication.framework */; };
@@ -82,12 +81,10 @@
 		411CDC0D21DD0C03001D64BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		411CDC0F21DD0C03001D64BD /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		411CDC1421DD0C05001D64BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		411CDC1721DD0C05001D64BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		411CDC1921DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		411CDC2921DD0C05001D64BD /* turntableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		411CDC2D21DD0C05001D64BD /* turntableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUITests.swift; sourceTree = "<group>"; };
 		411CDC2F21DD0C05001D64BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4123693D220DF59C0015A733 /* DummyDataSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataSearch.swift; sourceTree = "<group>"; };
 		4123693F220E36B40015A733 /* SessionQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionQueue.swift; sourceTree = "<group>"; };
 		41240E7A21E7FF080017DA6C /* QueueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueItem.swift; sourceTree = "<group>"; };
 		41240E7E21E8EF150017DA6C /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -99,7 +96,6 @@
 		4125AEB321FFB9170038B7B4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		4125AEB521FFC2290038B7B4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4127361D2233F89200210D39 /* PlayerMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMetaData.swift; sourceTree = "<group>"; };
-		412B7681220A31BE0036178A /* Turntable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Turntable.xcdatamodel; sourceTree = "<group>"; };
 		4132725221EE4A2200B2E88D /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4132725421EE7C3A00B2E88D /* HostJoinSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostJoinSessionController.swift; sourceTree = "<group>"; };
 		4132725621EE89F700B2E88D /* ReusableComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableComponents.swift; sourceTree = "<group>"; };
@@ -107,7 +103,7 @@
 		4132725A21EE931A00B2E88D /* SessionSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSetupView.swift; sourceTree = "<group>"; };
 		4138A78821EA4AA300961448 /* PlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerData.swift; sourceTree = "<group>"; };
 		413E14F6221221AF00D2947B /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		41524DFE2235ACC800EE6DAF /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		41524DFE2235ACC800EE6DAF /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		415FF49A2260B0F200941EA6 /* turntableUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		415FF49C2260B0F200941EA6 /* turntableUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUnitTests.swift; sourceTree = "<group>"; };
 		415FF49E2260B0F200941EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,14 +111,15 @@
 		4184F5B5225D5A9200515D33 /* turntable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = turntable.entitlements; sourceTree = "<group>"; };
 		418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSessionController.swift; sourceTree = "<group>"; };
 		41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurntableTabBarController.swift; sourceTree = "<group>"; };
-		41942C7321E404AC00F7F136 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		419A46FF2216096400762FDF /* turntable-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "turntable-Bridging-Header.h"; sourceTree = "<group>"; };
-		41A76B96223728F900F26216 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		41A76B96223728F900F26216 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		41C3A1A92212ED2D00B76496 /* TransportControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportControlView.swift; sourceTree = "<group>"; };
 		41C3A1AB22148AD200B76496 /* SettingCellsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellsView.swift; sourceTree = "<group>"; };
 		41CE495D21EFC20200D6014A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41D8825C2218CDBF00D3C987 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		41E686A6226A0FC000E3D5D7 /* ShareSesssionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSesssionView.swift; sourceTree = "<group>"; };
+		41E686A8226B86C900E3D5D7 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		41EC9456223BF05800106D59 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		41F81D9D221EBF2B0081175F /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
 		41F81D9E221EBF2B0081175F /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
@@ -184,10 +181,10 @@
 				4102C7A121E6758800441767 /* Resource.swift */,
 				41240E7A21E7FF080017DA6C /* QueueItem.swift */,
 				4138A78821EA4AA300961448 /* PlayerData.swift */,
-				4123693D220DF59C0015A733 /* DummyDataSearch.swift */,
 				417306002204A11000F3E45E /* Session.swift */,
 				4123693F220E36B40015A733 /* SessionQueue.swift */,
 				41EC9456223BF05800106D59 /* SearchResults.swift */,
+				41E686A8226B86C900E3D5D7 /* SearchData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +204,7 @@
 				41C3A1A92212ED2D00B76496 /* TransportControlView.swift */,
 				41C3A1AB22148AD200B76496 /* SettingCellsView.swift */,
 				4127361D2233F89200210D39 /* PlayerMetaData.swift */,
+				41E686A6226A0FC000E3D5D7 /* ShareSesssionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,8 +245,6 @@
 				41240E8A21EA29C10017DA6C /* Fonts */,
 				41F81D98221EBEF60081175F /* Frameworks */,
 				411CDC1421DD0C05001D64BD /* Assets.xcassets */,
-				412B7682220A31BE0036178A /* turntable.xcdatamodeld */,
-				411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */,
 				411CDC1921DD0C05001D64BD /* Info.plist */,
 				41CE495D21EFC20200D6014A /* GoogleService-Info.plist */,
 			);
@@ -278,10 +274,9 @@
 			children = (
 				41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */,
 				411CDC0F21DD0C03001D64BD /* PlayerController.swift */,
-				41942C7321E404AC00F7F136 /* SearchController.swift */,
 				41942C7521E404D100F7F136 /* SettingsController.swift */,
-				41524DFE2235ACC800EE6DAF /* SearchResultsViewController.swift */,
-				41A76B96223728F900F26216 /* SearchViewController.swift */,
+				41A76B96223728F900F26216 /* SearchController.swift */,
+				41524DFE2235ACC800EE6DAF /* SearchResultsController.swift */,
 			);
 			path = MainControllers;
 			sourceTree = "<group>";
@@ -425,6 +420,7 @@
 				TargetAttributes = {
 					411CDC0921DD0C03001D64BD = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -436,6 +432,7 @@
 					};
 					411CDC2821DD0C05001D64BD = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 411CDC0921DD0C03001D64BD;
 					};
 					415FF4992260B0F200941EA6 = {
@@ -470,7 +467,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				41CE495E21EFC20200D6014A /* GoogleService-Info.plist in Resources */,
-				411CDC1821DD0C05001D64BD /* LaunchScreen.storyboard in Resources */,
 				41240E8D21EA2FA00017DA6C /* Poppins-Bold.ttf in Resources */,
 				411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */,
 				41240E8E21EA2FA40017DA6C /* Poppins-Regular.ttf in Resources */,
@@ -572,30 +568,30 @@
 				4125AEB621FFC2290038B7B4 /* HomeView.swift in Sources */,
 				41C3A1AC22148AD200B76496 /* SettingCellsView.swift in Sources */,
 				41FDE61121E540C9009BA399 /* Extensions.swift in Sources */,
+				41E686A9226B86C900E3D5D7 /* SearchData.swift in Sources */,
 				4102C7A221E6758800441767 /* Resource.swift in Sources */,
 				4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */,
 				41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */,
 				41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */,
 				4132725321EE4A2200B2E88D /* HomeController.swift in Sources */,
 				4102C7A421E7625E00441767 /* QueueItemCell.swift in Sources */,
-				4123693E220DF59C0015A733 /* DummyDataSearch.swift in Sources */,
 				41236940220E36B40015A733 /* SessionQueue.swift in Sources */,
 				413E14F7221221AF00D2947B /* SearchResultCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
 				4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */,
 				41C3A1AA2212ED2D00B76496 /* TransportControlView.swift in Sources */,
+				41E686A7226A0FC000E3D5D7 /* ShareSesssionView.swift in Sources */,
 				4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */,
-				41A76B97223728F900F26216 /* SearchViewController.swift in Sources */,
+				41A76B97223728F900F26216 /* SearchController.swift in Sources */,
 				4102C79C21E636F900441767 /* Attendee.swift in Sources */,
 				4125AEB421FFB9170038B7B4 /* SplashViewController.swift in Sources */,
 				4132725B21EE931A00B2E88D /* SessionSetupView.swift in Sources */,
 				41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */,
 				41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */,
-				41524DFF2235ACC800EE6DAF /* SearchResultsViewController.swift in Sources */,
+				41524DFF2235ACC800EE6DAF /* SearchResultsController.swift in Sources */,
 				417306012204A11000F3E45E /* Session.swift in Sources */,
 				4125AEB021FFA3AF0038B7B4 /* HostSessionSetupController.swift in Sources */,
 				4132725921EE8E3800B2E88D /* BaseView.swift in Sources */,
-				41942C7421E404AC00F7F136 /* SearchController.swift in Sources */,
 				4127361E2233F89200210D39 /* PlayerMetaData.swift in Sources */,
 				41EC9457223BF05800106D59 /* SearchResults.swift in Sources */,
 				4132725521EE7C3A00B2E88D /* HostJoinSessionController.swift in Sources */,
@@ -633,17 +629,6 @@
 			targetProxy = 415FF49F2260B0F200941EA6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		411CDC1621DD0C05001D64BD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				411CDC1721DD0C05001D64BD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		411CDC3021DD0C05001D64BD /* Debug */ = {
@@ -789,7 +774,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "turntable/turntable-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -819,7 +804,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "turntable/turntable-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -839,7 +824,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntableUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = turntable;
 			};
@@ -860,7 +845,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = markbrown.turntableUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = turntable;
 			};
@@ -948,18 +933,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		412B7682220A31BE0036178A /* turntable.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				412B7681220A31BE0036178A /* Turntable.xcdatamodel */,
-			);
-			currentVersion = 412B7681220A31BE0036178A /* Turntable.xcdatamodel */;
-			path = turntable.xcdatamodeld;
-			sourceTree = "<group>";
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 411CDC0221DD0C03001D64BD /* Project object */;
 }

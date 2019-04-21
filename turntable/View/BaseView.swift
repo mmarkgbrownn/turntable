@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Base view is used to reduce code repition. All UIView required func here
 class BaseView: UIView {
 
     override init(frame: CGRect) {

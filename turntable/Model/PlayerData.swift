@@ -8,21 +8,15 @@
 
 import LBTAComponents
 
+// The datacource for the player, upnext and history.
 class PlayerData: Datasource {
     
-//    func updatePlayerDataWith(track: String) {
-//        APIHandler.shared.getTrack(trackId: track) { (track) in
-//            self.nowPlaying = track
-//            DispatchQueue.main.async {
-//                player?.collectionView.reloadData()
-//            }
-//        }
-//    }
-    
+    // Sets the header classes for each section.
     override func headerClasses() -> [DatasourceCell.Type]? {
         return [PlayerMediaView.self, SectionHeaderCell.self, SectionHeaderCell.self]
     }
     
+    // Sets the header data for sections 2 & 3, these are used as titles. Also sets the now playing track for the first section.
     override func headerItem(_ section: Int) -> Any? {
         if section == 1 {
             return "Up Next"
@@ -32,15 +26,18 @@ class PlayerData: Datasource {
         return Session.shared().nowPlayingTrack
     }
     
+    // Set the footer classes
     override func footerClasses() -> [DatasourceCell.Type]? {
         let cell = [SectionFooterCell.self]
         return cell
     }
     
+    // Sets the cell class for each section
     override func cellClasses() -> [DatasourceCell.Type] {
         return [PlayerMetaData.self, QueueItemCell.self, QueueItemCell.self]
     }
     
+    // Indicates the data for each row of the table seperated by section
     override func item(_ indexPath: IndexPath) -> Any? {
         if indexPath.section == 0 {
             return Session.shared().nowPlayingTrack
@@ -55,6 +52,7 @@ class PlayerData: Datasource {
         return 3
     }
     
+    // Defines the number of rows per section.
     override func numberOfItems(_ section: Int) -> Int {
         if section == 0 {
             return 1

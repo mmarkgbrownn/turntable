@@ -10,12 +10,7 @@ import UIKit
 
 class QueueItem: Track {
     
-//    var id: String?
-//    var name: String?
-//    var imageSmall: String?
-//    var imageLarge: String?
-//    var artist: String?
-//    var runtime: String?
+    // Extra attributes required for queue items.
     var timestamp: Int?
     var wasPlayed: Bool?
     
@@ -23,12 +18,19 @@ class QueueItem: Track {
         super.init()
     }
     
-    override init(dictonary: [String: Any]) {
-        super.init(id: dictonary["id"] as! String, name: dictonary["name"] as! String, spotifyURL: (dictonary["spotifyURL"] as! String), imageSmall: (dictonary["imageSmall"] as! String), imageLarge: (dictonary["imageLarge"] as! String), artist: dictonary["artist"] as! String, runtime: (dictonary["runtime"] as! String))
+    fileprivate func extractedFunc(_ dictonary: [String : Any]) {
         self.timestamp = dictonary["timestamp"] as? Int
         self.wasPlayed = dictonary["wasPlayed"] as? Bool ?? false
     }
     
+    // Dictionary initiliser
+    override init(dictonary: [String: Any]) {
+        super.init(id: dictonary["id"] as! String, name: dictonary["name"] as! String, spotifyURL: (dictonary["spotifyURL"] as! String), imageSmall: (dictonary["imageSmall"] as! String), imageLarge: (dictonary["imageLarge"] as! String), artist: dictonary["artist"] as! String, runtime: (dictonary["runtime"] as! String))
+        extractedFunc(dictonary)
+    }
+    
+    // Converts track to queue item for displaying in player/history, would ideally like a better solution that this.
+    // Player current uses Track objects only.
     func convertTrackToQueueItem(track: Track, timestamp: Int, wasPlayed: Bool) -> QueueItem {
         self.id = track.id
         self.name = track.name

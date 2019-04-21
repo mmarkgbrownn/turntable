@@ -11,7 +11,7 @@ import LBTAComponents
 
 private let reuseIdentifier = "Cell"
 
-class SearchResultsViewController: DatasourceController, UISearchResultsUpdating {
+class SearchResultsController: DatasourceController, UISearchResultsUpdating {
 
     override func viewDidLoad() {
         super.viewDidLoad()

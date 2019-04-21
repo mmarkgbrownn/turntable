@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Resource superclass. Contains all basic details about a resorce.
 class Resource: NSObject {
     
     var id: String?
@@ -31,6 +32,7 @@ class Resource: NSObject {
 
 } 
 
+// Resrouce subclass used for all the track resources.
 class Track: Resource {
     
     var artist: String?
@@ -40,12 +42,14 @@ class Track: Resource {
         super.init()
     }
     
+    // Setter with raw track data
     init(id: String, name: String, spotifyURL: String?, imageSmall: String?, imageLarge: String?, artist: String, runtime: String?) {
         super.init(id: id, name: name, spotifyURL: spotifyURL, imageSmall: imageSmall, imageLarge: imageLarge)
         self.artist = artist
         self.runtime = runtime
     }
     
+    // Setter using dictonary
     init(dictonary: [String: Any]) {
         super.init(id: dictonary["id"] as! String, name: dictonary["name"] as! String, spotifyURL: (dictonary["spotifyURL"] as! String), imageSmall: (dictonary["imageSmall"] as! String), imageLarge: (dictonary["imageLarge"] as! String))
         self.artist = (dictonary["artist"] as! String)
@@ -54,8 +58,8 @@ class Track: Resource {
     
 }
 
+// Resource subclass for Artists, currently not used but is a starting point for future work.
 class Artist: Resource {
-    
     override init(id: String, name: String, spotifyURL: String?, imageSmall: String?, imageLarge: String?) {
         super.init(id: id, name: name, spotifyURL: spotifyURL, imageSmall: imageSmall, imageLarge: imageLarge)
     }

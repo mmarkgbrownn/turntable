@@ -9,8 +9,10 @@
 import UIKit
 import Firebase
 
+// Host session controller with table view.
 class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
     
+    // Create the componets, simmialrly to the views
     private var sessionNameCell: UITableViewCell = ReusableComponents().createTableRow(title: "Session Name")
     
     private let connectedAccountCell: UITableViewCell = {
@@ -26,8 +28,6 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         
     }()
     
-    //private var PlaylistSelectorCell: UITableViewCell = UITableViewCell()
-    
     private var sessionNameTextField: UITextField = UITextField()
     private var histroyCellSwitch: UISwitch = UISwitch()
     
@@ -35,19 +35,21 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
     private var enableHistoryCell: UITableViewCell = ReusableComponents().createTableRow(title: "Enable History Playlist")
     
     private var sessionKey: String = "000000"
-    private var sessionName: String = ""
     private var historyEnabled: Bool = true
     
+    // Set the cell and fields details
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let hostButton = UIBarButtonItem(title: "Host Session", style: .plain, target: self, action: #selector(createSession))
         self.navigationItem.rightBarButtonItem = hostButton
     
+        // Set nav bar up
         self.title = "Setup Session"
         self.tableView.backgroundColor = .backgroundDarkBlack
         self.tableView.separatorColor = UIColor.init(white: 1, alpha: 0.2)
         
+        // Setup textField with deleagte, style and placeholder
         self.sessionNameTextField = UITextField(frame: CGRect(x: -16, y: 0, width: self.view.frame.width, height: self.sessionNameCell.frame.height))
         self.sessionNameTextField.delegate = self
         self.sessionNameTextField.textColor = .white
@@ -58,24 +60,21 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         
         self.sessionNameCell.addSubview(self.sessionNameTextField)
         
+        // Setup the history switch
         self.histroyCellSwitch.onTintColor = .seaFoamBlue
         self.histroyCellSwitch.isOn = true
         self.histroyCellSwitch.addTarget(self, action: #selector(selectHistory), for: .valueChanged)
         
         self.enableHistoryCell.accessoryView = histroyCellSwitch
     }
-    
+    // Style of table view headers
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = UIColor.init(r: 21, g: 21, b: 21)
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.white
-       // header.backgroundColor = UIColor.init(r: 21, g: 21, b: 21)
     }
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 44
-//    }
-    
+    // Handle the tap to switch the history
     @objc func selectHistory() {
         if histroyCellSwitch.isOn {
             historyEnabled = true
@@ -84,18 +83,13 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         }
     }
     
+    // Hide the keyboard on hitting return
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         textField.resignFirstResponder()
-        if let input = textField.text {
-            if input != ""{
-                sessionName = input
-            }
-        }
-        
         return true
     }
     
+    // Set the max length to 20 characters
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 20
         let currentString: NSString = textField.text! as NSString
@@ -103,10 +97,12 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         return newString.length <= maxLength
     }
     
+    // Set the number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
+    // Set the number of rows in section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
             case 0:
@@ -118,6 +114,7 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         }
     }
     
+    // Set the cells for each row in the table
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (indexPath.section) {
         case 0:
@@ -135,6 +132,7 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         }
     }
     
+    // Set the header lable text for each section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch (section) {
             case 0: return "General"
@@ -143,6 +141,7 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         }
     }
     
+    // Set the footer lable  and view text for each section
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         var footerText: String
         
@@ -167,6 +166,7 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         return footerCell
     }
     
+    // Handle the selection of the row at the index path.
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch(indexPath.section) {
         case 0:
@@ -180,16 +180,13 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
         case 1:
             switch(indexPath.row) {
             case 0:
-                
-                //Enable Histroy Playlist Selected
-                
+                //Enable History Playlist Selected
                 if histroyCellSwitch.isOn {
                     self.histroyCellSwitch.setOn(false, animated: true)
                 } else {
                     self.histroyCellSwitch.setOn(true, animated: true)
                 }
                 selectHistory()
-
             default: fatalError("No such row")
             }
         default: fatalError("No such section")
@@ -198,13 +195,9 @@ class HostSessionSetupController : UITableViewController, UITextFieldDelegate {
     }
     
     @objc func createSession() {
-        
         //create a new session by posting session name, code, owner, nowPlaying and history playlist to firebase also store this data in CoreData
-        if let input = self.sessionNameTextField.text {
-            if input != ""{
-                sessionName = input
-            }
-        }
+        
+        guard let sessionName = self.sessionNameTextField.text else { return }
         
         if sessionName != "" {
             Session.shared().setupSession(sessionName: sessionName, maxGuests: 10, context: "Party", historyPlaylist: historyEnabled, organiser: Auth.auth().currentUser!.uid)

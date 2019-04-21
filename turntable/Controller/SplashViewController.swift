@@ -19,15 +19,11 @@ class SplashViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         view.backgroundColor = .backgroundDarkBlack
-        view.addSubview(activityIndicator)
-        activityIndicator.frame = view.bounds
-        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.4)
         
         makeServiceCall()
     }
-
+    // Check for saved user details then check if signed into spotify, firebase and session
     func makeServiceCall() {
-        //activityIndicator.startAnimating()
         
         Attendee.shared().loadUserFromUserDefaults()
         let spotifyAccessToken = Attendee.shared().spotifySession?.accessToken

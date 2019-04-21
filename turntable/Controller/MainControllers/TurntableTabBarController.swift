@@ -15,19 +15,16 @@ class TurntableTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // Check if the session is valid
-//        if Attendee.shared().spotifySession?.isValid() ?? false {
-//            // If our session is invalid we renew
-//            SPTAuth.defaultInstance().renewSession(Attendee.shared().spotifySession!) { (error, session) in
-//                // If renew returns error we move to home view
-//                if error != nil { print(error!); AppDelegate.shared.rootViewController.showHomeView() }
-//                Attendee.shared().spotifySession = session
-//                return
-//            }
-//        } else if Attendee.shared().session == nil {
-//            // Check if we have a session
-//            AppDelegate.shared.rootViewController.showHomeView()
-//        }
+        // Check if the session is valid
+        if Attendee.shared().spotifySession?.isValid() ?? false {
+            // If our session is invalid we renew
+            SPTAuth.defaultInstance().renewSession(Attendee.shared().spotifySession!) { (error, session) in
+                // If renew returns error we move to home view
+                if error != nil { print(error!); AppDelegate.shared.rootViewController.showHomeView() }
+                Attendee.shared().spotifySession = session
+                return
+            }
+        }
         
         //Setup Settings Controller
         let settingsController = SettingsController()
@@ -38,7 +35,7 @@ class TurntableTabBarController: UITabBarController {
         playerController.tabBarItem = UITabBarItem(title: "Player", image: UIImage(named: "PlayerInactive"), selectedImage: UIImage(named: "Player"))
         
         //Setup Library Controller
-        let searchController = SearchViewController()
+        let searchController = SearchController()
         searchController.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "LibraryInactive"), selectedImage: UIImage(named: "Library"))
         
         //Add Controllers to tab bar list and wrap each in a navigation controller
@@ -50,7 +47,7 @@ class TurntableTabBarController: UITabBarController {
         //Set Player Controller as default
         self.selectedIndex = 1
         
-//        //Popup view for when new tracks are added to queue
+        //Popup view for when new tracks are added to queue
 //        let popupView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
 //        popupView.backgroundColor = .seaFoamBlue
 //        popupView.layer.cornerRadius = 12

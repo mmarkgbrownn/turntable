@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Specifies any components that are visually consistent throughout the app, eg buttons
 class ReusableComponents: UIView, UITextFieldDelegate {
     
     func createButtonWith(label: String) -> UIButton {
@@ -79,12 +80,6 @@ class ReusableComponents: UIView, UITextFieldDelegate {
         cell.addSubview(textField)
         
         return cell
-        
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
     
 }

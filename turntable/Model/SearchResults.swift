@@ -8,17 +8,16 @@
 
 import UIKit
 
+// Manages the current search results, this class is basic but could be used to generate or organise better results.
 class SearchResultsManager {
-    
+    // init the search results as an empty array.
     var currentQuery: String?
-    let demoTrack = Track(dictonary: ["id": "1VUWaFpGne1oiw2EjFSRRY", "name": "Hurting (Gerd Janson Remix)", "artist": "SG Lewis, Aluna George, Gerd Janson", "spotifyURL": "https://open.spotify.com/track/1VUWaFpGne1oiw2EjFSRRY?si=DR0keUSvShOQOfzHmNq0jA", "imageSmall": "https://i.scdn.co/image/830644e676708a8f628cdba9c8bae020b273994b", "imageLarge": "https://i.scdn.co/image/85de4509b280464293ed51e1bf230b4a8c24962f", "runtime": "3:10"])
-    lazy var searchResults: [Track] = [demoTrack]
+    var searchResults: [Track] = []
     
+    // Return the object
     private static var currentQuerySearchResult: SearchResultsManager = {
-        
         let searchResultContainer = SearchResultsManager()
         return searchResultContainer
-        
     }()
     
     private init() {

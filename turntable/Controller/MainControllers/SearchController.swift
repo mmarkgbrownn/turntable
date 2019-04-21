@@ -1,55 +1,44 @@
 //
-//  LibraryController.swift
+//  SearchViewController.swift
 //  turntable
 //
-//  Created by Mark Brown on 07/01/2019.
+//  Created by Mark Brown on 11/03/2019.
 //  Copyright © 2019 Mark Brown. All rights reserved.
 //
 
 import UIKit
 
-class SearchController: UISearchContainerViewController {
+class SearchController: UIViewController, UISearchBarDelegate {
     
-    let searchBarContainerView = UIView()
-    
+    let searchResultsViewController = SearchResultsController()
+    lazy var searchController = UISearchController(searchResultsController: searchResultsViewController)
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Search"
-        
-        view?.backgroundColor = .backgroundDarkBlack
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
-    }
-    
-    init() {
-        let searchResultsVC = SearchResultsViewController()
-        let searchVC = UISearchController(searchResultsController: searchResultsVC)
-        searchVC.searchBar.searchBarStyle = .minimal
-        searchVC.searchBar.showsCancelButton = false
-        searchVC.searchBar.delegate = searchResultsVC as? UISearchBarDelegate
-        searchVC.searchResultsUpdater = searchResultsVC
-        //searchVC.obscuresBackgroundDuringPresentation = false
-        searchVC.isActive = true
 
-        let searchBar = searchVC.searchBar
-        searchBar.delegate = searchResultsVC as? UISearchBarDelegate
+        searchController.searchBar.delegate = searchResultsViewController as? UISearchBarDelegate
+        searchController.searchResultsUpdater = searchResultsViewController
+        searchController.isActive = true
+
+        let searchBar = searchController.searchBar
         searchBar.sizeToFit()
-        searchBar.keyboardAppearance = .dark
         searchBar.placeholder = "Search Spotify"
+        searchBar.keyboardAppearance = .dark
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = .seaFoamBlue
 
-        //searchVC.hidesNavigationBarDuringPresentation = false
-        searchVC.dimsBackgroundDuringPresentation = true
+        searchController.hidesNavigationBarDuringPresentation = true
+        definesPresentationContext = true
         
-        super.init(searchController: searchVC)
-        navigationItem.searchController = searchVC        
+        navigationItem.searchController = searchController
+
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
-    
     
 }
