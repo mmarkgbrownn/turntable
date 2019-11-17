@@ -86,7 +86,7 @@ class SectionFooterCell: DatasourceCell {
             state = false
         }
         
-        APIHandler.shared.followUnfollowPlaylist(state: state, completion: { (success) in
+        SpotifyAPIHandler.shared.followUnfollowPlaylist(state: state, completion: { (success) in
             Attendee.shared().history = !state
         })
     }

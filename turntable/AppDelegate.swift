@@ -21,7 +21,6 @@ struct Constants{
     static let tokenSwapUrl = URL(string: "https://turntable-ios.herokuapp.com/api/token")
     static let tokenRefreshUrl = URL(string: "https://turntable-ios.herokuapp.com/api/refresh_token")
 }
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -88,6 +87,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return false
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let url = userActivity.webpageURL,
+            let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
+            let path = components.path,
+            let params = components.queryItems else {
+                return false
+        }
+        
+        print("path = \(path)")
+        if path != "login" { return false }
+        if let deviceName = params.first(where: { $0.name == "deviceName" })?.value, let loginKey = params.first(where: { $0.name == "loginKey"})?.value {
+            print("Device name = \(deviceName)")
+            print("Login Key = \(loginKey)")
+            return true
+        }
+        
+        return false
+        
     }
     
     // Called as the application is closed

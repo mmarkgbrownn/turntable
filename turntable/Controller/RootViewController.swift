@@ -39,7 +39,13 @@ class RootViewController: UIViewController {
     // Used to show the home view, displays as a pop motion
     func showHomeView() {
         
-        let new = UINavigationController(rootViewController: HomeController())
+        let new = UINavigationController(rootViewController: AccountRestrictionController())
+        
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            new.navigationBar.standardAppearance = navBarAppearance
+            new.navigationBar.scrollEdgeAppearance = navBarAppearance
+        }
         
         addChild(new)
         new.view.frame = view.bounds

@@ -13,6 +13,7 @@ class SearchController: UIViewController, UISearchBarDelegate {
     let searchResultsViewController = SearchResultsController()
     lazy var searchController = UISearchController(searchResultsController: searchResultsViewController)
 
+    // Setup search bar, add to navigation bar and set the search bar delegte and results controller.
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +38,7 @@ class SearchController: UIViewController, UISearchBarDelegate {
 
     }
     
+    // Hide keyboard when return button pressed.
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }

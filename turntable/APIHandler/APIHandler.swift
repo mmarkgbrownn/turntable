@@ -9,9 +9,49 @@
 import UIKit
 import SwiftyJSON
 
-class APIHandler: NSObject {
+class TurntableAPIHandler : NSObject {
+    
+    static let shared = TurntableAPIHandler()
+    
+    fileprivate let encoder = JSONEncoder()
+    fileprivate let decoder = JSONDecoder()
+    
+    fileprivate let baseURL  = "https://api.turntableapp.co.uk/"
+    //fileprivate let authHeader = "Bearer " + Attendee.shared().accessToken?
+    
+    func requestLogin(completion: @escaping (Any) -> ()) {
+        
+        let url = URL(string: baseURL + "auth/requestMagicLink")
+        var request = URLRequest(url: url!)
+        
+        let stringBody = "{\"email\" : \"markb1994@icloud.com\", \"deviceId\" : \"iPhone\"}"
+        let dataBody = Data(stringBody.utf8)
+        
+        print(dataBody)
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = dataBody
+        request.httpMethod = "POST"
+        
+        URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            if error != nil { print(error!); return }
+            
+            guard let data = data else { return }
+            
+            if let JSONString = String(data: data, encoding: String.Encoding.utf8) {
+                print("JSON string = " + JSONString)
+                completion(JSONString)
+            }
+            
+        }.resume()
+        
+    }
+}
 
-    static let shared = APIHandler()
+class SpotifyAPIHandler: NSObject {
+
+    static let shared = SpotifyAPIHandler()
     
     // Setup the base url and parameters of the header values.
     let baseURL = "https://api.spotify.com/v1/"
@@ -123,6 +163,28 @@ class APIHandler: NSObject {
                 print(myJSONError)
             }
             
+        }.resume()
+    }
+    
+    func findPlaybackDevices() {
+        let url = URL(string: baseURL + "me/player/devices")
+        var request = URLRequest(url: url!)
+        
+        request.addValue(param, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            
+            do {
+                let json = try JSON(data: data!)
+                print(json)
+            } catch {
+                return
+            }
+
         }.resume()
     }
     

@@ -9,8 +9,6 @@
 import UIKit
 import LBTAComponents
 
-private let reuseIdentifier = "Cell"
-
 class SearchResultsController: DatasourceController, UISearchResultsUpdating {
 
     override func viewDidLoad() {
@@ -20,9 +18,11 @@ class SearchResultsController: DatasourceController, UISearchResultsUpdating {
         collectionView.backgroundColor = .backgroundDarkBlack
     }
     
+    // Use the current search string when an update to the search bar is made
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchString = searchController.searchBar.text else { return }
-        APIHandler.shared.searchTracks(query: searchString) { (results) in
+        // Call the search API method and update view.
+        SpotifyAPIHandler.shared.searchTracks(query: searchString) { (results) in
             SearchResultsManager.shared().searchResults = results
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -36,7 +36,7 @@ class SearchResultsController: DatasourceController, UISearchResultsUpdating {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-
+    // sets the cell style to highlight/unhighlighted
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? SearchResultCell
         cell?.didInteract(state: "highlight")
@@ -47,6 +47,7 @@ class SearchResultsController: DatasourceController, UISearchResultsUpdating {
         cell?.didInteract(state: "unhighlight")
     }
 
+    // when selecting an item add it to the queue and set the state to highlight until the call completes.
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? SearchResultCell
         if let track = cell?.searchItem {

@@ -21,7 +21,7 @@ class HomeView: BaseView {
     
     let homeTitleText: UILabel = {
         let label = UILabel()
-        label.text = "welcome to turntable."
+        label.text = "welcome to turntable"
         label.font = UIFont.poppinsPosterText
         label.textColor = .white
         label.lineBreakMode = .byWordWrapping

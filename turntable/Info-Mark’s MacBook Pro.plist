@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -15,23 +17,20 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.0</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string></string>
+			<string>co.uk.turntableapp.turntable</string>
 			<key>CFBundleURLSchemes</key>
-			<array/>
+			<array>
+				<string>turntable</string>
+			</array>
 		</dict>
-		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>spotify-action</string>
@@ -65,6 +64,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

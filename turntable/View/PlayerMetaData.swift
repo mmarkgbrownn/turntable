@@ -27,7 +27,6 @@ class PlayerMetaData: DatasourceCell {
         
         let imageView = UIButton()
         imageView.setImage(UIImage(named: "Share"), for: .normal)
-        //imageView.addTarget(self, action: #selector(playPauseTapped), for: .touchUpInside)
         return imageView
         
     }()
@@ -96,7 +95,6 @@ class PlayerMetaData: DatasourceCell {
         
         transportControllView.forwardButton.addTarget(self, action: #selector(skipTrack), for: .touchUpInside)
         transportControllView.playPauseButton.addTarget(self, action: #selector(playPause), for: .touchUpInside)
-        //transportControllView.previousButton.addTarget(self, action: #selector(skipBackwards), for: .touchUpInside)
         
     }
     
@@ -124,9 +122,6 @@ class PlayerMetaData: DatasourceCell {
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = player?.view // so that iPads won't crash
         
-        // exclude some activity types from the list (optional)
-        //activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
-        
         // present the view controller
         player?.present(activityViewController, animated: true, completion: nil)
         
@@ -147,7 +142,7 @@ class PlayerMetaData: DatasourceCell {
     
     @objc func addSongToUserLibraryAction() {
         if let nowPlayingId = Session.shared().nowPlaying {
-            APIHandler.shared.addTrackToUserLibrary(trackId: nowPlayingId) { (result) in
+            SpotifyAPIHandler.shared.addTrackToUserLibrary(trackId: nowPlayingId) { (result) in
                 DispatchQueue.main.async {
                     self.switchAddLibraryIcon(state: result)
                 }

@@ -87,9 +87,6 @@ class QueueItemCell: DatasourceCell {
         let views = [resourceArtwork, resourceTitle, resourceSubtitle, resourceRuntime]
         
         views.forEach() { addSubview($0) }
-        
-        //addConstraintsWithFormat(format: "H:|-16-[v0(48)]", views: resourceArtwork)
-        //addConstraintsWithFormat(format: "V:|-8-[v0(48)]", views: resourceArtwork)
 
         resourceArtwork.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 8, left: 16, bottom: 0, right: 0), size: .init(width: 48, height: 48))
         resourceRuntime.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 0, bottom: 0, right: 16), size: .init(width: 100, height: 32))

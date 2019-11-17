@@ -62,7 +62,7 @@ class Session {
         let sessionKey = self.generateKey()
         // If history playlist is turned on then create a playlist
         if historyPlaylist {
-            APIHandler.shared.createPlaylist(name: sessionName) { (playlistId) in
+            SpotifyAPIHandler.shared.createPlaylist(name: sessionName) { (playlistId) in
                 // Set the history playlist of the session and the organiser.
                 self.historyPlaylist = playlistId
                 // Playlist creators are automatically following playlist.
@@ -89,7 +89,7 @@ class Session {
             if err != nil { print(err!); return }
             
             // Get track of the chosen now playing and add to the queue.
-            APIHandler.shared.getTrack(trackId: values["nowPlaying"] as! String, completion: { (track) in
+            SpotifyAPIHandler.shared.getTrack(trackId: values["nowPlaying"] as! String, completion: { (track) in
                 self.nowPlayingTrack = track
                 SessionQueue.shared().addToQueue(track: self.nowPlayingTrack!, completion: { (succ) in })
             })
@@ -183,7 +183,7 @@ class Session {
             // Set the now playing data and update the player UI
             if let nowPlaying = dictionary["nowPlaying"] {
                 self.nowPlaying = nowPlaying as? String
-                APIHandler.shared.getTrack(trackId: self.nowPlaying!, completion: { (track) in
+                SpotifyAPIHandler.shared.getTrack(trackId: self.nowPlaying!, completion: { (track) in
                     self.nowPlayingTrack = track
                     DispatchQueue.main.async {
                         player?.play()

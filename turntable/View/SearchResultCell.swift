@@ -85,8 +85,6 @@ class SearchResultCell: DatasourceCell {
         
     }()
     
-    
-    
     override func setupViews() {
         
         super.setupViews()

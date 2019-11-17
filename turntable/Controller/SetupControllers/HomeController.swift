@@ -21,6 +21,7 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .backgroundDarkBlack
+        self.navigationItem.title = "Home"
         
         let homeScreen = HomeView()
         view.addSubview(homeScreen)
@@ -78,9 +79,20 @@ class HomeController: UIViewController {
     }
     // Get the users details and set them.
     fileprivate func getUserDetailsAndSet() {
-        APIHandler.shared.getCurrentUserDetails(completion: { (result) in
+        SpotifyAPIHandler.shared.getCurrentUserDetails(completion: { (result) in
             Attendee.shared().setUser(userData: result, completion: { (success) in
-                if success == true {
+                if success == true && Attendee.shared().product == "premium" {
+                    //The user was set and they are a premium user
+                    DispatchQueue.main.async {
+                        TurntableAPIHandler.shared.requestLogin { (res) in
+                            print(res)
+                            DispatchQueue.main.async {
+                                self.navigationController?.pushViewController(MagicLinkController(), animated: true)
+                            }
+                        }
+                    }
+                } else if success == true {
+                    //The user was set but they arent a premium user.
                     DispatchQueue.main.async {
                         self.navigationController?.pushViewController(HostJoinSessionController(), animated: true)
                     }

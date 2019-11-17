@@ -94,9 +94,6 @@ class PlayerMediaView: DatasourceCell {
         // For each view in views add to as subview
         views.forEach() { addSubview($0) }
         
-        // Fill view with background
-        //mediaBackgroundBlurView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(), size: .init(width: 0, height: (artworkWidth + 124)))
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.backgroundDarkBlack.cgColor]
         gradientLayer.locations = [0, 1]

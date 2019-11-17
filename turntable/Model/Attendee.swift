@@ -17,11 +17,13 @@ class Attendee {
     var sid: String?
     // Username is the Spotify users display name.
     var displayName: String?
+    // User product is the type of user they are, their subscription level
+    var product: String?
     // Spotify users email address.
     var email: String?
     // Used for suggestions.
     var birthdate: String?
-    // Spotify users current access token.
+    // The auth token given by Turntable server
     var accessToken: String?
     // Spotify users current tokens expiry date.
     var spotifySession: SPTSession?
@@ -52,11 +54,12 @@ class Attendee {
         
         // Sort through JSON data and set user details.
         if let dictionary = userData as? [String: Any] {
-            if let id = dictionary["id"] as? String, let email = dictionary["email"] as? String, let displayName = dictionary["display_name"] as? String, let birthdate = dictionary["birthdate"] as? String {
+            if let id = dictionary["id"] as? String, let email = dictionary["email"] as? String, let displayName = dictionary["display_name"] as? String, let birthdate = dictionary["birthdate"] as? String, let product = dictionary["product"] as? String {
                 self.sid = id
                 self.email = email
                 self.displayName = displayName
                 self.birthdate = birthdate
+                self.product = product
             } else { completion(false) }
         }
         

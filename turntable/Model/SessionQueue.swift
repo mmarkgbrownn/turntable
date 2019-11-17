@@ -68,7 +68,7 @@ class SessionQueue {
                 sessionQueueDatabase.updateChildValues(["wasPlayed" : true])
                 
                 // Add the track to the spotify playlist and update the session details. (This will fire off observe now playing.)
-                APIHandler.shared.addTrackToHistory(trackId: Session.shared().nowPlaying!)
+                SpotifyAPIHandler.shared.addTrackToHistory(trackId: Session.shared().nowPlaying!)
                 Session.shared().tracksPlayed += 1
                 sessionDatabase.updateChildValues(["nowPlaying" : nextInQueue, "tracksPlayed" : Session.shared().tracksPlayed])
             }

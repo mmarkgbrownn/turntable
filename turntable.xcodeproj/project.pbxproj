@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,14 +35,18 @@
 		413E14F7221221AF00D2947B /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413E14F6221221AF00D2947B /* SearchResultCell.swift */; };
 		41524DFF2235ACC800EE6DAF /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41524DFE2235ACC800EE6DAF /* SearchResultsController.swift */; };
 		415FF49D2260B0F200941EA6 /* turntableUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415FF49C2260B0F200941EA6 /* turntableUnitTests.swift */; };
+		41729D5623819ECC00E5B93B /* AccountRestrictionNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41729D5523819ECC00E5B93B /* AccountRestrictionNotificationView.swift */; };
+		41729D582381A25100E5B93B /* AccountRestrictionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41729D572381A25100E5B93B /* AccountRestrictionController.swift */; };
+		41729D5A2381A86900E5B93B /* RestrictionsListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41729D592381A86900E5B93B /* RestrictionsListDatasource.swift */; };
 		417306012204A11000F3E45E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417306002204A11000F3E45E /* Session.swift */; };
 		418F0A9D220375BC00A5AB71 /* ShareSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */; };
 		41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7121E4045D00F7F136 /* TurntableTabBarController.swift */; };
 		41942C7621E404D100F7F136 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41942C7521E404D100F7F136 /* SettingsController.swift */; };
 		41A76B97223728F900F26216 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A76B96223728F900F26216 /* SearchController.swift */; };
+		41AE2AAD2357BA5800383AA8 /* MagicLinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE2AAC2357BA5800383AA8 /* MagicLinkController.swift */; };
+		41AE2AAF2357C10D00383AA8 /* MagicLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE2AAE2357C10D00383AA8 /* MagicLinkView.swift */; };
 		41C3A1AA2212ED2D00B76496 /* TransportControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C3A1A92212ED2D00B76496 /* TransportControlView.swift */; };
-		41C3A1AC22148AD200B76496 /* SettingCellsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C3A1AB22148AD200B76496 /* SettingCellsView.swift */; };
-		41CE495E21EFC20200D6014A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41CE495D21EFC20200D6014A /* GoogleService-Info.plist */; };
+		41D064A12353442E00FD24CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41D064A02353442E00FD24CC /* GoogleService-Info.plist */; };
 		41D8825D2218CDBF00D3C987 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8825C2218CDBF00D3C987 /* APIHandler.swift */; };
 		41E686A7226A0FC000E3D5D7 /* ShareSesssionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E686A6226A0FC000E3D5D7 /* ShareSesssionView.swift */; };
 		41E686A9226B86C900E3D5D7 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E686A8226B86C900E3D5D7 /* SearchData.swift */; };
@@ -52,6 +56,7 @@
 		41FDE61121E540C9009BA399 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FDE61021E540C9009BA399 /* Extensions.swift */; };
 		76E82582EDE4C85519728DFD /* Pods_turntable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */; };
 		91713C83F1F593533AD741B3 /* Pods_turntableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */; };
+		941B551638BBE31BA3FCC26B /* Pods_turntableUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9F10AE5C7216750BF07D66 /* Pods_turntableUnitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D9F10AE5C7216750BF07D66 /* Pods_turntableUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntableUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_turntableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4102C79B21E636F900441767 /* Attendee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
 		4102C79F21E6633500441767 /* PlayerMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMediaView.swift; sourceTree = "<group>"; };
@@ -107,6 +113,9 @@
 		415FF49A2260B0F200941EA6 /* turntableUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = turntableUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		415FF49C2260B0F200941EA6 /* turntableUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = turntableUnitTests.swift; sourceTree = "<group>"; };
 		415FF49E2260B0F200941EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41729D5523819ECC00E5B93B /* AccountRestrictionNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRestrictionNotificationView.swift; sourceTree = "<group>"; };
+		41729D572381A25100E5B93B /* AccountRestrictionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRestrictionController.swift; sourceTree = "<group>"; };
+		41729D592381A86900E5B93B /* RestrictionsListDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrictionsListDatasource.swift; sourceTree = "<group>"; };
 		417306002204A11000F3E45E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		4184F5B5225D5A9200515D33 /* turntable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = turntable.entitlements; sourceTree = "<group>"; };
 		418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSessionController.swift; sourceTree = "<group>"; };
@@ -114,9 +123,10 @@
 		41942C7521E404D100F7F136 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		419A46FF2216096400762FDF /* turntable-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "turntable-Bridging-Header.h"; sourceTree = "<group>"; };
 		41A76B96223728F900F26216 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		41AE2AAC2357BA5800383AA8 /* MagicLinkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicLinkController.swift; sourceTree = "<group>"; };
+		41AE2AAE2357C10D00383AA8 /* MagicLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicLinkView.swift; sourceTree = "<group>"; };
 		41C3A1A92212ED2D00B76496 /* TransportControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportControlView.swift; sourceTree = "<group>"; };
-		41C3A1AB22148AD200B76496 /* SettingCellsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCellsView.swift; sourceTree = "<group>"; };
-		41CE495D21EFC20200D6014A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41D064A02353442E00FD24CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		41D8825C2218CDBF00D3C987 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		41E686A6226A0FC000E3D5D7 /* ShareSesssionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSesssionView.swift; sourceTree = "<group>"; };
 		41E686A8226B86C900E3D5D7 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
@@ -130,7 +140,9 @@
 		56DF2C6219843CDCE62CA998 /* Pods-turntableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-turntableUITests/Pods-turntableUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AC5EB332A6F87A4AB292F1C6 /* Pods-turntableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-turntableTests/Pods-turntableTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD76B7B50D14C0534F5576B3 /* Pods-turntableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-turntableUITests/Pods-turntableUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C02017AAF5878D0D58D200FE /* Pods-turntableUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-turntableUnitTests/Pods-turntableUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		C246DCD4D83967255CD9F243 /* Pods-turntableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-turntableTests/Pods-turntableTests.release.xcconfig"; sourceTree = "<group>"; };
+		E40F2FECEF8D2D194D7FFA5D /* Pods-turntableUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntableUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-turntableUnitTests/Pods-turntableUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EC3336A222F34DB961CD7545 /* Pods-turntable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-turntable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-turntable/Pods-turntable.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				941B551638BBE31BA3FCC26B /* Pods_turntableUnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +198,7 @@
 				4123693F220E36B40015A733 /* SessionQueue.swift */,
 				41EC9456223BF05800106D59 /* SearchResults.swift */,
 				41E686A8226B86C900E3D5D7 /* SearchData.swift */,
+				41729D592381A86900E5B93B /* RestrictionsListDatasource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,9 +216,10 @@
 				4125AEB521FFC2290038B7B4 /* HomeView.swift */,
 				413E14F6221221AF00D2947B /* SearchResultCell.swift */,
 				41C3A1A92212ED2D00B76496 /* TransportControlView.swift */,
-				41C3A1AB22148AD200B76496 /* SettingCellsView.swift */,
 				4127361D2233F89200210D39 /* PlayerMetaData.swift */,
 				41E686A6226A0FC000E3D5D7 /* ShareSesssionView.swift */,
+				41AE2AAE2357C10D00383AA8 /* MagicLinkView.swift */,
+				41729D5523819ECC00E5B93B /* AccountRestrictionNotificationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,7 +261,7 @@
 				41F81D98221EBEF60081175F /* Frameworks */,
 				411CDC1421DD0C05001D64BD /* Assets.xcassets */,
 				411CDC1921DD0C05001D64BD /* Info.plist */,
-				41CE495D21EFC20200D6014A /* GoogleService-Info.plist */,
+				41D064A02353442E00FD24CC /* GoogleService-Info.plist */,
 			);
 			path = turntable;
 			sourceTree = "<group>";
@@ -288,6 +303,8 @@
 				4132725421EE7C3A00B2E88D /* HostJoinSessionController.swift */,
 				4125AEAF21FFA3AF0038B7B4 /* HostSessionSetupController.swift */,
 				418F0A9C220375BC00A5AB71 /* ShareSessionController.swift */,
+				41AE2AAC2357BA5800383AA8 /* MagicLinkController.swift */,
+				41729D572381A25100E5B93B /* AccountRestrictionController.swift */,
 			);
 			path = SetupControllers;
 			sourceTree = "<group>";
@@ -335,6 +352,8 @@
 				C246DCD4D83967255CD9F243 /* Pods-turntableTests.release.xcconfig */,
 				AD76B7B50D14C0534F5576B3 /* Pods-turntableUITests.debug.xcconfig */,
 				56DF2C6219843CDCE62CA998 /* Pods-turntableUITests.release.xcconfig */,
+				E40F2FECEF8D2D194D7FFA5D /* Pods-turntableUnitTests.debug.xcconfig */,
+				C02017AAF5878D0D58D200FE /* Pods-turntableUnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -345,6 +364,7 @@
 				42676FEEF76E7EBD1AE13029 /* Pods_turntable.framework */,
 				538D09C4F62B8A50B69F9D31 /* Pods_turntableTests.framework */,
 				34DE7D881FA360A520779AE7 /* Pods_turntableUITests.framework */,
+				2D9F10AE5C7216750BF07D66 /* Pods_turntableUnitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -394,6 +414,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 415FF4A32260B0F200941EA6 /* Build configuration list for PBXNativeTarget "turntableUnitTests" */;
 			buildPhases = (
+				9F6B2A37030EA0C4238E168E /* [CP] Check Pods Manifest.lock */,
 				415FF4962260B0F200941EA6 /* Sources */,
 				415FF4972260B0F200941EA6 /* Frameworks */,
 				415FF4982260B0F200941EA6 /* Resources */,
@@ -466,8 +487,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41CE495E21EFC20200D6014A /* GoogleService-Info.plist in Resources */,
 				41240E8D21EA2FA00017DA6C /* Poppins-Bold.ttf in Resources */,
+				41D064A12353442E00FD24CC /* GoogleService-Info.plist in Resources */,
 				411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */,
 				41240E8E21EA2FA40017DA6C /* Poppins-Regular.ttf in Resources */,
 			);
@@ -495,27 +516,38 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-turntable/Pods-turntable-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/LBTAComponents/LBTAComponents.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-turntable/Pods-turntable-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBTAComponents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-turntable/Pods-turntable-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-turntable/Pods-turntable-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-turntable/Pods-turntable-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F6B2A37030EA0C4238E168E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-turntableUnitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0BF94E558A684BDA60222EF /* [CP] Check Pods Manifest.lock */ = {
@@ -566,25 +598,29 @@
 				411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */,
 				41942C7621E404D100F7F136 /* SettingsController.swift in Sources */,
 				4125AEB621FFC2290038B7B4 /* HomeView.swift in Sources */,
-				41C3A1AC22148AD200B76496 /* SettingCellsView.swift in Sources */,
 				41FDE61121E540C9009BA399 /* Extensions.swift in Sources */,
 				41E686A9226B86C900E3D5D7 /* SearchData.swift in Sources */,
 				4102C7A221E6758800441767 /* Resource.swift in Sources */,
 				4102C7A021E6633500441767 /* PlayerMediaView.swift in Sources */,
 				41942C7221E4045D00F7F136 /* TurntableTabBarController.swift in Sources */,
+				41729D5623819ECC00E5B93B /* AccountRestrictionNotificationView.swift in Sources */,
 				41240E8121EA22A00017DA6C /* SectionHeaderFooterCell.swift in Sources */,
 				4132725321EE4A2200B2E88D /* HomeController.swift in Sources */,
 				4102C7A421E7625E00441767 /* QueueItemCell.swift in Sources */,
 				41236940220E36B40015A733 /* SessionQueue.swift in Sources */,
 				413E14F7221221AF00D2947B /* SearchResultCell.swift in Sources */,
 				411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */,
+				41AE2AAF2357C10D00383AA8 /* MagicLinkView.swift in Sources */,
 				4125AEB221FFB79C0038B7B4 /* RootViewController.swift in Sources */,
 				41C3A1AA2212ED2D00B76496 /* TransportControlView.swift in Sources */,
 				41E686A7226A0FC000E3D5D7 /* ShareSesssionView.swift in Sources */,
 				4132725721EE89F700B2E88D /* ReusableComponents.swift in Sources */,
+				41729D5A2381A86900E5B93B /* RestrictionsListDatasource.swift in Sources */,
 				41A76B97223728F900F26216 /* SearchController.swift in Sources */,
 				4102C79C21E636F900441767 /* Attendee.swift in Sources */,
 				4125AEB421FFB9170038B7B4 /* SplashViewController.swift in Sources */,
+				41AE2AAD2357BA5800383AA8 /* MagicLinkController.swift in Sources */,
+				41729D582381A25100E5B93B /* AccountRestrictionController.swift in Sources */,
 				4132725B21EE931A00B2E88D /* SessionSetupView.swift in Sources */,
 				41240E7F21E8EF150017DA6C /* SearchBarView.swift in Sources */,
 				41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */,
@@ -683,7 +719,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -739,7 +775,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -853,6 +889,7 @@
 		};
 		415FF4A12260B0F200941EA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E40F2FECEF8D2D194D7FFA5D /* Pods-turntableUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -874,6 +911,7 @@
 		};
 		415FF4A22260B0F200941EA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C02017AAF5878D0D58D200FE /* Pods-turntableUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

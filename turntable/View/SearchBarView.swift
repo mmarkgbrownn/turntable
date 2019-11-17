@@ -57,7 +57,6 @@ class SearchBar: BaseView {
         addConstraintsWithFormat(format: "V:|-16-[v0]-16-|", views: searchQueryText)
         
         searchIcon.anchor(top: searchBar.topAnchor, leading: searchBar.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 12, left: 8, bottom: 0, right: 0), size: .init(width: 14, height: 14))
-        //searchQueryText.anchor(top: topAnchor, leading: trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 3, left: 8, bottom: 0, right: 0), size: .init(width: 500, height: 30))
         
     }
 }
