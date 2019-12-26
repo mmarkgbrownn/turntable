@@ -9,6 +9,10 @@
 import UIKit
 import SwiftyJSON
 
+enum StringTemplates: String {
+    case createSessionJSON = "{\"name\" : \"%@\", \"nowPlaying\" : \"%@\", \"historyPlist\" : \"%@\"}"
+}
+
 class TurntableAPIHandler : NSObject {
     
     static let shared = TurntableAPIHandler()
@@ -45,6 +49,36 @@ class TurntableAPIHandler : NSObject {
             }
             
         }.resume()
+    }
+    
+    // Created endpoint but didnt test, also need to merge this with the changes made to the magic link to get auth for turntable server.
+    func createSessionWith(name: String, selectedFirstTrack: String, histroyPlaylistId: String, completion: @escaping (Any) -> ()) {
+        
+        let url = URL(string: baseURL + "sessionManager/create")
+        var request = URLRequest(url: url!)
+       
+        let stringBody = String(format: StringTemplates.createSessionJSON.rawValue, name, selectedFirstTrack, histroyPlaylistId)
+        let dataBody = Data(stringBody.utf8)
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Barer \(Attendee.shared().accessToken ?? "")", forHTTPHeaderField: "Authorization")
+        request.httpBody = dataBody
+        request.httpMethod = "POST"
+        
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            if error != nil { print(error!); return }
+            
+            guard let data = data else { return }
+            
+            if let JSONString = String (data: data, encoding: String.Encoding.utf8) {
+                print("JSONString = " + JSONString)
+                completion(JSONString)
+            }
+            
+        }
+        
         
     }
 }
