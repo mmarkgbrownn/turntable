@@ -12,6 +12,8 @@ import SafariServices
 
 class HomeController: UIViewController {
     
+    let homeScreen = HomeView()
+    
     // Set the web and app spoitfy auth ref and init webAuthView
     let appURL = SPTAuth.defaultInstance().spotifyAppAuthenticationURL()
     let webURL = SPTAuth.defaultInstance().spotifyWebAuthenticationURL()
@@ -23,21 +25,29 @@ class HomeController: UIViewController {
         view.backgroundColor = .backgroundDarkBlack
         self.navigationItem.title = "Home"
         
-        let homeScreen = HomeView()
+        if Attendee.shared().accessToken != nil {
+
+            guard let spotifySession = Attendee.shared().spotifySession else { return }
+            if spotifySession.isValid() { homeScreen.showUserLoginStateOf(state: true) }
+            
+        }
+        
         view.addSubview(homeScreen)
         
         homeScreen.anchorCenterYToSuperview()
         homeScreen.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 425))
         // Add gesture target
         homeScreen.homeButton.addTarget(self, action: #selector(connectSpotify), for: .touchUpInside)
+        homeScreen.logoutButton.addTarget(self, action: #selector(disconnectSpotify), for: .touchUpInside)
         
     }
     // Function used for handling spotify login
     @objc func connectSpotify() {
         // Check to see if a spotify session exsits and is valid then retrive the user details.
+        
         if let spotifySession = Attendee.shared().spotifySession {
-            if Attendee.shared().spotifySession!.isValid() {
-                self.getUserDetailsAndSet()
+            if Attendee.shared().spotifySession!.isValid() && Attendee.shared().accessToken != nil {
+                self.navigationController?.pushViewController(HostJoinSessionController(), animated: true)
             } else {
                 // If the session exsits but isnt valid request a new token then retrive user details.
                 SPTAuth.defaultInstance().renewSession(spotifySession) { (error, session) in
@@ -59,6 +69,17 @@ class HomeController: UIViewController {
             }
         }
     }
+    
+    @objc func disconnectSpotify() {
+        do{
+            try Auth.auth().signOut()
+            Attendee.shared().logoutUser()
+            self.homeScreen.showUserLoginStateOf(state: false)
+        } catch let logoutError {
+            print(logoutError)
+        }
+    }
+    
     // Called when notified about a return from spotify
     @objc func returnFromSpotify(_ notification: Notification) {
         // Extract the url from the notification
@@ -80,24 +101,19 @@ class HomeController: UIViewController {
     // Get the users details and set them.
     fileprivate func getUserDetailsAndSet() {
         SpotifyAPIHandler.shared.getCurrentUserDetails(completion: { (result) in
-            Attendee.shared().setUser(userData: result, completion: { (success) in
-                if success == true && Attendee.shared().product == "premium" {
-                    //The user was set and they are a premium user
+            if let dictionary = result as? [String: Any] {
+                guard let email = dictionary["email"] as? String else { return }
+                //The user was set and they are a premium user
+                print(email)
+                TurntableAPIHandler.shared.requestLogin(with: email) { (res) in
+                    print(res)
                     DispatchQueue.main.async {
-                        TurntableAPIHandler.shared.requestLogin { (res) in
-                            print(res)
-                            DispatchQueue.main.async {
-                                self.navigationController?.pushViewController(MagicLinkController(), animated: true)
-                            }
-                        }
-                    }
-                } else if success == true {
-                    //The user was set but they arent a premium user.
-                    DispatchQueue.main.async {
-                        self.navigationController?.pushViewController(HostJoinSessionController(), animated: true)
+                        let linkController = MagicLinkController()
+                        linkController.magicLinkView.email = email
+                        self.navigationController?.pushViewController(linkController, animated: true)
                     }
                 }
-            })
+            }
         })
     }
     // Handels the error from spotify if one gets returned

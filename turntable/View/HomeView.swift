@@ -49,15 +49,11 @@ class HomeView: BaseView {
     
     lazy var homeButton = reusableComponents.createButtonWith(label: "Connect Spotify")
     
+    lazy var logoutButton = reusableComponents.createSecondaryButtonWith(label: "Logout")
+    
     override func setupView() {
         
-        if let spotifySession = Attendee.shared().spotifySession {
-            if spotifySession.isValid() {
-                homeButton.setTitle("Get Started", for: .normal)
-            }
-        }
-        
-        let views = [logo, homeTitleText, homeBodyText, homeButton, homeDescriptionText]
+        let views = [logo, homeTitleText, homeBodyText, homeButton, logoutButton, homeDescriptionText]
         views.forEach { addSubview($0) }
         
         // Logo positioning
@@ -74,6 +70,34 @@ class HomeView: BaseView {
         
         //Home description positioning
         homeDescriptionText.anchor(top: homeButton.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 0, right: 10), size: .init(width: 0, height: 62))
+        
+        // Logout button (hidden by default, shown if user is logged in)
+        logoutButton.anchor(top: homeButton.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 0, right: 10), size: .init(width: 0, height: 55))
+        logoutButton.isHidden = true
+        logoutButton.isUserInteractionEnabled = false
+        
+    }
+    
+    public func showUserLoginStateOf(state: Bool) {
+        
+        if state == true {
+            homeButton.titleLabel?.text = "Get Started"
+            
+            logoutButton.isHidden = false
+            logoutButton.isUserInteractionEnabled = true
+            
+            homeDescriptionText.isHidden = true
+            homeDescriptionText.isUserInteractionEnabled = false
+        } else if state == false {
+            homeButton.titleLabel?.text = "Connect Spotify"
+            
+            logoutButton.isHidden = true
+            logoutButton.isUserInteractionEnabled = false
+            
+            homeDescriptionText.isHidden = false
+            homeDescriptionText.isUserInteractionEnabled = true
+        }
+        
     }
     
 }

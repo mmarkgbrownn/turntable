@@ -47,7 +47,7 @@ class AccountRestrictionNotificationView: BaseView {
         continueAnywayButton.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 0, left: 16, bottom: 32, right: 16), size: .init(width: 0, height: 56))
         connectAnotherAccountButton.anchor(top: nil, leading: continueAnywayButton.leadingAnchor, bottom: continueAnywayButton.topAnchor, trailing: continueAnywayButton.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 0), size: .init(width: 0, height: 56))
         
-        listCollectionView.anchor(top: descriptionLabel.bottomAnchor, leading: descriptionLabel.leadingAnchor, bottom: connectAnotherAccountButton.topAnchor, trailing: descriptionLabel.trailingAnchor, padding: .init(top: 16, left: 0, bottom: 32, right: 0), size: .zero)
+        listCollectionView.anchor(top: descriptionLabel.bottomAnchor, leading: descriptionLabel.leadingAnchor, bottom: connectAnotherAccountButton.topAnchor, trailing: descriptionLabel.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 32, right: 0), size: .zero)
 
     }
 }
@@ -133,7 +133,7 @@ class AccountRestirctionListHeader:  UICollectionReusableView{
     
     func setupViews() {
         addSubview(headerLabel)
-        headerLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 0), size: .zero)
+        headerLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: .init(top: 16, left: 0, bottom: 16, right: 0), size: .zero)
     }
     
 }

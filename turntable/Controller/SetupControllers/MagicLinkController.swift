@@ -10,6 +10,8 @@ import UIKit
 
 class MagicLinkController: UIViewController {
     
+    let magicLinkView = MagicLinkView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,8 +20,7 @@ class MagicLinkController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Check Your Email"
         
-        let magicLinkView = MagicLinkView()
-        
+        magicLinkView.email = Attendee.shared().email
         view.addSubview(magicLinkView)
         magicLinkView.fillSuperview()
         magicLinkView.openButton.addTarget(self, action: #selector(openMail), for: .touchUpInside)

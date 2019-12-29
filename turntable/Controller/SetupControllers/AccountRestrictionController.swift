@@ -8,6 +8,7 @@
 
 import UIKit
 import LBTAComponents
+import Firebase
 
 class AccountRestrictionController: UIViewController, UICollectionViewDelegate {
     
@@ -20,6 +21,7 @@ class AccountRestrictionController: UIViewController, UICollectionViewDelegate {
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.barTintColor = .backgroundLightBlack
         self.navigationItem.title = "oops!"
         
         view.addSubview(restrictionView)
@@ -32,9 +34,25 @@ class AccountRestrictionController: UIViewController, UICollectionViewDelegate {
         restrictionView.listCollectionView.register(AccountRestirctionListCell.self, forCellWithReuseIdentifier: "accountCellId")
         restrictionView.listCollectionView.register(AccountRestirctionListHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView")
         
+        restrictionView.connectAnotherAccountButton.addTarget(self, action: #selector(handleConnectAnotherAccountPress), for: .touchUpInside)
+        restrictionView.continueAnywayButton.addTarget(self, action: #selector(handleContinueAnywayPress), for: .touchUpInside)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    @objc func handleConnectAnotherAccountPress() {
+        do{
+            try Auth.auth().signOut()
+            AppDelegate.shared.rootViewController.showHomeView()
+        } catch let logoutError {
+            print(logoutError)
+        }
+    }
+    
+    @objc func handleContinueAnywayPress() {
         
     }
 
@@ -50,6 +68,6 @@ extension AccountRestrictionController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-            return CGSize(width: collectionView.frame.width, height: 40.0)
+            return CGSize(width: collectionView.frame.width, height: 49.0)
     }
 }

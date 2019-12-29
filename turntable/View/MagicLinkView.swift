@@ -10,11 +10,17 @@ import UIKit
 
 class MagicLinkView: BaseView {
     
+    open var email: String? {
+        didSet {
+            guard let email = email else { return }
+            instructionLabel.text = "To confirm your identity we sent a magic link to \(email). Please follow the steps in the email to continue"
+        }
+    }
+    
     let reuseableComponents = ReusableComponents()
     
     let instructionLabel: UITextView = {
         let tv = UITextView()
-        tv.text = "To confirm your identity we sent a magic link to mark@icloud.com. Please follow the steps in the email to continue"
         tv.textColor = .white
         tv.font = UIFont.systemFont(ofSize: 18)
         tv.translatesAutoresizingMaskIntoConstraints = true

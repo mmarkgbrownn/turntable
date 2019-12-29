@@ -116,9 +116,23 @@ extension CALayer {
     
 }
 
+extension String {
+    public func isValidEmail() -> Bool {
+        var validStatus = false
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
+        if emailPredicate.evaluate(with: self){
+            validStatus = true
+        }
+        return validStatus
+    }
+}
+
 // Setup notification for spotify auth, return from app.
 extension Notification.Name {
     struct Spotify {
         static let authURLOpened = Notification.Name("authURLOpended")
+    }
+    struct Turntable {
+        static let authURLOpened = Notification.Name("turntableAuthURLOpended")
     }
 }

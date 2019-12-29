@@ -13,7 +13,6 @@
 		4102C7A421E7625E00441767 /* QueueItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102C7A321E7625E00441767 /* QueueItemCell.swift */; };
 		411CDC0E21DD0C03001D64BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0D21DD0C03001D64BD /* AppDelegate.swift */; };
 		411CDC1021DD0C03001D64BD /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC0F21DD0C03001D64BD /* PlayerController.swift */; };
-		411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
 		411CDC2E21DD0C05001D64BD /* turntableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411CDC2D21DD0C05001D64BD /* turntableUITests.swift */; };
 		41236940220E36B40015A733 /* SessionQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4123693F220E36B40015A733 /* SessionQueue.swift */; };
 		41240E7B21E7FF080017DA6C /* QueueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41240E7A21E7FF080017DA6C /* QueueItem.swift */; };
@@ -51,6 +50,7 @@
 		41E686A7226A0FC000E3D5D7 /* ShareSesssionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E686A6226A0FC000E3D5D7 /* ShareSesssionView.swift */; };
 		41E686A9226B86C900E3D5D7 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E686A8226B86C900E3D5D7 /* SearchData.swift */; };
 		41EC9457223BF05800106D59 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EC9456223BF05800106D59 /* SearchResults.swift */; };
+		41F62D4E23A8F31E00B08129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 411CDC1421DD0C05001D64BD /* Assets.xcassets */; };
 		41F81D9F221EBF2B0081175F /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F81D9D221EBF2B0081175F /* SpotifyAudioPlayback.framework */; };
 		41F81DA0221EBF2B0081175F /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F81D9E221EBF2B0081175F /* SpotifyAuthentication.framework */; };
 		41FDE61121E540C9009BA399 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FDE61021E540C9009BA399 /* Extensions.swift */; };
@@ -489,7 +489,7 @@
 			files = (
 				41240E8D21EA2FA00017DA6C /* Poppins-Bold.ttf in Resources */,
 				41D064A12353442E00FD24CC /* GoogleService-Info.plist in Resources */,
-				411CDC1521DD0C05001D64BD /* Assets.xcassets in Resources */,
+				41F62D4E23A8F31E00B08129 /* Assets.xcassets in Resources */,
 				41240E8E21EA2FA40017DA6C /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

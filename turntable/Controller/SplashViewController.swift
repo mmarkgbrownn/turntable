@@ -24,7 +24,7 @@ class SplashViewController: UIViewController {
     }
     // Check for saved user details then check if signed into spotify, firebase and session
     func makeServiceCall() {
-        
+        Attendee.shared().accessToken = "fgwrthh"
         Attendee.shared().loadUserFromUserDefaults()
         let spotifyAccessToken = Attendee.shared().spotifySession?.accessToken
         

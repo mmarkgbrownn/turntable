@@ -9,6 +9,14 @@
 import UIKit
 import SwiftyJSON
 
+enum StringTemplates: String {
+    ///Turntable API POST body templates
+    case TURNMagicLinkLogin = "{\"email\" : \"%@\", \"deviceId\" : \"%@\"}"
+    case TURNAuthHeader = "Bearer %@"
+    
+    
+}
+
 class TurntableAPIHandler : NSObject {
     
     static let shared = TurntableAPIHandler()
@@ -17,24 +25,24 @@ class TurntableAPIHandler : NSObject {
     fileprivate let decoder = JSONDecoder()
     
     fileprivate let baseURL  = "https://api.turntableapp.co.uk/"
-    //fileprivate let authHeader = "Bearer " + Attendee.shared().accessToken?
+    fileprivate let deviceId = UIDevice.current.identifierForVendor!.uuidString
     
-    func requestLogin(completion: @escaping (Any) -> ()) {
+    func requestLogin(with email: String, completion: @escaping (Any) -> ()) {
         
         let url = URL(string: baseURL + "auth/requestMagicLink")
         var request = URLRequest(url: url!)
+        if !email.isValidEmail() { return }
         
-        let stringBody = "{\"email\" : \"markb1994@icloud.com\", \"deviceId\" : \"iPhone\"}"
+        let stringBody = String(format: StringTemplates.TURNMagicLinkLogin.rawValue, email, deviceId)
         let dataBody = Data(stringBody.utf8)
-        
-        print(dataBody)
-        
+
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = dataBody
         request.httpMethod = "POST"
         
         URLSession.shared.dataTask(with: request) {
             (data, response, error) in
+            
             if error != nil { print(error!); return }
             
             guard let data = data else { return }
@@ -45,6 +53,10 @@ class TurntableAPIHandler : NSObject {
             }
             
         }.resume()
+        
+    }
+    
+    func validateLoginToken(completion: @escaping (Any) -> ()) {
         
     }
 }

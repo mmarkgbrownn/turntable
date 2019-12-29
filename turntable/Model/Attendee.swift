@@ -44,9 +44,14 @@ class Attendee {
     
     private init() {
     }
-    
+   
     class func shared() -> Attendee {
         return currentUser
+    }
+    
+    class func shared(attendee: Attendee?) -> Attendee {
+        guard let attendee = attendee else { return currentUser }
+        return attendee
     }
     
     // Set the user objects attributes and login to firebase.
@@ -71,6 +76,31 @@ class Attendee {
         
         completion(true)
         
+    }
+    
+    func logoutUser() {
+        /// do turntable API call here + on completion do
+        
+        //Referes to Firebase User ID.
+        self.id = nil
+        // Referes to spotify ID.
+        self.sid = nil
+        // Username is the Spotify users display name.
+        self.displayName = nil
+        // User product is the type of user they are, their subscription level
+        self.product = nil
+        // Spotify users email address.
+        self.email = nil
+        // Used for suggestions.
+        self.birthdate = nil
+        // The auth token given by Turntable server
+        self.accessToken = nil
+        // Spotify users current tokens expiry date.
+        self.spotifySession = nil
+        // Users current session.
+        self.session = nil
+        // Spotify enrolment status in the history playlist.
+        self.history = false
     }
     
     func logUserIn() {
